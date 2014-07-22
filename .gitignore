@@ -21,3 +21,5 @@ conf/db.conf.php
 *.exe
 *.out
 *.app
+.settings
+tmp/*
