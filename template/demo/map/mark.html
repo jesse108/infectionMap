@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>点标记的使用（添加、更新、删除）</title>
+<link rel="stylesheet" type="text/css" href="http://developer.amap.com/Public/css/demo.Default.css" />
+<script language="javascript" src="http://webapi.amap.com/maps?v=1.3&key=您申请的key值"></script>
+<script language="javascript">
+var mapObj,marker;
+//初始化地图对象，加载地图
+function mapInit(){
+    mapObj = new AMap.Map("iCenter",{//二维地图显示视口
+        view: new AMap.View2D({
+            center:new AMap.LngLat(116.397428,39.90923),//地图中心点
+            zoom:13 //地图显示的缩放级别
+        })
+    });
+}
+ 
+//实例化点标记
+function addMarker(){
+    marker = new AMap.Marker({               
+        icon:"http://webapi.amap.com/images/marker_sprite.png",
+        position:new AMap.LngLat(116.405467,39.907761)
+    });
+    marker.setMap(mapObj);  //在地图上添加点
+}
+ 
+function updateMarker(){
+    //自定义点标记内容  
+    var markerContent = document.createElement("div");
+    markerContent.className = "markerContentStyle";
+     
+    //点标记中的图标
+    var markerImg= document.createElement("img");
+    markerImg.className="markerlnglat";
+    markerImg.src="http://webapi.amap.com/images/3.png";   
+    markerContent.appendChild(markerImg);
+      
+    //点标记中的文本
+    var markerSpan = document.createElement("span");
+    markerSpan.innerHTML = "Hi，我换新装备啦！";
+    markerContent.appendChild(markerSpan);
+      
+    marker.setContent(markerContent);//更新点标记内容
+    marker.setPosition(new AMap.LngLat(116.391467,39.927761)); //更新点标记位置
+}
+</script>
+</head>
+<body onLoad="mapInit()">
+    <div id="iCenter"></div>
+    <div style="padding:2px 0px 0px 5px;font-size:12px"> 
+        <input type="button" value="添加点标记覆盖物" onClick="javascript:addMarker()"/> 
+        <input type="button" value="更新点标记覆盖物" onClick="javascript:updateMarker()"/>
+        <input type="button" value="删除点标记覆盖物" onClick="javascript:marker.setMap(null)"/>
+    </div>
+</body>
+</html>                  

@@ -1,0 +1,25 @@
+{include file="header.html"}
+<div class="main_content">
+	<div class="search_result">
+	{if $infectionResult}
+		<h4>传染病检索</h4>
+		<dl class="dl-horizontal">
+		{foreach $infectionResult as $infection}
+			<dt><a href="/infection/detail.php?id={$infection['id']}">{$infection['cname']}</a></dt>
+			<dd>病原体:{$infection['pathogen_cname']}</dd>
+		{/foreach}
+		</dl>
+	{/if}
+	
+	{if $locationResult}
+		<h4>地点检索</h4>
+		<dl class="dl-horizontal">
+		{foreach $locationResult as $location}
+			<dt><a href="/location/detail.php?id={$location['id']}">{$location['cname']}</a></dt>
+			<dd>{$location['info']}</dd>
+		{/foreach}
+		</dl>
+	{/if}
+	</div>
+</div>
+{include file="footer.html"}

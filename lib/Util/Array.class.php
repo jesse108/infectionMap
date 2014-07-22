@@ -7,7 +7,7 @@ class Util_Array{
 	 * @param string $colKey 指定列
 	 * @return array 
 	 */
-	public static function GetColumn($array,$colKey){
+	public static function GetColumn($array,$colKey,$subName = null){
 		if(!$array || !is_array($array) || !$colKey){
 			return null;
 		}
@@ -27,6 +27,15 @@ class Util_Array{
 			
 			if(isset($curValue) && $curValue !== ''){
 				$colArray[$curValue] = $curValue;
+			}
+			
+			if($subName && $value[$subName]){
+				$subValues = self::GetColumn($value[$subName], $colKey,$subName);
+				if($subValues){
+					foreach ($subValues as $subIndex => $subValue){
+						$colArray[$subValue] = $subValue;
+					}
+				}
 			}
 		}
 		$colArray = array_values($colArray);
@@ -55,7 +64,7 @@ class Util_Array{
 	 */
 	public static function AssColumn($array,$colKey){
 		if(!$array || !is_array($array) || !$colKey){
-			return null;
+			return $array;
 		}
 		
 		$newArray = array();
@@ -65,6 +74,20 @@ class Util_Array{
 				$newArray[$key] = $one;
 			}
 		}
+		return $newArray;
+	}
+	
+	public static function GroupInColum($array,$colKey){
+		if(!$array || !is_array($array) || !$colKey){
+			return $array;
+		}
+		
+		$newArray = array();
+		foreach ($array as $index => $one){
+			$key = $one[$colKey];
+			$newArray[$key][$index] = $one;
+		}
+		
 		return $newArray;
 	}
 	
@@ -134,4 +157,127 @@ class Util_Array{
 		return $sortedArray;
 	
 	}
+	
+	
+	/////////////////////数组格式化
+	/**
+	 * 格式化嵌套数组
+	 */
+	private static $arrayFormatTrack = array();
+	private static $arrayFormatTemp = array();
+	
+	public static function FormatInTree($array,$keyName = 'id',$parentKey = 'parent_id',$subName = 'sub'){
+		self::$arrayFormatTrack = array();
+		self::$arrayFormatTemp = $array;
+		$tree = self::GetSubTree($array, 0,$keyName,$parentKey,$subName);
+		self::$arrayFormatTrack = array();
+		self::$arrayFormatTemp = array();
+		return $tree;
+	}
+	
+	public static function GetSubTree($array = null,$parentID = null,$keyName = 'id',$parentKeyName='parent_id',$subName = 'sub',$assIndex = true){
+		if(!$array){
+			$data = self::$arrayFormatTemp;
+		} else {
+			$data = $array;
+		}
+	
+		$tree = array();
+		foreach ($data as $index => $one){
+			$key = $one[$keyName];
+			if(self::$arrayFormatTrack[$key] ||  //已经记录过
+			($parentID && $one[$parentKeyName] != $parentID)//非子元素
+			){
+				continue;
+			}
+			self::$arrayFormatTrack[$key] = true;
+			unset(self::$arrayFormatTemp[$index]);
+				
+			$subTree = self::GetSubTree($array,$key,$keyName,$parentKeyName,$subName,$assIndex);
+			if($subTree){
+				$one[$subName] = $subTree;
+			}
+				
+			if($assIndex){
+				$tree[$key] = $one;
+			} else {
+				$tree[] = $one;
+			}
+		}
+		return $tree;
+	}
+	
+	/**
+	 * 在树形数组中寻找指定元素
+	 *
+	 * @param array $tree   输入树形数组
+	 * @param str $keyValue 寻找Key值
+	 * @param string $keyName 键值名称 默认为 id
+	 * @param string $subName 子树名称
+	 * @return  找到的元素
+	 */
+	public static function FindNodeInTree($tree,$keyValue,$keyName = 'id',$subName = 'sub'){
+		if(!Util_Array::IsArrayValue($tree)){
+			return false;
+		}
+	
+		foreach ($tree as $index => $one){
+			if($one[$keyName] == $keyValue){
+				return $one;
+			}
+				
+			if($one[$subName]){
+				$subResult = self::FindNodeInTree($one[$subName], $keyValue,$keyName,$subName);
+				if($subResult){
+					return $subResult;
+				}
+			}
+		}
+	
+		return false;
+	}
+	
+	/**
+	 * 判断一个树形结构是否有指定项
+	 *
+	 * @param array $tree 输入树形结构
+	 * @param array $keyArray 指定ID
+	 * @param string $keyName 键名
+	 * @param string $subName 子树名
+	 * @param string $selfMark 标记名
+	 * @param string $subMark 子标记名
+	 * @param boolean $remove 是否删除无标记数据
+	 */
+	public static function MarkTree(&$tree,$keyArray,$keyName = 'id',$subName = 'sub',$selfMarkName = 'mark',$subMarkName='sub_mark',$remove = true){
+		if(!$tree){
+			return false;
+		}
+	
+		$hasMark = false;
+	
+		foreach ($tree as $index => $one){
+			$selfMark = $subMark = false;
+			if(in_array($one[$keyName], $keyArray)){
+				$selfMark = true;
+			}
+				
+			if($one[$subName]){
+				$subMark = self::MarkTree($tree[$index][$subName], $keyArray,$keyName,$subName,$selfMarkName,$subMarkName,$remove);
+			}
+				
+			if($subMark || $selfMark){
+				$hasMark = true;
+			}
+				
+			$tree[$index][$selfMarkName] = $selfMark;
+			$tree[$index][$subMarkName] = $subMark;
+				
+			if($remove && !$selfMark && !$subMark){
+				unset($tree[$index]);
+			}
+		}
+	
+		return $hasMark;
+	}
+	/////////////////////////////////////////
 }

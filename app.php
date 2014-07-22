@@ -39,3 +39,6 @@ Config::Load();
 if($_GET['debug']){
 	DB::Debug(true);
 }
+
+
+$headerTitle = '传染病地图';

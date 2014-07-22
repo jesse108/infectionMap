@@ -97,7 +97,7 @@ class Html_Bootstrap_Table{
 			}
 		}
 		$html = "
-		<table class='{$this->table_class}' border='1'>
+		<table class='{$this->table_class}'>
 			{$col_str}
 			<thead>
 				<tr>{$th_str}</tr>

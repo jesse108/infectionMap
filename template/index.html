@@ -1,11 +1,99 @@
-{include file="header.html"}
+{include file="http_header.html"}
+<div class="container main">
+	<div class="top_seach">
+		<h1 class="text-center"><strong>传染病地图</strong></h1>
+		<br />
+		<form class="form">
+			<div class="form-group">
+				<div class="col-md-6 col-md-offset-2">
+					<input  type= "text" class="form-control input-lg" name="key" placeholder="搜索关键字"  id="search_keyword"/>
+				</div>
+				<div class="col-md-4">
+					<input type="button" class="btn btn-primary btn-lg" value="搜疾病" onclick="submitSearch(1);"/>
+					<input type="button" class="btn btn-success btn-lg" value="搜地区" onclick="submitSearch(2);"/>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="clearfix"></div>
+	<br />
+	<div class="row">
+		<div class="col-md-6">
+			<div class="row">
+				<div class="col-md-6">
+					<h3>传染病 <small>(<a href="/infection/list.php">管理</a>)</small></h3>
+				</div>
+				
+				<div class="col-md-3 col-md-offset-3">
+					<a class="btn btn-success btn-sm" href="/infection/update.php">新增传染病</a>
+				</div>
+			</div>
+
+			<div class="index_block">
+				<table class="table table-striped">
+				{foreach $allInfections as $char => $infections}
+					<tr><td>{$char}</td></tr>
+					<tr><td>
+					{foreach $infections as $infection}
+						<a href="/infection/detail.php?id={$infection['id']}"><span class="index_item">{$infection['cname']}</span></a> 
+					{/foreach}
+					</td></tr>
+				{/foreach}
+				</table>
+			</div>
+		</div>
+		
+		<div class="col-md-6">
+			<div class="row">
+				<div class="col-md-6">
+					<h3>地点</h3>
+				</div>
+	
+				<div class="col-md-3 col-md-offset-3">
+					<a class="btn btn-success btn-sm" href="/location/update.php">新增地点</a>
+				</div>
+			</div>
+
+			<div class="index_block">
+				{foreach $allLocations as $continent}
+				<div class="panel">
+					<div class="panel-heading">
+						<h3>{$continent['cname']}</h3>
+					</div>
+
+					
+					<table class="table table-striped">
+						{foreach $continent['sub'] as $country}
+							<tr><td><a class="index_item" href="/location/detail.php?id={$country['id']}">{$country['cname']}</a></td></tr>
+							<tr><td>
+							{foreach $country['sub'] as $city}
+								<a href="/location/detail.php?id={$city['id']}"><span class="index_item">{$city['cname']}</span></a>
+							{/foreach}
+							</td></tr>
+						{/foreach}
+					</table>
+					
+				</div>
+				{/foreach}
+			</div>
+
+		</div>
+	</div>
+	
+</div>
+{include file="http_footer.html"}
 
 
+<script type="text/javascript">
+function submitSearch(type){
+	var keyword = $("#search_keyword").val();
+	keyword = $.trim(keyword);
+	if(!keyword){
+		return false;
+	}
 
+	var url = "/search/index.php?keyword=" + keyword + "&type=" + type;
+	redirect(url);
+}
 
-{$test}
-
-
-
-
-{include file="footer.html"}
+</script>

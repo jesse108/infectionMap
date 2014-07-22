@@ -1,8 +1,11 @@
 <?php
 class Utility{
 	public static $numberMap = array(
-		0 => '零',1 => '幺',2=>'二',3=>'三',4=>'四',5=> '五',6=>'六',7=>'七' ,8=> '八',9=>'九',
+		0 => '零',1 => '一',2=>'二',3=>'三',4=>'四',5=> '五',6=>'六',7=>'七' ,8=> '八',9=>'九',
 	);
+	
+	const RETURN_URL_KEY = "Utility_Return_Url";
+	
 	
     const CHAR_MIX = 0;
     const CHAR_NUM = 1;
@@ -96,10 +99,19 @@ class Utility{
 	 * @param string $u 跳转页面
 	 */
 	public static function Redirect($u=null) {
+		if (!$u) $u = self::GetReturnUrl();
 		if (!$u) $u = $_SERVER['HTTP_REFERER'];
 		if (!$u) $u = '/';
 		Header("Location: {$u}");
 		exit;
+	}
+	
+	public static function SetReturnUrl($url){
+		Session::Set(self::RETURN_URL_KEY, $url);
+	}
+	
+	public static function GetReturnUrl(){
+		return Session::Get(self::RETURN_URL_KEY, true);
 	}
 	
 	/**
