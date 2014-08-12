@@ -1,0 +1,32 @@
+{include file="http_header.html"}
+<div class="header">
+	<div class="row">
+		<div class="col-md-1 col-md-offset-1">
+			<a href="/" class="btn btn-primary">< 返回首页</a>
+		</div>
+		<div class="col-md-5 text-center col-md-offset-1">
+			<h2>{$headerTitle}</h2>
+		</div>
+
+		<div class="col-md-2">
+			<a href="#" class="btn">点击登录</a>
+		</div>
+	</div>
+	
+</div>
+
+<div class="main">
+
+{if $systemError = System::GetError()}
+<div class="alert alert-danger alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  {$systemError}
+</div>
+{/if}
+
+{if $systemNotice = System::GetNotice()}
+<div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  {$systemNotice}
+</div>
+{/if}

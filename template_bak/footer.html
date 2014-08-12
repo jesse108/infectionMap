@@ -1,0 +1,20 @@
+</div>
+{include file="http_footer.html"}
+<script>
+$(function(){
+	var $dMenu = $('.d-menu');
+	$('.r-menu a:first').on('click', function(event){  // down menu slideDown and slideUp handler
+		event.preventDefault();
+		event.stopPropagation();
+
+		if($('.d-menu:visible').length > 0){
+			$dMenu.slideUp();
+		}else{
+			$dMenu.slideDown();
+		}
+	});
+	$('body').on('click', function(event){
+		$('.d-menu').slideUp();
+	});
+});
+</script>

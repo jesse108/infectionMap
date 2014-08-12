@@ -1,8 +1,8 @@
 <?php
-class DB_Infection extends DB_Model{
+class DB_Infection extends DB_ModelBase{
 	public $tableName = 'infection';
 	
-	public function create($condition,$duplicateCondition = null){
+	public function create($condition,$duplicateCondition = null,$actorType = 0,$actorID = 0){
 		if($condition['cname']){
 			$condition['frist_char'] = Util_String::getFristCharOfCNStr($condition['cname']);
 		}
@@ -11,15 +11,15 @@ class DB_Infection extends DB_Model{
 			$duplicateCondition['frist_char'] = Util_String::getFristCharOfCNStr($duplicateCondition['cname']);
 		}
 		
-		return parent::create($condition,$duplicateCondition);
+		return parent::create($condition,$duplicateCondition,$actorType,$actorID);
 	}
 	
 	
-	public function update($condition, $updateRow,$oldRow = null){
+	public function update($condition, $updateRow,$oldRow = null,$actorType = 0,$actorID = 0){
 		if($updateRow['cname']){
 			$updateRow['frist_char'] = Util_String::getFristCharOfCNStr($updateRow['cname']);
 		}
 		
-		return parent::update($condition, $updateRow,$oldRow);
+		return parent::update($condition, $updateRow,$oldRow,$actorType,$actorID);
 	}
 }

@@ -1,0 +1,528 @@
+1.    斯瓦尔巴群岛 Svalbard 朗伊尔城 Longyearbyen (挪威)78 13*N 15 33*E 
+世界最北，欧洲最北首府 
+
+2.    格陵兰Greenland  努克Nuuk  (丹麦) 64 11*N 51 43*W (64 11*N 51 44*W) 
+北美最北的首府。 
+
+3.    冰岛Iceland 雷克雅维克 Reykjavik 64 8*N 21 53*W(64 09*N 21 57*W) 
+世界最北首都。 
+欧洲最北首都。 
+
+4.    法罗群岛Faroe Islands 托尔斯港 Torshavn (丹麦) 62 00*N 06 47*W(62 01*N 6 46*W
+
+5.    芬兰Finland 赫尔新基Helsinki 60 10*N 24 57*E(60 10*N 24 58*E) 
+欧洲次北首都 
+
+6.    奥兰群岛 Aland 玛丽港 Mariehamn (芬兰) 60 6*N 19 56*E 
+
+7.    挪威Norway 奥斯陆Oslo 59 56* N 10 42*E(59 55*N 10 45*E) 
+
+8.    爱沙尼亚Estonia 塔林 Tallinn 59 25* N 24 44*E(59 25*N 24 45*E) 
+
+9.    瑞典Sweden 斯德哥尔摩Stockholm 59 17*N 18 04*E(59 20*N 18 03*E) 
+
+10.    拉脱维亚 Latvia 里加 Riga 56 57*N 24 05*E(56 57*N 24 06*E) 
+
+11.    俄罗斯Russia 莫斯科Moscow 55 45*N 37 37*E (55 45*N 37 35*E) 
+
+12.    丹麦Denmark 哥本哈根Copenhagen  55 41*N 12 33*E (55 40*N 12 35*E) 
+
+13.    立陶宛Lithuania 维尔纽斯Vilnius 54 41*N 25 17*E (54 41*N 25 19*E) 
+
+14.    曼岛 Isle of Man 道格拉斯 Douglas (联合王国) 54 10*N 4 28*W (54 09*N 4 28*W) 
+
+15.    白俄罗斯Bearus 明斯克 Minsk 53 55*N 27 34*E (53 54*N 27 34*E) 
+
+16.    爱尔兰 Ireland 都柏林 Dublin 53 20*N 6 15*W 
+
+17.    德国 Germany 柏林 Berlin 52 31*N 13 20*E (52 31*N 13 24*E) 
+
+18.    荷兰 Netherlands 阿姆斯特丹Amsterdam 52 22*N 4 53*E(52 23*N 4 54*E) 
+
+19.    波兰 Poland 华沙 Warsaw 52 14*N 21 00*E (52 15*N 21 00*E) 
+
+20.    联合王国 United Kingdom 伦敦London 51 30*N 0 08*W (51 30*N 00 10*W) 
+
+21.    哈萨克斯坦Kazakhstan 阿斯塔那 Astana 51 10* N 70 26*E (51 10*N 70 30*E) 
+亚洲最北首都 
+
+22.    比利时 Belgium 布鲁塞尔Brussel 50 50*N 4 22*E (50 50*N 4 20*E) 
+
+23.    乌克兰Ukraine 基辅Kiev 50 27*N 30 30*E(50 26*N 30 31*N) 
+
+24.    捷克 Czech  布拉格 Prague 50 05*N 14 26*E 
+
+25.    卢森堡 Luxembourg 庐森堡Luxembourg 49 36* N 6 07*E(49 45*N 6 10*E) 
+
+26.    根西岛 Guernsey 圣彼得港 St Peter Port (联合王国) 49 28*N 2 33*W(49 27*N 2 32*W) 
+
+27.    泽西岛 Jersey 圣艾利耶 Saint Helier (联合王国) 49 11* N 2 06*W(49 12*N 2 07*W) 
+
+28.    法国 France 巴黎 Paris 48 51*N 2 21*E (48 52*N 2 20*E) 
+
+29.    奥地利Austria 维也纳 Vienna 48 12*N 16 21*E( 48 12*N 16 22*E) 
+
+30.    斯洛伐克Slovakia 布拉迪斯拉发 Bratislava 48 09*N 17 07*E 
+
+31.    蒙古 Mogolia 乌兰巴托Ulaanbaatar 47 55*N 106 54*E ( 47 55*N 106 53*E) 
+亚洲次北首都 
+
+32.    匈牙利 Hungary 布达佩斯 Budapest 47 29*N 19 05*E (47 30*N 19 05*E) 
+
+33.    列支敦士登 Liechtenstein 瓦都兹 Vaduz 47 08*N 9 31*E(47 09*N 9 31*E) 
+
+34.    摩尔多瓦 Moldova 奇西瑙 Chisinau 47 01*N 28 50*E(47 00*N 28 50*E) 
+
+35.    瑞士 Switzerland 伯恩 Bern 46 57*N 7 27*E(46 57*N 7 27*E) 
+
+36.    德涅斯特河沿岸共和国Pridnestrovie (Transnistria) (摩尔多瓦东部，实际独立的区域) 蒂拉斯波尔 Tiraspol (摩尔多瓦) 46 50*N 29 37*E 
+
+37.    圣皮耶与密克隆群岛 Saint-Pierre et Miquelon/  Saint Pierre and Miquelon 圣皮耶 Saint-Pierre (法国)   46 47*N 56 11*W (46 46*N 56 11*W) 
+北美次北首府   
+
+38.    斯洛文尼亚 Slovenia 卢布尔雅那 Ljubljana 46 03*N 14 30*E(46 03*N 14 31*E) 
+
+39.    克罗地亚 Croatia 萨格勒布 Zagreb 45 48*N 15 57*E(45 48*N 15 58*E) 
+
+40.    加拿大Canada 渥太华 Ottawa 45 24*N 75 42*W (45 25*N 75 40*W) 
+北美最北主权国家的首都 
+
+41.    塞尔维亚 Serbia 贝尔格莱德 Belgrade 44 48*N 20 28*E(44 50*N 20 30*E) 
+
+42.    罗马尼亚 Romania 布加勒斯特Bucharest 44 25*N 26 07*E(44 26*N 26 06*E) 
+
+43.    圣马利诺San Marino 圣马利诺San Marino 43 56*N 12 27*E (43 56*N 12 25*E) 
+
+44.    波士尼亚赫塞哥维纳Bosnia and Herzegovina 塞拉耶佛Sarajevo 43 52*N 18 24*E(43 52*N 18 25*E) 
+
+45.    摩纳哥 Monaco 摩纳哥 Monaco 43 44*N 7 25*E 
+
+46.    阿布哈兹 Abkhazia(乔治亚西北部，实际独立的区域) 苏呼米 Sukhumi (乔治亚) 43 00*N 40 59*E 
+
+47.    吉尔吉斯斯坦Kyrgyzstan  比什凯克 Bishkek 42 52*N 74 35*E(42 54*N 74 36*E) 
+
+48.    保加利亚Bulgaria 索菲亚 Sofia 42 43*N 23 19*E (42 41*N 23 19*E) 
+
+49.    科索沃 Kosovo , 普里什蒂纳 Prishtine42 40*N 21 10*E 
+
+50.    安道尔 Andorra 安道尔城 Andorra la Vella 42 30*N 1 30*E 
+
+51.    蒙特内哥罗 Montenegro 波德戈里察 Podgorica 42 26*N 19 16*E 
+
+52.    南奥塞梯South Ossetia (乔治亚北部，实际独立的区域) 茨辛瓦利 Tskhinvali (乔治亚) 42 13*N 43 58*E 
+
+53.    马其顿Republic of Macedonia 斯科普里 Skopje 42 00*N 21 27*E(41 59*N 21 26*E) 
+
+54.   梵蒂冈  Vatican City 教廷 Vatican city 41 54*N 12 27*E 
+
+55.    意大利Italy  罗马Rome 41 54*N 12 29*E 
+
+56.    乔治亚 Georgia  提比里西 Tbilisi 41 43*N 44 48*E(41 43*N 44 49*E) 
+
+57.    阿尔巴尼亚Albania 地拉那Tirana 41 20*N 19 50*E 
+
+58.    乌兹别克斯坦 Uzbekistan 塔什干Tashkent 41 18*N 69 16*E(41 20*N 69 18*E) 
+
+59.    西班牙 Spain 马德里 Madrid 40 25*N 3 42*W(40 24*N 3 41*E) 
+
+60.    阿塞拜疆 Azerbaijan  巴库 Baku 40 23*N 49 53*E(40 23*N 49 51*E) 
+
+61.    阿苏斯神权共和国 Mount Athous (希腊) 40 19*N 24 04*E 
+
+62.    亚美尼亚 Armenia 叶里温 Yerevan 40 09*N 44 30*E(40 11*N 44 30*E) 
+
+63.    土耳其 Turkey 安卡拉Ankara 39 56*N 32 51*E(39 56*N 32 52*E) 
+
+64.    中国 China 北京 Beijing 39 55*N 116 23*E(39 56*N 116 24*E) 
+
+65.    纳戈尔诺-卡拉巴赫 Nagorno-Karabakh(亚塞拜然西部，实际独立的区域)斯蒂班纳克特 Stepanakert (亚塞拜然) 39 49*N 46 45*E 
+
+66.    朝鲜 North Korea 平壤 Pyongyang 39 02*N 125 45*E(39 01*N 125 45*E) 
+
+67.    美国 USA 华盛顿 Washington D.C  38 53*N 77 00*W( 38 53*N 77 02*W) 
+北美次北首都 
+
+68.    葡萄牙 Purtogal 里斯本Lisbon 38 43*N 9 08*W 
+
+69.    塔吉克斯坦Tajikistan 杜尚别Dushanbe 38 34*N 68 47*E(38 35*N 68 48*E) 
+
+70.    希腊 Greece 雅典 Athens 37 58*N 23 43*E(37 59*N 23 44*E) 
+欧洲次南首都 
+
+71.    土库曼斯坦Turkmenistan 阿什哈巴德Ashgabat 37 57*N 58 23*E 
+
+72.    韩国 South Korea 首尔 Seoul 37 32*N 126 59*E(37 34*N 127 00*E) 
+
+73.    突尼斯 Tunisia 突尼斯 Tunis 36 50*N 10 10*E(36 48*N 10 11*E) 
+非洲最北首都 
+
+74.    阿尔及利亚 Algeria 阿尔吉尔 Algiers 36 45*N 3 02*E(36 47*N 2 03*E) 
+非洲次北首都 
+
+75.    直布罗陀 Gibraltar 直布罗陀 Gibraltar (联合王国) 36 8*N 5 21*W 
+
+76.    马尔他 Melta  法勒他Valletta 35 54*N 14 31*E 
+欧洲最南首都 
+
+77.    伊朗 Iran 德黑兰 Tehran 35 42*N 51 25*E(35 40*N 51 26*E) 
+
+78.    日本 Japan 东京 Tokyo 35 41*N 139 45*E(35 42*N 139 46*E) 
+
+79.    北塞普勒斯土耳其共和国Turkish Republic of Northern Cyprus 尼科西亚Nicosia  35 10*N 33 23*E 
+
+80.    塞浦路斯 Cyprus 尼科西亚 Nicosia 35 10*N 33 23*E(35 10*N 33 22*E) 
+
+81.    赛普勒斯英属基地区：亚克罗提利与德凯利亚 U.K. Sovereign Base Areas in Cyprus:Akrotiri and Dhekelia 伊佩斯科佩军营Episkopi Cantonment 34 41*N 32 51*E 
+
+82.    阿富汗 Afghanistan 喀布尔 Kabul 34 32*N 69 10*E(34 31*N 69 12*E) 
+
+83.    摩洛哥 Morocco 拉巴特 Rabat 34 01*N 6 50*W(34 02*N 6 51*W) 
+
+84.    黎巴嫩 Lebanon 贝鲁特 Beirut 33 53*N 35 30*E 
+
+85.    巴基斯坦 Pakistan 伊斯兰马巴德 Islamabad 33 43*N 73 04*E(33 42*N 73 10*E) 
+
+86.    叙利亚 Syria大马士革 Damascus 33 31*N 36 19*E(33 30*N 36 18*E) 
+
+87.    伊拉克 Iraq 巴格达 Baghdad 33 20*N 44 25*E(33 21*N 44 25*E) 
+
+88.    利比亚 Libya 的黎波里Tripoli 32 53*N 13 11*E(32 54*N 13 11*E) 
+
+89.    百慕大 Bermuda 汉密尔顿 Hamilton (联合王国) 32 18*N 64 47*W(32 17*N 64 46*W) 
+
+90.    以色列 Israel 耶路撒冷Jerusalem (法定首都) 31 46*N 35 13*E台拉维夫 Tel Aviv (实际首都) 32 05* N, 34 48*E
+
+91.    约旦Jadan 阿曼 Amman 31 57*N 35 56*E 
+
+92.    巴勒斯坦 Palestinian Territories 耶路撒冷Jerusalem (法定首都) 31 46*N 35 13*E 拉姆安拉 Ramalah (实际首都) 31 54*N 35 12*E 
+
+93.    埃及Egypt 开罗 Cairo 30 04*N 31 15*E (30 03*N 31 15*E) 
+
+94.    科威特 Kuwait 科威特市 Kuwait city  29 20*N 48 00*E (29 20*N 47 59*E) 
+
+95.    印度 India 新德里 New Delhi 28 38*N 77 13*E (28 36*N 77 12*E) 
+
+96.    尼泊尔 Nepal 加德满都 Kathmandu 27 42*N 85 19*E(27 43*N 85 19*E) 
+
+97.    不丹 Buhtan 辛布 Thimphu 27 28*N 89 38*E( 27 28*N 89 39*E) 
+
+98.    西撒哈拉 Western Sahara  阿尤恩 El-Aaiun 27 9*N 13 12*W 
+
+99.    巴林 Bahrain 麦纳麦 Manama 26 13*N 50 35*E 
+
+100.    卡塔尔 Qatar 多哈 Doha 25 17*N 51 31*E (25 17*N 51 32*E) 
+
+101.    巴哈马 Bahama 拿骚 Nassau 25 4* N 77 20*W (25 05*N 77 21*W) 
+拉丁美洲最北的首都
+
+102.    台湾 Taiwan 台北 Taipei 25 02*N 121 31*E(25 03*N 121 30*E) 
+
+103.    沙特阿拉伯 Saudi Arabia 利雅德 Riyadh 24 38*N 46 43*E 
+
+104.    阿拉伯联合酋长国(阿联酋)United Arab Emirates 阿布达比 Abu Dhabi 24 28*N 54 22*E 
+
+105.    孟加拉 Bangladesh 达卡  Dhaka 23 42*N 90 24*E (23 43*N 90 25*E) 
+
+106.    阿曼 Oman 马斯喀特 Muscat 23 36*N 58 35*E (23 37*N 58 35*E) 
+
+107.    古巴 Cuba 哈瓦那 Havana 23 7*N 82 22*W ( 23 08*N 82 22*W) 
+
+108.    香港 Hong Kong(中国的特别行政区) 22 17*N 114 11*E ( 22 15*N 114 10*E) 
+
+109.    澳门 Macau(中国的特别行政区) 22 12*N 113 33*E (22 10*N 113 33*E) 
+
+110.    特克斯与凯科斯群岛 Turks and Caicos Islands 科伯恩城 Cockburn Town(Grand Turk) (联合王国) 21 28*N 71 08*W 
+
+111.    越南 Vietnam 河内 Hanoi 21 1*N 105 51*E (21 02*N 105 51*E) 
+
+112.    缅甸 Myanmar 奈比多 Naypyidaw 19 44*N 96 12*E 
+
+113.    墨西哥 Mexico 墨西哥城 Mexico city  19 25*N 99 07*W (19 24*N 99 09*W) 
+
+114.    开曼群岛 Cayman Islands 乔治敦 George Town (联合王国) 19 18*N 81 23*W (19 20*N 81 23*W) 
+
+115.    海地 Haiti 太子港 Port-au-Prince 18 32*N 72 20*W 
+
+116.    多米尼加 Dominican Republic 圣多明哥 Santo Domingo 18 29*N 69 54*W (18 28*N 69 54*W) 
+
+117.    波多黎各 Puerto Rico 圣胡安 San Juan (美国)18 26*N 66 3*W (18 28*N 66 07*W) 
+
+118.    英属维尔京群岛 British Virgin Islands 罗德城 Road Town (联合王国)18 25*N 64 37*W (18 27*N 64 37*W) 
+
+119.    美属维尔京群岛 Virgin Islands 夏洛特阿马利亚 Charlotte Amalie (美国)   18 21*N 64 56*W 
+
+120.    安圭拉 Anguilla 瓦利 The Valley (联合王国) 18 13*N 63 04*W 
+
+121.    茅利塔尼亚 Mauritania 诺克少 Nouakchott 18 05*N 15 58*W (18 06*N 15 57*W) 
+
+122.    圣马丁 Saint Martin 马里戈特 Marigot (法国) 18 04*N 63 05*W
+
+123.    圣马丁 Saint Martin 菲利普堡 Philipsburg (荷兰) 18 01*N 63 03*W
+
+124.    牙买加 Jamaica 京斯敦 Kingston 17 59*N 76 47*W(18 00*N 76 47*W) 
+     
+125.    老挝 Laos 永珍 Vientiane 17 58*N 102 37*E (17 58*N 102 36*E) 
+
+126.    圣巴泰勒米岛 Saint Barthelemy 吉斯塔维亚 Gustavia (法国) 17 54*N 62 51*W
+
+127.    克里斯多福与尼维斯 Saint Kitts and Nevis 巴士地 Basseterre 17 18*N 62 43*W 
+
+128.    贝里斯 Belize 贝尔墨邦 Belmopan 17 15*N 88 46*W 
+
+129.    安地卡及巴布达 Antigua and Barbuda 圣约翰 St. John*s 17 7*N 61 51*W (17 06*N 61 51*W) 
+
+130.    蒙特塞拉特 Montserrat 普利茅斯Plymouth (法定首都，普利茅斯1997年毁於火山，目前政府暂驻布莱兹Brades(Brades Estate) (联合王国)16 48*N 62 12*W) 
+
+131.    瓜德罗普 Guadeloupe 巴斯特尔 Basse Terre (法国) 16 00*N 61 43*W
+
+132.    苏丹 Sudan 喀土穆 Khartoum 15 33*N 32 31*E (15 36*N 32 32*E) 
+
+133.    也门 Yemen 萨那 Sana*a 15 21*N 44 12*E 
+
+134.    厄利垂亚 Eritrea 阿斯玛拉 Asmara 15 20*N 38 56*E (15 20*N 38 53*E) 
+
+135.    多米尼克 Dominica 罗索 Roseau 15 18*N 61 23*W (15 18*N 61 24*W) 
+
+136.    北马利亚纳群岛 Northern Mariana Islands 塞班 Saipan (美国)15 11*N 145 45*E (15 12*N 145 45*E) 
+
+137.    维德角 Cape Verde 普拉亚 Praia 14 55*N 23 32*W (14 55*N 23 31*W) 
+
+138.    塞内加尔 Senegal达喀尔 Dakar 14 41*N 17 27*W (14 40*N 17 26*W) 
+
+139.    危地马拉 Guatemala 瓜地马拉市 Guatemala City 14 37*N 90 31*W(14 38*N 90 31*W) 
+
+140.    菲律宾 Philippines 马尼拉 Manila 14 36*N 120 59*E (14 35*N 121 00*E) 
+
+141.    马提尼克 Martinique 法兰西堡 Fort-de-France (法国) 14 36*N 61 04*W
+
+142.    洪都拉斯   Honduras 特古西加尔巴 Tegucigalpa 14 06*N 87 12*W (14 06*N 87 13*W) 
+
+143.    圣露西亚 Saint Lucia 卡斯特裡 Castries 14 00*N 60 59*W (14 01*N 61 00*W) 
+
+144.    泰国 Thailand 曼谷 Bangkok 13 44*N 100 31*E (13 45*N 100 31*E) 
+
+145.    萨尔瓦多 El Salvador圣萨尔瓦多 San Salvador 13 42*N 89 12*W 
+
+146.    尼日 Niger 尼亚美 Niamey  13 31*N 2 07*E 
+
+147.    关岛 Guam 阿加尼亚 Hagatna/Agana (美国) 13 28*N 144 45*E 
+
+148.    冈比亚 Gambia 斑竹(班珠尔)  Banjul 13 27*N 16 35*W 
+
+149.    圣文森及格瑞那丁 Saint Vincent and the Grenadines 金斯敦 Kingstown 13 10*N 61 14*W (13 09*N 61 14*W) 
+
+150.    巴贝多 Barbados 布里奇顿 Bridgetown 13 06*N 59 37*W 
+
+151.    马里 Mali 巴马科 Bamako 12 39*N 7 59*W ( 12 39*N 8 00*W) 
+
+152.    阿鲁巴 Aruba 橘城 Oranjestad (荷兰) 12 31*N 70 02*W (12 33*N 70 06*W) 
+
+153.    布吉纳法索 Burkina Faso 瓦加杜古 Ouagadougou 12 22*N 1 32*W (12 22*N 1 31*W) 
+
+154.    尼加拉瓜 Nicaragua 马那瓜 Managua 12 9*N 86 16*W (12 09*N 86 17*W) 
+
+155.    库拉索 Curacao威廉斯塔德 Willemstad (荷兰) 12 7*N 68 56*W (12 06*N 68 56*W) 
+
+156.    查德 Chad 恩贾梅纳 Ndjamena  12 6*N 15 03*E (12 07*N 15 03*E) 
+
+157.    格瑞那达 Grenada 圣乔治  St. George*s 12 3*N 61 45*W 
+
+158.    几内亚比索 Guinea-Bissau 比索 Bissau 11 52*N 15 36*W (11 41*N 15 35*W) 
+
+159.    吉布地 Djibouti 吉布地 Djibouti 11 35*N 43 08*E 
+
+160.    柬埔寨 Cambodia 金边 Phnom Penh 11 33*N 104 55*E 
+
+161.    千里达及托巴哥 Trinidad and Tobago 西班牙港 Port of Spain 10 40*N 61 28*W (10 39*N 61 31*W) 
+
+162.    委内瑞拉 Venezuela 卡拉卡斯 Caracas 10 30*N 66 54*W (10 30*N 66 56*W) 
+南美最北首都 
+
+163.    哥斯达黎加 Costa Rica  圣荷西 San Jose 9 56*N 84 04*W (9 56*N 84 05*W) 
+北美次南首都 
+
+164.    几内亚 Guinea 科纳克裡 Conakry 9 33*N 13 40*W (9 31*N 13 43*W) 
+
+165.    索马利兰Somaliland (索马利亚北部，实际独立的区域) 哈尔格萨Hargeisa 09 33*N 44 03*E 
+
+166.    尼日利亚 Nigeria 阿布贾 Abuja 9 11*N 7 11*E (9 12*N 7 11*E) 
+
+167.    埃塞俄比亚 Ethiopia 亚的斯亚贝巴 Addis Abeba 9 01*N 38 44*E(9 02*N 38 42*E) 
+
+168.    巴拿马 Panama 巴拿马 Panama city 8 59*N 79 31*W (8 58*N 79 32*W) 
+北美最南首都，但其实在巴拿马运河靠近南美那边。
+
+169.    狮子山 Sierra Leone 自由城  Freetown 8 29*N 13 13*W (8 30*N 13 15*W) 
+
+170.    邦特兰 Puntland  (索马利亚东北部，实际独立的区域)加洛威 Garoowe 8 24*N 48 29*E 
+
+171.    帛琉(帕劳) Palau 梅莱凯奥克 Melekeok 7 21*N 134 29*E(7 29*N, 134 38*E) 
+
+172.    马绍尔群岛 Marshall Islands 马久罗 Majuro 7 7*N 171 4*E (7 05*N 171 08*E) 
+
+173.    密克罗尼西亚联邦 Micronesia 帕利基尔 Palikir 6 55* N 158 9*E(6 55*N 158 08*E) 
+
+174.    斯里兰卡 Sri Lanka 可伦坡 Colombo,(一说已迁都到Kotte) 6 55*N 79 51*E(6 56*N 79 51*E) 
+
+175.    科特迪瓦 Cote d*Ivoire 雅穆索戈Yamoussoukro (行政首都) 6 48*N 5 17*W, 阿必尚 Abidjan (de facto) (5 19*N 4 02*W)
+
+176.    圭亚那Guyana  乔治敦 Georgetown 6 48*N 58 09*W (6 48*N 58 10*W) 
+南美次北首都 
+
+177.    贝南(贝寧) Benin 新港Porto Novo(议会所在地),科托努Cotonou(政府所在地)6 28*N 2 37*E(採Porto Novo的座标) (6 29*N 2 37*E) 
+
+178.    利比里亚 Liberia 蒙罗维亚 Monrovia 6 18*N 10 47*W 
+
+179.    多哥 Togo 洛美 Lome 6 8*N 1 14*E ( 6 08*N 1 13*E) 
+
+180.    苏里南 Suriname 巴拉马利波 Paramaribo 5 50*N 55 10*W 
+
+181.    加纳 Ghana 阿克拉 Accra 5 33*N 0 11*W (5 33*N 0 13*W) 
+
+182.    法属圭亚那 French Guiana 开云 Cayenne 4 56*N 52 19*W (4 56*N 52 20*W) 
+
+183.    文莱 Brunei Bandar 斯里巴加湾市 Seri Begawan 4 56*N 114 56*E 
+
+184.    南苏丹 Southern Sudan 朱巴 Juba 4 51*N 31 36*E 
+
+185.    哥伦比亚 Colombia 波哥大 Bogota 4 39*N 74 05*W (4 26*N 74 05*W) 
+
+186.    中非  Central African 班基 Bangui 4 22*N 18 33*E (4 22*N 18 35*E) 
+
+187.    马尔代夫 Maldives 马累 Male 4 10*N 73 30*E (4 10*N 73 31*E) 
+
+188.    喀麦隆 Cameroon 雅温得 Yaounde 3 52*N 11 31*E 
+
+189.    赤道几内亚 Equatorial Guinea 马拉博 Malabo 3 45*N 8 47*E 
+
+190.    马来西亚 Malaysia 吉隆坡 Kuala Lumpur1 3 09*N 101 42*E (3 10*N 101 42*E) 
+
+191.    索马里 Somalia 摩加迪沙 Mogadishu 2 02*N 45 21*E (2 04*N 45 22*E) 
+
+192.    新加坡 Singapore 新加坡 Singapore 1 18*N 103 49*E (1 17*N 103 51*E) 
+亚洲次南首都 
+
+193.    加彭 Gabon 利伯维尔 Libreville 0 23*N 9 27*E 
+
+194.    圣多美普林西比 Sao Tome and Principe 圣多美 Sao Tome 0 20*N 6 44*E 
+   
+195.    乌干达 Uganda 坎帕拉 Kampala 0 19*N 32 34*E (0 19*N 32 25*E) 
+北半球最接近赤道首都
+
+196.    厄瓜多尔 Ecuador 基多 Quito 0 13*S 78 30*W 
+南半球最接近赤道的首都 
+
+197.    诺鲁 Naura 亚伦 Yaren (no official capital; government offices in Yaren District ) 0 32*S 166 54*E 
+
+198.    肯尼亚 Kenya 奈洛比 Nairobi 1 16*S 36 48*E (1 17* S 36 49* E) 
+
+199.    卢旺达 Rwanda 基加利 Kigali 1 57* S 30 3*E (1 57*S 30 04*E) 
+
+200.   布隆迪 Burundi 布松布拉 Bujumbura 3 22*S 29 21*E (3 23*S 29 22*E) 
+
+201.    刚果共和国 Republic of the Congo 布拉柴维尔 Brazzaville 4 16*S 15 16*E(4 16*S 15 17*E) 
+
+202.    刚果民主共和国  Democratic Republic of the Congo  金夏沙 Kinshasa 4 19*S 15 18*E (4 19*S 15 18*E) 
+
+203.    塞舌尔 Seychelles 维多利亚港 Victoria 4 37*S 55 27*E(4 38*S 55 27*E) 
+
+204.    印度尼西亚  Indonesia 雅加达 Jakarta 6 08*S 106 50*E (6 10*S 106 48*E) 
+亚洲最南首都 
+   
+205.    坦桑尼亚 Tanzania 多多马 Dodoma 6 10*S 35 44*E (法定首都)达累斯萨拉姆Dar Es Salaam （行政首都）6 49*S 39 16*E (6 48*S 39 17*E) 
+
+206.    英属印度洋领地 British Indian Ocean Territory 无首都 (联合王国)7 18*S 72 24*E 
+
+207.    吐瓦鲁 Tuvalu 富纳富提 Funafuti 8 31*S 179 12*E (8 30*S 179 12*E) 
+
+208.    东帝汶 East Timor 帝力 Dili 8 34*S 125 35*E (8 35*S 125 35*E) 
+
+
+210.    所罗门群岛 Solomon Islands 霍尼亚拉 Honiara 9 26*S 159 57*E 
+
+211.    巴布亚纽几内亚 Papua New Guinea 莫尔兹比港  Port Moresby 9 28*S 147 11*E(9 30*S 147 10*E) 
+
+
+213.    科摩罗 Comoros 科摩罗 Moroni 11 42*S 43 15*E (11 41*S 43 16*E) 
+
+214.    秘鲁 Peru 利马 Lima 12 05*S 77 02*W (12 03*S 77 03*W) 
+
+215.    科科斯/基林群岛（Cocos (Keeling) Islands）西岛 West island (澳洲)12 8* S 96 50*E (12 10*S 96 55*E) 
+
+216.    马约特 Mayotte 马穆楚 Mamoudzou (法国)12 47*S 45 13*E (12 47*S 45 14*E) 
+
+217.    瓦利斯及富图纳群岛 Wallis-et-Futuna 马塔乌图 Mata-Utu (法国)13 17*S 176 10*W 
+
+218.    萨摩亚 Samoa 阿皮亚 Apia 13 50*S 171 45*W 
+
+219.    马拉威 Malawi 里朗威 Lilongwe 13 59*S 33 46*E(13 59*S 33 44*E) 
+
+220.    美属萨摩亚 American Samoa 帕果帕果 Fagatogo (美国)14 16*S 170 42*W 
+
+221.    巴西 Brazil  巴西利亚 Brasilia 15 47*S 47 53*W (15 47*S 47 55*W) 
+
+222.    圣赫伦那 Saint Helena 詹姆士敦 Jamestown (联合王国)15 57*S 5 42*W (15 56*S 5 44*W) 
+
+223.    赞比亚 Zambia 卢萨卡 Lusaka    16 25*S 28 17*E 
+
+224.    玻利维亚 Bolivia 拉巴斯 La Paz,(政府所在地) 16 29*S 68 09*W(16 30*S 68 09*W)   苏克雷Sucre(法定首都) 19 2*S 65 15*W 
+
+225.    法属波利尼西亚 Polynesie francaise 帕皮提 Papeete (法国)17 32*S 149 34*W 
+
+226.    万那杜 Vanuatu 维拉港 Port Vila (on Efate) 17 45*S 168 19*E(17 44*S 168 19*E) 
+
+227.   津巴布韦 Zimbabwe 哈拉雷 Harare 17 50*S 31 03*E 
+
+228.    斐济 Fiji 苏瓦 Suva (on Viti Levu) 18 09*S 178 26*E (18 08*S 178 25*E) 
+
+229.    马达加斯加 Madagascar 安塔那那利佛 Antananarivo 18 55*S 47 32*E(18 52*S 47 30*E) 
+
+230.    纽埃 Niue 阿洛菲 Alofi (纽西兰)19 04 *S 168 56*W (19 01*S 169 55*W) 
+
+231.    毛里求斯 Mauritius 路易士港 Port Louis 20 10*S 57 30*E
+
+232.    汤加 Tonga 努库阿洛法 Nukualofa 21 08*S 175 12*W 
+
+233.    库克群岛（Cook Islands）阿瓦鲁阿 Avarua (纽西兰)21 12*S 159 46*W 
+
+234.    新喀里多尼亚 Nouvelle-Caledonie 努美阿 Noumea (法国)22 17*S 116 26*W(22 16*S 116 27*W) 
+
+235.    奈米比亚 Namibia 温得和克 Windhoek 22 33*S 17 05*E (22 34*S 17 06*E) 
+最接近南回归线(23 30S)的首都 
+
+236.    波札那 Botswana 嘉柏隆里 Gaborone 24 40*S 25 55*E 
+
+237.    皮特凯恩群岛 Pitcairn Islands 亚当斯敦 Adamstown (联合王国)25 04*S 130 06*W(25 04*S 130 05*W) 
+
+238.    巴拉圭 Paraguay 亚松森 Asuncion 25 18*S 57 38*W (25 16*S 57*40*W) 
+
+239.    南非 South Africa 比勒陀里亚Pretoria (行政之都) 25 43*S 28 12*E开普敦 Cape town(立法之都) 33 55*S 18 25*E 布隆方丹 Bloemfontein (司法之都) 29 09*S 26 14*E 
+
+240.    莫桑比克Mozambique 马普托 Maputo 25 57*S 32 34*E (25 58*S 32 35*E) 
+
+241.    史瓦济兰Swaziland  墨巴本(Mbabane)行政首都 26 19*S 31 8*W (26 18*S 31 06*E);Lobamba立法首都 26 27*S 31 12*E 
+非洲次南首都 
+
+242.    诺福克岛 Norfolk Island 京斯顿 Kingston (澳洲)29 02*S 167 57*E (29 03*S 167 58*E) 
+
+243.    赖索托 Lesotho 马塞卢 Maseru 29 18*S 27 29*E 
+非洲最南首都 
+
+244.    智利 Chile 圣地牙哥 Santiago 33 26*S 70 38*W (33 27*S 70 40*W) 
+
+245.    阿根廷 Argentina 布宜诺斯爱利斯 Buenos Aires 34 37*S 58 25*W(34 36*S 58 27*W) 
+南美次南首都 
+
+246.    乌拉圭 Uruguay 蒙得维的亚 Montevideo 34 53*S 56 09*W (34 53*S 56 11*W) 
+南美最南首都 
+
+247.    澳大利亚 Australia 坎培拉 Canberra 35 21*S 149 02*E (35 17*S 149 08*E) 
+
+248.    新西兰 New Zeeland  威灵顿 Wellington 41 19*S 174 47*E 
+世界最南首都 
+
+249.    福克兰群岛 Falkland Islands 斯坦利港 Stanley (联合王国)51 42*S 57 51*W 
+世界最南首府 
+
+250.    南乔治亚与南三明治群岛 South Georgia and the South Sandwich Islands格里维津 Grytviken (联合王国)54 17*S 36 31*W 据说无常住人口
+英国   51 39*N 0 0*E 

@@ -1,0 +1,86 @@
+.iList{
+	padding: 29px; border: 1px solid #ddd; border-radius: 5px; background: #fff; margin-top: 18px; width: 920px;
+}
+.itable{
+	width: 918px; overflow: hidden;
+}
+.itable .btn-l{
+	text-align: left; padding-bottom: 29px;
+}
+.itable .btn{
+	display: inline-block; width: 120px; height: 40px; line-height: 40px; color: #fff; text-align: center; border: none; border-radius: 5px;
+	background: #56b881;
+}
+
+.itable table{
+	border: 1px solid #ddd; width: 100%;
+}
+.itable table td{
+	padding: 18px 10px; text-align: center;
+}
+.itable tbody td{
+	border-top: 1px solid #ddd; border-right:1px solid #ddd;
+}
+.itable .icon{
+	display: inline-block; width: 19px; height: 19px; overflow: hidden; vertical-align: middle;
+}
+.itable .icon_edit{
+	background: url(../img/icon_67.png) no-repeat top center; margin-right: 10px;
+}
+.itable .icon_delete{
+	background: url(../img/icon_69.png) no-repeat top center;
+}
+.itable tbody .even td{
+	background: #f9f9f9;
+}
+
+/* infectious detail */
+.content{
+	clear: both; overflow:hidden; margin-top: 18px; margin-bottom: 30px;
+}
+.l-content{
+	width: 678px; border: 1px solid #ddd; border-radius: 5px; float: left; background: #fff;
+}
+.r-content{
+	width: 278px; border: 1px solid #ddd; border-radius: 10px; float: right; background: #fff;
+}
+.l-content .itable{
+	width: 618px; padding: 29px;
+}
+
+#mapContainer{
+	width: 100%; height: 450px; overflow: hidden; border:none;
+	border-bottom: 1px solid #ddd; border-radius: 0;
+}
+
+.quickT{
+	padding:29px 29px 0; width: 618px;
+}
+.quickT select{
+	padding: 2px; width: 144px; border-radius: 5px; border:1px solid #ddd; margin-right: 14px;
+}
+.quickT .btn{
+	height: 40px; line-height: 40px; width: 130px; text-align: center; border: none;
+	background: #56b881; color: #fff; vertical-align: middle;
+}
+
+.r-content h3{
+	height: 42px; line-height: 42px; overflow:hidden; text-align: center; font-size: 16px;
+	display: block; background: url(../img/bg1.jpg) repeat-x; border-top-right-radius: 10px; border-top-left-radius: 10px;
+}
+.t{
+	position: relative; padding: 19px; width: 240px; font-size: 16px;
+	background: url(../img/icon_53.png) no-repeat 20px 22px; text-indent: 25px; border-top: 1px solid #ddd;
+}
+.base .t{
+	background: url(../img/icon_26.png) no-repeat 20px 24px;
+}
+.t .edit{
+	display: block; height: 22px; line-height: 22px; position: absolute; right: 20px; top: 22px; font-size: 14px;
+}
+.c{
+	padding: 0 19px 19px; width: 240px;
+}
+.c label{
+	font-weight: bold;
+}

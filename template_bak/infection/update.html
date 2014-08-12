@@ -1,0 +1,87 @@
+{include file="header.html"}
+<div class="main_content">
+<h3>新增传染病</h3>
+
+<div class="">
+	<form action="/infection/update.php" method="post">
+	<table class="input_table" >
+		{if $id}
+			<input type="hidden" name="id" value="{$id}"/>
+		{/if}
+		<tr>
+			<td>
+				<span>传染病名称</span>
+				<input type="text" class="form-control" name="cname" value="{$infection['cname']}"/>
+			</td>
+
+			<td>
+				<span>传染病英文名</span>
+				<input type="text" class="form-control" name="ename" value="{$infection['ename']}"/>
+			</td>
+
+		</tr>
+		<tr>
+			<td>
+				<span>病原体名称</span>
+				<input type="text" class="form-control" name="pathogen_cname" value="{$infection['pathogen_cname']}"/>
+			</td>
+
+			<td>
+				<span>病原体英文名</span>
+				<input type="text" class="form-control" name="pathogen_ename" value="{$infection['pathogen_ename']}"/>
+			</td>
+			<td>
+				<span>分类学地位</span>
+				<input type="text" class="form-control" name="taxonomy" value="{$infection['taxonomy']}"/>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<span>传染源</span>
+				<input type="text" class="form-control" name="infection_source" value="{$infection['infection_source']}"/>
+			</td>
+
+			<td>
+				<span>易感人群</span>
+				<input type="text" class="form-control" name="susceptible_pop" value="{$infection['susceptible_pop']}"/>
+			</td>
+			<td>
+				<span>传染途径</span>
+				<input type="text" class="form-control" name="infection_path" value="{$infection['infection_path']}"/>
+			</td>
+		</tr>
+
+		<tr>
+			
+			<td colspan=3> 
+				<span>诊断标准</span>
+				<textarea class="form-control" rows="3" name="judge_standard">{$infection['judge_standard']}</textarea>
+			</td>
+		</tr>
+
+		<tr>
+			
+			<td colspan=3> 
+				<span>预防措施</span>
+				<textarea class="form-control" rows="3" name="prevention">{$infection['prevention']}</textarea>
+			</td>
+		</tr>
+
+		<tr>
+			
+			<td colspan=3> 
+				<span>治疗措施</span>
+				<textarea class="form-control" rows="3" name="treatment">{$infection['treatment']}</textarea>
+			</td>
+		</tr>
+
+	</table>
+
+	<input type="submit" value="提交">
+	</form>
+</div>
+
+
+</div>
+{include file="footer.html"}

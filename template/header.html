@@ -1,32 +1,17 @@
-{include file="http_header.html"}
+{include file="html_header.html"}
 <div class="header">
-	<div class="row">
-		<div class="col-md-1 col-md-offset-1">
-			<a href="/" class="btn btn-primary">< 返回首页</a>
+	<div class="wrap">
+		<a class="btn reback" href="/">返回首页</a>
+		<h1><img src="/static/img/ims-logo.png" alt="">港口传染病地图</h1>
+		<div class="r-menu">
+			<a href="#" ><span class="username">admin</span><span class="role">(系统管理员)▼</span></a>
+			<a href="#">退出</a>
 		</div>
-		<div class="col-md-5 text-center col-md-offset-1">
-			<h2>{$headerTitle}</h2>
-		</div>
-
-		<div class="col-md-2">
-			<a href="#" class="btn">点击登录</a>
+		<div class="d-menu">
+			<ul>
+				<li><a href="#">修改密码</a></li>
+				<li><a href="#">退出</a></li>
+			</ul>
 		</div>
 	</div>
-	
 </div>
-
-<div class="main">
-
-{if $systemError = System::GetError()}
-<div class="alert alert-danger alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-  {$systemError}
-</div>
-{/if}
-
-{if $systemNotice = System::GetNotice()}
-<div class="alert alert-success alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-  {$systemNotice}
-</div>
-{/if}

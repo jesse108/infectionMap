@@ -1,5 +1,66 @@
 <?php
+/**
+ * 字符串工具方法
+ * 
+ * @author zhaojian jesse_108@163.com
+ *
+ */
 class Util_String{
+	const CHAR_MIX = 0;
+	const CHAR_NUM = 1;
+	const CHAR_WORD = 2;
+	
+	/**
+	 * 生成随机字符串
+	 * @param number $len 长度
+	 * @param number $type 生成字符类型
+	 * @return string 随机字串
+	 */
+	public static function GenRandomStr($len = 6,$type = self::CHAR_MIX){
+		$random = '';
+		for ($i = 0; $i < $len;  $i++) {
+			$random .= self::_GenRandomChar($type,$i);
+		}
+		return $random;
+	}
+	
+	public static function getRequestURI(){
+		$server = $_SERVER;
+		return $server['REQUEST_URI'];
+	}
+	
+	//////////辅助函数
+	private static function _GenRandomChar($type = self::CHAR_MIX,$index = 0){
+		$random = '';
+		switch ($type){
+			case self::CHAR_NUM:
+				if($index == 0){
+					$random = chr(rand(49, 57));
+				} else {
+					$random = chr(rand(48, 57));
+				}
+				break;
+			case self::CHAR_WORD:
+				$key  = rand(0, 1);
+				$random = $key ? chr(rand(65, 90)) : chr(rand(97, 122));
+				break;
+			case self::CHAR_MIX:
+				$key  = rand(0, 2);
+				if($key == 0){
+					if($index == 0){
+						$random = chr(rand(49, 57));
+					} else {
+						$random = chr(rand(48, 57));
+					}
+				} else if($key == 1){
+					$random = chr(rand(65, 90));
+				} else {
+					$random = chr(rand(97, 122));
+				}
+				break;
+		}
+		return $random;
+	}
 	
 	/**
 	 * 获取汉语拼音首字母
@@ -9,6 +70,88 @@ class Util_String{
 		$fristChar = $str2PY->getInitials($str);
 		return strtoupper($fristChar[0]);
 	}
+	
+	/**
+	 * 
+	 * @param array/str $data 带编码字符串
+	 * @param boolean $encodeUniCode 中文是否编码
+	 */
+	public static function jsonEncode($data,$encodeUniCode = true){
+		if($encodeUniCode){
+			return json_encode($data);
+		} else {
+			return self::JsonEncodeUnicode($data);
+		}
+	}
+	
+	
+	public static function JsonEncodeUnicode($object,$format = false){
+		if(is_string($object)){
+			return "\"{$object}\"";
+		}
+	
+		if(is_numeric($object)){
+			return $object;
+		}
+	
+		$sep = '';
+		if($format){
+			$sep = "\n";
+		}
+	
+		if(self::IsJsonObj($object)){
+			$str = "";
+				
+			foreach ($object as $key => $value){
+				$valueStr = self::JsonEncode($value,$format);
+				$str .= "\"{$key}\":{$valueStr}," . $sep;
+			}
+			$str = trim($str,',');
+			$str = "{{$sep}{$str}{$sep}}";
+			return $str;
+		}
+	
+		if(Util_Array::IsArrayValue($object)){
+			$str = "";
+			foreach ($object as $key => $value){
+				$valueStr = self::JsonEncode($value,$format);
+					$str .= "{$valueStr}," . $sep;
+			}
+			$str = trim($str,',');
+			$str = "[{$sep}{$str}{$sep}]";
+			return $str;
+		}
+	}
+	
+	/**
+	 * 判断是否是json对象
+	 * @param array $obj
+	 */
+	public static function IsJsonObj($obj){
+		if(is_object($obj)){
+			return true;
+		}
+	
+		if(!Util_Array::IsArrayValue($obj)){
+			return false;
+		}
+	
+	
+		$index = 0;
+		foreach ($obj as $key => $value){
+			if(!is_numeric($index)){
+				return true;
+			}
+				
+			if($key !== $index){
+				return true;
+			}
+				
+			$index++;
+		}
+		return false;
+	}
+	
 }
 
 

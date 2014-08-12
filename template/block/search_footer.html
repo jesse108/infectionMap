@@ -1,0 +1,45 @@
+{include file="html_footer.html"}
+<script>
+  $.widget( "custom.catcomplete", $.ui.autocomplete, {
+    _create: function() {
+      this._super();
+      this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
+    },
+    _renderMenu: function( ul, items ) {
+      var that = this;
+      ul.addClass('searchTip');
+      $.each( items, function( index, item ) {
+        var li;
+        li = that._renderItemData( ul, item );
+        if ( item.category ) {
+          li.addClass(item.category);
+        }
+      });
+      ul.append( "<li class='add'><a href='/location/update.php'>添加新地点</a></li>" );
+    }
+  });
+
+  
+$(function() {
+	var data = [
+      { label: "北京", category: "address" },
+      { label: "上海", category: "address" },
+      { label: "天津", category: "address" },
+    ];
+ 
+    $( "#keyword" ).catcomplete({
+      delay: 0,
+      source: data
+    });
+      
+});
+
+function search_submit(type){
+	var key = $("#search_form input[name=keyword]").val();
+	if(!key){
+		return false;
+	}
+	$("#search_form input[name=type]").val(type);
+	$("#search_form").submit();
+}
+</script>

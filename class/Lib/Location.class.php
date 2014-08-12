@@ -96,4 +96,14 @@ class Lib_Location{
 		return $result;
 	}
 	
+	public static function GetLocationFromCName($cnames){
+		$dbLocation = DB_Manage::createDBObj('location');
+		$condition = array(
+			'cname' => $cnames,
+			'status' => self::STATUS_NORMAL,
+		);
+		$locations = $dbLocation->get($condition);
+		return $locations;
+	}
+	
 }

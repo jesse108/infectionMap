@@ -34,6 +34,7 @@ if($id){
 } else {
 	$location['lat'] = Lib_Location::DEFAULT_LAT;
 	$location['lng'] = Lib_Location::DEFAULT_LNG;
+	$location['cname'] = $_REQUEST['cname'];
 }
 
 
@@ -43,7 +44,7 @@ if($_POST){
 		'lng' => $_POST['lng'],
 		'lat' => $_POST['lat'],
 		'info' => $_POST['info'],
-		'comment' => $_POST['comment'],
+		'comment' => strval($_POST['comment']),
 	);
 	
 	$continentID = $_POST['continent_id'];
@@ -76,7 +77,5 @@ if($_POST){
 	
 }
 
-
-
-
+$title = "创建修改地点";
 Template::Show();

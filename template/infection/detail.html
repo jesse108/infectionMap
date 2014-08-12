@@ -1,232 +1,154 @@
 {include file="header.html"}
-<div class="row">
-	<div class="col-md-8 col-md-offset-1">
-		<div class="main_content">
-			<div id="detail_map"></div>
-			<div class="row">
-				<div class="col-md-3">
-					<select id="continent_id" class="form-control" onchange="changeLocation(1);">
+<link rel="stylesheet" href="/static/css/infectious.css">
+<div class="wrap">
+	<div class="content">
+		<div class="l-content">
+			<div id="mapContainer"></div><!-- 地图容器 -->
+			<div class="quickT">
+					<select name="continent_id" id="intercontinental" onchange="changeLocation(1);">
 						<option value="0">选择大洲</option>
-						{foreach $locations as $location}
-							<option value="{$location['id']}">{$location['cname']}</option>
-						{/foreach}
+					{foreach $locations as $location}
+						<option value="{$location['id']}">{$location['cname']}</option>
+					{/foreach}
 					</select>
-				</div>
-
-				<div class="col-md-3">
+					
 					<select id="country_id" class="form-control" onchange="changeLocation(2);">
 						<option value="0">选择国家</option>
 					</select>
-				</div>
-	
-				<div class="col-md-3">
+					
 					<select id="city_id" class="form-control" onchange="changeLocation(3);">
 						<option value="0">选择城市</option>
 					</select>
-				</div>			
 
-				<div class = "col-md-3"><a class="btn btn-success" href="/infection/case_update.php?infection_id={$infection['id']}">新增发病记录</a></div>
+					<a href="/infection/case_update.php?infection_id={$infection['id']}"><button class="btn">新增发病记录</button></a>
 			</div>
-
-			<div class="normal_block" id="table_show">
-			</div>
-		</div>
-	</div>
-
-	<div class="col-md-3">
-		<div class="left_content">
-			<h4 class=" text-center">{$infection['cname']}</h4> <a href="/infection/update.php?id={$infection['id']}">修改</a>
-			<hr>
-			<h4><span class="glyphicon glyphicon-exclamation-sign"></span> 基本信息</h4>
 			
-			  <p class="well">
-			  	疾病名称: {$infection['cname']}<br>
-			  	英文名:{$infection['ename']}<br><br>
+			<div class="itable">
+				<table>
+					<thead>
+						<tr>
+							<td width="15%">国家地区</td>
+							<td width="15%">发病日期</td>
+							<td width="15%">发病人数</td>
+							<td width="15%">发病率</td>
+							<td width="15%">患病人数</td>
+							<td width="15%">患病率</td>
+							<td width="25%">备注</td>
+						</tr>
+					</thead>
+					<tbody>
+					{foreach $infectionCases as $case}
+						<tr>
+							<td>{$case['location']}</td>
+							<td>{$case['start_date']}</td>
+							<td>{$case['case_number']}</td>
+							<td>{$case['case_rate']}</td>
+							<td>{$case['ill_number']}</td>
+							<td>{$case['ill_rate']}</td>
+							<td>{$case['comment']}</td>
+						</tr>				
+					{/foreach}
 
-			  	病原体名称:{$infection['pathogen_cname']}<br>
-			  	病原体英文名:{$infection['pathogen_ename']}<br>
-			  	分类学地位:{$infection['taxonomy']}<br><br>
+					</tbody>
+				</table>
+			</div>
 
-			  	传染源:{$infection['infection_source']} <br>
-			  	传染途径:{$infection['infection_path']} <br>
-			  	易感人群:{$infection['suseptible_pop']} <br>
-			  </p>
-			<hr>
+		</div>
+		<div class="r-content">
+			<h3>东方马脑炎</h3>
+			<div class="b base">
+				<div class="t">
+					基本信息 <a class="edit" target="_blank" href="/infection/update.php?id={$infection['id']}#infection_form">编辑</a>
+				</div>
+				<div class="c">
+					<p>
+						<label>疾病名称：</label><span class="va">{$infection['cname']}</span>
+					</p>
+					<p>
+						<label>疾病英文：</label><span class="va">{$infection['ename']}</span>
+					</p>
+					<br>
+					<p>
+						<label>病原体名称：</label><span class="va">{$infection['pathogen_cname']}</span>
+					</p>
+					<p>
+						<label>病原体英文：</label><span class="va">{$infection['pathogen_ename']}</span>
+					</p>
+					<p>
+						<label>分类学地位：</label><span class="va">{$infection['taxonomy']}</span>
+					</p>
+					<br>
+					<p>
+						<label>传染源：</label><span class="va">{$infection['infection_source']}</span>
+					</p>
+					<p>
+						<label>传染途径：</label><span class="va">{$infection['infection_path']}</span>
+					</p>
+					<p>
+						<label>易感人群：</label><span class="va">{$infection['suseptible_pop']}</span>
+					</p>
+				</div>
+			</div>
+			<div class="b">
+				<div class="t">
+					诊断标准 <a target="_blank" href="/infection/update.php?id={$infection['id']}#standard" class="edit">编辑</a>
+				</div>
+				<div class="c">
+				{$infection['judge_standard']}
+				</div>
+			</div>
 
-			<h4><span class="glyphicon glyphicon-book"></span>诊断标准</h4>
-			<p class="well">{$infection['judge_standard']}</p>
-			<hr>
+			<div class="b">
+				<div class="t">
+					预防措施 <a target="_blank" href="/infection/update.php?id={$infection['id']}#prevention" class="edit">编辑</a>
+				</div>
+				<div class="c">
+				{$infection['prevention']}
+				</div>
+			</div>
 
-			<h4><span class="glyphicon glyphicon-book"></span>预防措施</h4>
-			<p class="well">{$infection['prevention']}</p>
-			<hr>
-
-			<h4><span class="glyphicon glyphicon-book"></span>治疗措施</h4>
-			<p class="well">{$infection['treatment']}</p>
-					
-
+			<div class="b">
+				<div class="t">
+					治疗措施 <a target="_blank" href="/infection/update.php?id={$infection['id']}#treatment" class="edit">编辑</a>
+				</div>
+				<div class="c">
+					{$infection['treatment']}
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
+
 {include file="footer.html"}
-
-<script  type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=52eb0ee17d59916ec379c4a7f0cdefed"></script>
-
+<script src="http://webapi.amap.com/maps?v=1.3&key=dbb6bc63f724a1f9099ecd0a6acf3871" type="text/javascript"></script>
 <script type="text/javascript">
-var caseLocations = {json_encode($caseLoctions)};
-var cases = {json_encode($infectionCases)};
-var allLocations = {json_encode($locations)};
-var rowInfo = {json_encode($rowInfo)};
-
-var country;
-
-function changeLocation(level){
-	var continentID = $("#continent_id").val();
-	var countryID = $("#country_id").val();
-	var cityID = $("#city_id").val();
-	level = level ? level : 1;
+var mapObj;
+var markers = [];
+$(function(){
+	mapInit();
+	// map click handler
+});
 	
-	switch(level){
-		case 1: //切换大洲
-			$countrySelect = $("#country_id");
-			$countrySelect.html("");
-		
-			$citySelect = $("#city_id");
-			$citySelect.html("");
-			
-			continent = allLocations[continentID];
-			countries = continent['sub'];
-			if(countries){
-				html = buildOptionHtml(countries,"选择国家","id",'cname');
-				$countrySelect.html(html);
-			}
-			
-			//切换地图
-			if(continent){
-				clearTag();
-				markMapInArea([continent]);
-				createTable([continent]);
-				showLocationChange(continent['lng'],continent['lat'],1);
-			}
-			break;
-		case 2://切换国家
-			$citySelect = $("#city_id");
-			$citySelect.html("");
-			country = allLocations[continentID]['sub'][countryID];
-			cities = country['sub'];
-			
-			if(cities){
-				html = buildOptionHtml(cities,"选择城市","id",'cname');
-				$citySelect.html(html);
-			}
-
-			if(country){
-				clearTag();
-				markMapInArea([country]);
-				createTable([country]);
-				showLocationChange(country['lng'],country['lat'],4);			
-			}
-			break;
-		case 3:
-			city = allLocations[continentID]['sub'][countryID]['sub'][cityID];
-			if(city){
-				clearTag();
-				markMapInArea([city]);
-				createTable([city]);
-				showLocationChange(city['lng'],city['lat'],5);		
-			}			
-			break;
-	}
-}
-
-var mapObj,cluster;
-var markers= [];
-mapInit();
-
-
-
+//初始化地图对象，加载地图
 function mapInit(){
-	mapObj = new AMap.Map("detail_map",{
-    view: new AMap.View2D({
-        //center:new AMap.LngLat({ $location['lng']},{ $location['lat']}),//地图中心点
-        zoom:1//地图显示的缩放级别
-    	})
-	});
-	markMapInArea(allLocations);
-	createTable(allLocations);
-}
+    mapObj = new AMap.Map("mapContainer");
 
-//向地图添加标点
-function mapAddTag(lng,lat){
-	var marker = new AMap.Marker({
-		position:new AMap.LngLat(lng,lat) ,//基点位置
-		icon:"http://webapi.amap.com/images/marker_sprite.png" //marker图标，直接传递地址url
-	});
-	markers.push(marker);
-}
+    for(var i=0; i<10; i++){  //伪造数据
+    	var marker = new AMap.Marker({                 
+	      map:mapObj,                 
+	      icon:"/static/img/icon_maker.png",                 
+	      offset:new AMap.Pixel(-9,-32),
+	      position:new AMap.LngLat(116-i*0.08, 40)   // 构造坐标集合          
+	    });
+	    markers[i] = marker;
+    }
 
-//清除标点
-function clearTag(){
-    if(cluster) {
-        cluster.setMap(null);
-    }
-	markers= [];
-}
-
-function showTag(){
-	mapObj.plugin(["AMap.MarkerClusterer"],function(){
-		cluster = new AMap.MarkerClusterer(mapObj,markers);
-	});
-}
-
-
-function showLocationChange(lng,lat,level){
-	mapObj.setZoomAndCenter(level,new AMap.LngLat(lng,lat));
-}
-
- 
-function markMapInArea(locations){
-	if(!locations){
-		return false;
-	}
-
-	var locationIDs = [];
-	locationIDs = Util_Array.GetColunm(locations,'id','sub');
 	
-	for(var i in cases){
-		curLocationID = cases[i]['location_id'];
-		if(in_array(curLocationID,locationIDs)){
-			curLocation = caseLocations[curLocationID];
-			if(curLocation){
-				mapAddTag(curLocation['lng'],curLocation['lat']);
-			}
-		}
-	}
-	showTag();
+	mapObj.plugin(["AMap.MarkerClusterer"],function() {
+	    cluster = new AMap.MarkerClusterer(mapObj,markers);
+	});
+
+	mapObj.setCenter(new AMap.LngLat(115.6, 40));
+
 }
-
-function createTable(locations){
-	if(!locations){
-		return false;
-	}
-
-	var locationIDs = [];
-	var showCases = [];
-
-	locationIDs = Util_Array.GetColunm(locations,'id','sub');
-
-	for(var i in cases){
-		curLocationID = cases[i]['location_id'];
-		if(in_array(curLocationID,locationIDs)){
-			showCases.push(cases[i]);
-		}
-	}
-
-	htmlObj = new Html_Bootstrap_Table(showCases);
-	htmlObj.setTableInfo(rowInfo);
-
-	$("#table_show").html(htmlObj.createHtml());
-}
-
-
 </script>

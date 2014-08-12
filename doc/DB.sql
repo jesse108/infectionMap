@@ -44,7 +44,8 @@ create table if not exists `infection`(
 	`infection_path` varchar(40) comment '传染途径',
 	`judge_standard` varchar(500) comment '判断标准',
 	`prevention` varchar(500) comment '预防措施',
-	`treatment` varchar(500) comment '治疗措施'
+	`treatment` varchar(500) comment '治疗措施',
+	`comment` varchar(500) comment '备注'
 )ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_bin comment '传染病信息';
 
 

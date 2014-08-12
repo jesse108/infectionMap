@@ -1,25 +1,26 @@
-{include file="header.html"}
-<div class="main_content">
-	<div class="search_result">
-	{if $infectionResult}
-		<h4>传染病检索</h4>
-		<dl class="dl-horizontal">
-		{foreach $infectionResult as $infection}
-			<dt><a href="/infection/detail.php?id={$infection['id']}">{$infection['cname']}</a></dt>
-			<dd>病原体:{$infection['pathogen_cname']}</dd>
-		{/foreach}
-		</dl>
-	{/if}
-	
+{include file="block/search_header.html"}
+
+<div class="searchResult">
+{if $keyword}
 	{if $locationResult}
-		<h4>地点检索</h4>
-		<dl class="dl-horizontal">
+		<h3 class="hotip">为您找到 <span class="kw">[{$keyword}]</span> 相关的地区：
 		{foreach $locationResult as $location}
-			<dt><a href="/location/detail.php?id={$location['id']}">{$location['cname']}</a></dt>
-			<dd>{$location['info']}</dd>
+		<a href="/location/detail.php?id={$location['id']}" target="_blank" class="tag">{$location['cname']}</a>
 		{/foreach}
-		</dl>
+		</h3>
+	{else if $infectionResult}
+		<h3 class="hotip">为您找到 <span class="kw">[{$keyword}]</span> 相关的疾病：
+		{foreach $infectionResult as $infection}
+		<a href="/infection/detail.php?id={$infection['id']}" target="_blank" class="tag">{$infection['cname']}</a>
+		{/foreach}
+		</h3>	
+	{else if $type==2}
+		<h3 class="hotip">没有找到<span class="kw">[{$keyword}]</span> 相关的地区：<a href="/location/update.php?cname={$keyword}" class="tag">创建该地点</a></h3>
+	{else}
+		<h3 class="hotip">没有找到<span class="kw">[{$keyword}]</span> 相关的疾病：<a href="/infection/update.php?cname={$keyword}" class="tag">创建该疾病</a></h3>
 	{/if}
-	</div>
+{/if}
 </div>
-{include file="footer.html"}
+
+	
+{include file="block/search_footer.html"}

@@ -17,5 +17,4 @@ switch($type){
 		break;
 }
 
-
 Template::Show();

@@ -1,0 +1,115 @@
+<link href="/static/lib/bootstrap_time_picker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+<script type="text/javascript" src="/static/lib/bootstrap_time_picker/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/static/lib/bootstrap_time_picker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+
+<div class="main_content">
+<h3>增加新纪录</h3>
+<hr>
+<div class="">
+	<form action="/infection/case_update.php" method="post">
+	<table class="input_table" >
+		{if $id}
+			<input type="hidden" name="id" value="{$id}"/>
+		{/if}
+		<tr>
+			<td>
+				<span>传染病名称</span>  <a href="/infection/update.php">添加</a>
+				<select name="infection_id" class="form-control">
+					<option value="0">请选择传染病</option>
+					{foreach $allInfections as $infections}
+					{foreach $infections as $infection}
+						<option value="{$infection['id']}" {if $infectionID == $infection['id']} selected {/if}>{$infection['cname']} </option>
+					{/foreach}
+					{/foreach}
+				</select>
+			</td>
+
+			<td>
+				<span>地点</span> <a href="/location/update.php">添加</a>
+				<select name="location_id" class="form-control">
+					<option value="0">请选地点</option>
+					{foreach $allLocations as $continent}
+						<option value="{$continent['id']}" {if $continent['id'] == $locationID} selected {/if}>{$continent['cname']}</option>
+						{foreach $continent['sub'] as $country}
+							<option value="{$country['id']}" {if $country['id'] == $locationID} selected {/if}>-{$country['cname']}-</option>
+							{foreach $country['sub'] as $city}
+								<option value="{$city['id']}" {if $city['id'] == $locationID} selected {/if}>--{$city['cname']}--</option>
+							{/foreach}
+						{/foreach}
+					{/foreach}
+					
+					
+				</select>
+			</td>
+			
+			<td>
+				<span>发病起始于</span>
+				<div class="input-group date form_datetime time_input" >
+					<input size="16" type="text" class="form-control" value="{$startDate}" name="start_date" readonly>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+				</div>
+				
+			</td>
+
+		</tr>
+		<tr>
+			<td>
+				<span>发病人数</span>
+				<input type="text" class="form-control" name="case_number" value="{$infectionCase['case_number']}"/>
+			</td>
+
+			<td>
+				<span>发病几率</span>
+				<div class="input-group">
+					<input type="text" class="form-control" name="case_rate" value="{$infectionCase['case_rate']}"/>
+					<span class="input-group-addon">%</span>
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<span>患病人数</span>
+				<input type="text" class="form-control" name="ill_number" value="{$infectionCase['ill_number']}"/>
+			</td>
+
+			<td>
+				<span>易患病几率</span>
+				<div class="input-group">
+					<input type="text" class="form-control" name="ill_rate" value="{$infectionCase['ill_rate']}"/>
+					<span class="input-group-addon">%</span>
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+			
+			<td colspan=3> 
+				<span>备注</span>
+				<textarea class="form-control" rows="3" name="comment">{$infectionCase['comment']}</textarea>
+			</td>
+		</tr>
+
+	</table>
+
+	<input type="submit" class="btn" value="提交">
+	{if $id}
+	<a class="btn btn-success" href="/infection/case_update.php">增加新纪录</a>
+	{/if}
+	</form>
+</div>
+</div>
+
+<script>
+$('.form_datetime').datetimepicker({
+    language:  'zh-CN',
+    weekStart: 1,
+    todayBtn:  1,
+	autoclose: 1,
+	todayHighlight: 1,
+	startView: 2,
+	minView: 2,
+	forceParse: 0,
+	format: 'yyyy-mm-dd'
+});
+</script>

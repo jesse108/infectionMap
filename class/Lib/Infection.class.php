@@ -2,7 +2,7 @@
 class Lib_Infection{
 	public static $error;
 	const INFECTION_STATUS_NORMAL = 0;
-	
+	const INFECTION_STATUS_DEL = 1;
 	
 	
 	///////////////工具方法
@@ -136,8 +136,20 @@ class Lib_Infection{
 	 * @param array $infectoin
 	 * 
 	 */
-	public static function DeleteInfectoin($infectoin){
+	public static function DeleteInfectoin($infection){
+		$condition = array(
+			'id' => $infection['id'],
+		);
+		$updateRow = array(
+			'status' => self::INFECTION_STATUS_DEL,
+		);
 		
+		$dbInfection = DB_Manage::createDBObj('infection');
+		$result = $dbInfection->update($condition, $updateRow);
+		if(!$result){
+			System::AddError($dbInfection->error,System::MESSAGE_SYS);
+		}
+		return $result;
 	}
 	
 

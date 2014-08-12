@@ -1,4 +1,4 @@
 <?php
-class DB_Location extends DB_Model{
+class DB_Location extends DB_ModelBase{
 	public $tableName = 'location';
 }

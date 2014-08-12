@@ -11,6 +11,10 @@ if($id){
 		System::SetError('传染病ID不正确,请从正确入口进入~');
 		Utility::Redirect();
 	}
+} else {
+	$infection = array(
+		'cname' => $_REQUEST['cname'],
+	);
 }
 
 if($_POST){
@@ -24,8 +28,9 @@ if($_POST){
 		'susceptible_pop' => $_POST['susceptible_pop'],
 		'infection_path' => $_POST['infection_path'],
 		'judge_standard' => $_POST['judge_standard'],
-		'prevention' => $_POST['prevention'],
-		'treatment' => $_POST['treatment'],
+		'prevention' => strval($_POST['prevention']),
+		'treatment' => strval($_POST['treatment']),
+		'comment' => $_POST['comment'],
 	);
 	
 	if($id){

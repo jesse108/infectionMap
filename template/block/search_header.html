@@ -1,0 +1,21 @@
+{include file="html_header.html"}
+<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+
+<div class="header">
+	<div class="wrap">
+		<div class="tip"><a href="#">管理员登陆</a></div>
+	</div>
+</div>
+
+<div class="wrap search">
+	<h1><img src="/static/img/ims-logo.png" alt="">港口传染病地图</h1>
+
+	<div class="main">
+		<form action="/search/index.php" method="get" id="search_form">
+			<input type="text" class="ainput" id="keyword" name="keyword" value="{$keyword}">
+			<input type="hidden" value="" name="type" />
+			<input type="button" value="搜疾病" class="btn abtn" onclick="search_submit(1)">
+			<input type="button" value="搜地点" class="btn bbtn" onclick="search_submit(2)">
+		</form>
+	</div>
+</div>

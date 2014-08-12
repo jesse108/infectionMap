@@ -1,87 +1,106 @@
 {include file="header.html"}
-<div class="main_content">
-<h3>新增传染病</h3>
-
-<div class="">
-	<form action="/infection/update.php" method="post">
-	<table class="input_table" >
-		{if $id}
-			<input type="hidden" name="id" value="{$id}"/>
-		{/if}
-		<tr>
-			<td>
-				<span>传染病名称</span>
-				<input type="text" class="form-control" name="cname" value="{$infection['cname']}"/>
-			</td>
-
-			<td>
-				<span>传染病英文名</span>
-				<input type="text" class="form-control" name="ename" value="{$infection['ename']}"/>
-			</td>
-
-		</tr>
-		<tr>
-			<td>
-				<span>病原体名称</span>
-				<input type="text" class="form-control" name="pathogen_cname" value="{$infection['pathogen_cname']}"/>
-			</td>
-
-			<td>
-				<span>病原体英文名</span>
-				<input type="text" class="form-control" name="pathogen_ename" value="{$infection['pathogen_ename']}"/>
-			</td>
-			<td>
-				<span>分类学地位</span>
-				<input type="text" class="form-control" name="taxonomy" value="{$infection['taxonomy']}"/>
-			</td>
-		</tr>
-
-		<tr>
-			<td>
-				<span>传染源</span>
-				<input type="text" class="form-control" name="infection_source" value="{$infection['infection_source']}"/>
-			</td>
-
-			<td>
-				<span>易感人群</span>
-				<input type="text" class="form-control" name="susceptible_pop" value="{$infection['susceptible_pop']}"/>
-			</td>
-			<td>
-				<span>传染途径</span>
-				<input type="text" class="form-control" name="infection_path" value="{$infection['infection_path']}"/>
-			</td>
-		</tr>
-
-		<tr>
+<div class="wrap">
+	<div class="form-wrap">
+		<h2>新增传染病</h2>
+		<form action="/infection/update.php" id="infection_form" method="post">
+			{if $id}
+				<input type="hidden" name="id" value="{$id}"/>
+			{/if}
 			
-			<td colspan=3> 
-				<span>诊断标准</span>
-				<textarea class="form-control" rows="3" name="judge_standard">{$infection['judge_standard']}</textarea>
-			</td>
-		</tr>
+			<div class="row">
+				<div class="afield">
+					<label for="iName" class="t">传染病名称</label>
+					<div class="main">
+						<input type="text" class="ainput" name="cname" value="{$infection['cname']}" id="cname">
+					</div>
+				</div>
+				
+				<div class="afield">
+					<label for="iEnName" class="t">传染病英文名称</label>
+					<div class="main">
+						<input type="text" class="ainput" name="ename" value="{$infection['ename']}" id="iEnName">
+					</div>
+				</div>
 
-		<tr>
+			</div>
+
+			<div class="row">
+				<div class="afield">
+					<label for="pathogenName" class="t">病原体名称</label>
+					<div class="main">
+						<input type="text" class="ainput" name="pathogen_cname" value="{$infection['pathogen_cname']}" id="pathogenName">
+					</div>
+				</div>
+				
+				<div class="afield">
+					<label for="pathogenEnName" class="t">病原体英文</label>
+					<div class="main">
+						<input type="text" class="ainput" name="pathogen_ename" value="{$infection['pathogen_ename']}" id="pathogenEnName">
+					</div>
+				</div>
+
+				<div class="afield lastAfield">
+					<label for="Taxonomy" class="t">分类学地位</label>
+					<div class="main">
+						<input type="text" class="ainput" name="taxonomy" value="{$infection['taxonomy']}" id="Taxonomy">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="afield">
+					<label for="sources" class="t">传染源</label>
+					<div class="main">
+						<input type="text" class="ainput" name="infection_source" value="{$infection['infection_source']}" id="sources">
+					</div>
+				</div>
+				<div class="afield">
+					<label for="Susceptible" class="t">易感人群</label>
+					<div class="main">
+						<input type="text" class="ainput" name="susceptible_pop" value="{$infection['susceptible_pop']}" id="Susceptible">
+					</div>
+				</div>
+
+				<div class="afield lastAfield">
+					<label for="transmission" class="t">传播途径</label>
+					<div class="main">
+						<input type="text" class="ainput" name="infection_path" value="{$infection['infection_path']}" id="transmission">
+					</div>
+				</div>
+			</div>
+
+			<div class="line">
+				<div class="afield">
+					<label for="stander" class="t">诊断标准</label>
+					<div class="main">
+						<textarea name="judge_standard" id="standard" cols="30" rows="5">{$infection['judge_standard']}</textarea>
+					</div>
+				</div>
+			</div>
 			
-			<td colspan=3> 
-				<span>预防措施</span>
-				<textarea class="form-control" rows="3" name="prevention">{$infection['prevention']}</textarea>
-			</td>
-		</tr>
-
-		<tr>
+						<div class="line">
+				<div class="afield">
+					<label for="stander" class="t">预防措施</label>
+					<div class="main">
+						<textarea name="prevention" id="prevention" cols="30" rows="5">{$infection['prevention']}</textarea>
+					</div>
+				</div>
+			</div>
 			
-			<td colspan=3> 
-				<span>治疗措施</span>
-				<textarea class="form-control" rows="3" name="treatment">{$infection['treatment']}</textarea>
-			</td>
-		</tr>
-
-	</table>
-
-	<input type="submit" value="提交">
-	</form>
-</div>
+						<div class="line">
+				<div class="afield">
+					<label for="stander" class="t">治疗措施</label>
+					<div class="main">
+						<textarea name="treatment" id="treatment" cols="30" rows="5">{$infection['treatment']}</textarea>
+					</div>
+				</div>
+			</div>
 
 
+			<div class="btn-c">
+				<input type="submit" value="完成" class="btn sBtn">
+			</div>
+		</form>
+	</div>
 </div>
 {include file="footer.html"}

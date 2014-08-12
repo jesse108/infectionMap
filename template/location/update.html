@@ -1,116 +1,117 @@
 {include file="header.html"}
-<div class="main_content">
-<h3>{if $id}修改{else}新增{/if} 地点</h3>
+<link rel="stylesheet" type="text/css" href="/static/css/place.css">
 
-	<div class="">
+<div class="wrap addPlace">
+	<div class="form-wrap">
+		<h2>创建地点</h2>
 		<form action="/location/update.php" method="post">
-		<table class="input_table" >
-			{if $id}
-				<input type="hidden" name="id" value="{$id}"/>
-			{/if}
-			<tr>
-				<td>
-					<span>地点名称</span>
-					<input type="text" class="form-control" name="cname" value="{$location['cname']}"/>
-				</td>
-
-				<td>
-					<span>洲际</span>
-					<select class="form-control" name="continent_id" id="continent_id" onchange="changeContinent();">
+		{if $id}
+			<input type="hidden" name="id" value="{$id}"/>
+		{/if}
+		<div class="row">
+			<div class="afield">
+				<label for="placeName" class="t">地点名称</label>
+				<div class="main">
+					<input type="text" class="ainput" name="cname" id="placeName" value="{$location['cname']}" />
+				</div>
+			</div>
+			<div class="afield">
+				<label for="intercontinental" class="t">洲际</label>
+				<div class="main">
+					<select name="intercontinental" id="continent_id" name="continent_id" onchange="changeContinent();">
 						<option value="0"></option>
 						{foreach $allLocations as $curLocation}
 						<option value="{$curLocation['id']}" {if $curLocation['id'] == $continentID} selected {/if}>{$curLocation['cname']}</option>
 						{/foreach}
 					</select>
-				</td>
+				</div>
+			</div>
 
-				<td>
-					<span>国家</span>
-					<select class="form-control" name="country_id" id="country_id" onchange="changeCountry();">
-
+			<div class="afield lastAfield">
+				<label for="country" class="t">国家</label>
+				<div class="main">
+					<select name="country_id" id="country_id" onchange="changeCountry();">
+					
 					</select>
-				</td>
-			</tr>
+				</div>
+			</div>
+		</div>
 
-			<tr>
-				<td colspan=3>
-					<div id="map_container"></div>
-				</td>
-			</tr>
+		<div class="line">
+			<div class="afield">
+				<label class="t">请在地图上标记</label>
+				<div class="main">
+					<div id="mapContainer">
+						
+					</div>
+				</div>
+			</div>
+		</div>
 
-			<tr>
-				<td>
- 					经度 <input type="text" name="lng" id="lngX" readonly value="{$location['lng']}"/>
-				</td>
+		<div class="line">
+			<div class="afield">
+				<label for="introduction" class="t">地点介绍</label>
+				<div class="main">
+					<textarea name="info" id="introduction" cols="30" rows="5">{$location['info']}</textarea>
+					<input type="hidden" name="lng" id="lngX" value="{$location['lng']}">
+					<input type="hidden" name="lat" id="latY" value="{$location['lat']}">
+				</div>
+			</div>
+		</div>
 
-				<td>
-					维度 <input type="text" name="lat" id="latY" readonly value="{$location['lat']}" />
-				</td>
-			</tr>
-
-			<tr>
-
-				<td colspan=3>
-					<span>地点介绍</span>
-					<textarea rowspan=3 name="info" class="form-control">{$location['info']} </textarea>
-				</td>
-			</tr>
-
-			<tr>
-
-				<td colspan=3>
-					<span>其他备注</span>
-					<textarea rowspan=3 name="comment" class="form-control">{$location['comment']} </textarea>
-				</td>
-			</tr>
-
-		</table>
-		
-		
-
-		<input type="submit" value="提交" class="btn"/>
-		{if $id}
-		<a class="btn btn-success" href="/location/update.php"> 创建新地点</a>
-		{/if}
+		<div class="btn-c">
+			<input type="submit" value="完成" class="btn sBtn">
+			<a href="/"><input type="button" value="取消" class="btn cBtn"/></a>
+		</div>
 		</form>
-
-	</div>	
+	</div>
 </div>
-
 {include file="footer.html"}
-
-<script src="http://webapi.amap.com/maps?v=1.3&key=52eb0ee17d59916ec379c4a7f0cdefed" type="text/javascript"></script>
-
+<script src="http://webapi.amap.com/maps?v=1.3&key=dbb6bc63f724a1f9099ecd0a6acf3871" type="text/javascript"></script>
+<script type="text/javascript" src="/static/js/html_tools.js"></script>
 <script type="text/javascript">
 var mapObj;
-mapInit();
-
+var marker;
 var allLocations = {json_encode($allLocations)};
-{if $continentID}
-buildCityOption(allLocations[{$continentID}]['sub'],{$countryID});
-{/if}
+
+$(function(){
+	{if $continentID}
+	buildCityOption(allLocations[{$continentID}]['sub'],{$countryID});
+	{/if}
+	
+	mapInit();
+});
 
 
-//初始化地图对象，加载地图
 function mapInit(){
-     mapObj = new AMap.Map("map_container",{
-        //二维地图显示视口
+    mapObj = new AMap.Map("mapContainer",{
         view: new AMap.View2D({
             center:new AMap.LngLat({$location['lng']},{$location['lat']}),//地图中心点
             zoom:4 //地图显示的缩放级别
-        })
-    }); 
-     
-    //为地图注册click事件获取鼠标点击出的经纬度坐标
-    var clickEventListener=AMap.event.addListener(mapObj,'click',function(e){
-        document.getElementById("lngX").value=e.lnglat.getLng();
-        document.getElementById("latY").value=e.lnglat.getLat(); 
+        })	
     });
+    marker = new AMap.Marker({                 
+      map:mapObj,                 
+      icon:"/static/img/icon_maker.png",                 
+      offset:new AMap.Pixel(-9,-32)               
+    });
+    AMap.event.addListener(mapObj,'click',getLnglat); 
 }
+
+function getLnglat(e){ 
+    document.getElementById("lngX").value=e.lnglat.getLng(); 
+    document.getElementById("latY").value=e.lnglat.getLat(); 
+
+    var lnglat = e.lnglat;
+    marker.setPosition(lnglat);
+   	mapObj.setCenter(lnglat);  
+}
+
 
 function changeContinent(){
 	continent_id = $("#continent_id").val();
 	continent = allLocations[continent_id];
+	dump(continent_id);
 	if(continent){
 		lat = continent['lat'];
 		lng = continent['lng'];

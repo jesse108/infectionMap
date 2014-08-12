@@ -1,10 +1,60 @@
 {include file="header.html"}
-<div class="main_content">
-	<div class="normal_block" id="table_show"></div>
+<link rel="stylesheet" href="/static/css/infectious.css">
+<div class="wrap iList">
+	<div class="itable">
+		<div class="btn-l">
+			<a href="/infection/update.php" class="btn" target="_blank">新增传染病</a>
+		</div>
+
+		<table>
+			<thead>
+				<tr>
+					<td>传染病名称</td>
+					<td>传染病英文</td>
+					<td>病原体名称</td>
+					<td>病原体英文</td>
+					<td>分类学地位</td>
+					<td>操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				{foreach $infections as $infection}
+				<tr id="infection_{$infection['id']}">
+					<td>{$infection['cname']}</td>
+					<td>{$infection['ename']}</td>
+					<td>{$infection['pathogen_cname']}</td>
+					<td>{$infection['pathogen_ename']}</td>
+					<td>{$infection['taxonomy']}</td>
+					<td>
+						<a href="/infection/update.php?id={$infection['id']}" target="_blank" class="icon icon_edit"></a>
+						<a href="javascript:void(0);" class="icon icon_delete" onclick="delInfection({$infection['id']});"></a>
+					</td>
+				</tr>
+				{/foreach}
+
+			</tbody>
+		</table>
+	</div>
 </div>
+
 {include file="footer.html"}
 
 <script>
-var infections = {json_encode($infections)};
+var delInfectionUrl = "/api.php?action=infection&method=del";
 
+function delInfection(infectionID){
+	var conRes = confirm('你确定要删除此疾病吗, 这样会丢失数据!!!');
+	if(!conRes){
+		return false;
+	}
+	var url = delInfectionUrl + "&infection_id=" + infectionID;
+	$.getJSON(url,function(json){
+		if(json['code'] != 22000){
+			alert(json['message']);
+			return false;
+		}
+		
+		$("#infection_"+infectionID).fadeOut();
+	});
+}
 </script>
