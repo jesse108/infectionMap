@@ -2,6 +2,8 @@
 //核心文件
 session_start();
 ini_set('precision', 16);  //这只浮点型精度
+error_reporting(E_ERROR);//报告错有错误 上线的时候需要关闭
+
 define('ROOT_PATH', dirname(__FILE__));
 define('LIB_PATH', ROOT_PATH.'/lib');
 define('CLASS_PATH', ROOT_PATH.'/class');
