@@ -1,4 +1,5 @@
 conf/db.conf.php
+temp/*
 
 # Compiled Object files
 *.slo
