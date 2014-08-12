@@ -8,11 +8,19 @@
 $dbConfig = array();
 ////主数据库
 $dbConfig['rw'] = array(
-	'host' => 'localhost',
-	'user' => 'root',
-	'password' => '123456',
-	'name' => 'teemo', //库名
+	'host' => '115.28.23.17',
+	'user' => 'infection_test',
+	'password' => '123456w',
+	'name' => 'infection_map_test',//'dachequ',
 );
 
+
+//只读数据库
+$dbConfig['ro'] = array(
+	'host' => '115.28.23.17',
+	'user' => 'infection_test',	
+	'password' => '123456w',
+	'name' => 'infection_map_test',//'dachequ',
+);
 
 $config['db'] = $dbConfig;
