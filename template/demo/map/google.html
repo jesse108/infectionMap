@@ -1,72 +1,77 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
    <head>
-      <title></title>
+      <title>Pushpin Clustering</title>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-      <script type="text/javascript" src="http://dev.ditu.live.com/mapcontrol/mapcontrol.ashx?v=6.2"></script>
+      <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6.3"></script>
 
       <script type="text/javascript">
+         
          var map = null;
-         var index = 0;
-         var results = null;
+
+         var p1 = new VELatLong(45.01115,-111.06687);
+         var p2 = new VELatLong(45.01116,-111.06687);
+         var p3 = new VELatLong(45.01117,-111.06687);
+         var p4 = new VELatLong(45.01118,-111.06687);
+
+         var layer = null;         
 
          function GetMap()
-         {
+         {  
             map = new VEMap('myMap');
+            
             map.LoadMap();
+
+    
          }
-          
-         function FindLoc(numResults)
-         {
-            try
-            {
-               results = map.Find(document.getElementById('txtWhat').value,
-                                  document.getElementById('txtWhere').value,
-                                  null,
-                                  null,
-                                  index,
-                                  numResults,
-                                  true,
-                                  true,
-                                  true,
-                                  true,
-                                  MoreResults);
-                index = parseInt(index)+9;
-            }
-            catch(e)
-            {
-               alert(e.message);
-            }
-         }
+
+         function AddLayer()
+         {     
+            layer = new VEShapeLayer();
+            layer.SetTitle("Clustered Pushpins");
+            
+            p1Shape = new VEShape(VEShapeType.Pushpin, p1);
+            p2Shape = new VEShape(VEShapeType.Pushpin, p2);
+            p3Shape = new VEShape(VEShapeType.Pushpin, p3);
+            p4Shape = new VEShape(VEShapeType.Pushpin, p4);
+
+            // Add the pushpins to the map
+            layer.AddShape(p1Shape);
+            layer.AddShape(p2Shape);
+            layer.AddShape(p3Shape);
+            layer.AddShape(p4Shape);
+
+            //Specifying clustering
+            layer.SetClusteringConfiguration(VEClusteringType.Grid);
+            
+            map.AddShapeLayer(layer);
+
+            //Set the map view and zoom out to see the clustering
+            map.SetMapView(new Array(p1, p2, p3, p4));
+            map.SetZoomLevel(14);
+            
+        }
         
-         function MoreResults(layer, resultsArray, places, hasMore, veErrorMessage)
-         {
-            if(hasMore)
-            {
-               var r = "<a href='#' onclick='javascript:FindLoc(parseInt(document.getElementById('txtNumResults').value));'>" +
-                       "Click for More Results</a>";
-               document.getElementById('results').innerHTML = r;
-            }
-            else
-            {
-               index=0;
-               number=Number(document.getElementById('txtNumResults').value); 
-               document.getElementById('results').innerHTML = "";
-               document.getElementById('results').innerHTML = "No More Results Available";
-            }
-         }
+        function GetClusteredShapes()
+        {  
+           var clusterShapes = new Array();
+           clusterShapes = layer.GetClusteredShapes(VEClusteringType.Grid);
+           alert("The pushpins can be clustered into " + clusterShapes.length + " shapes.");
+
+           if(clusterShapes.length != 0)
+           {
+              var cluster1Count = clusterShapes[0].Shapes.length;
+              alert("There are " + cluster1Count + " pushpins in the first cluster.");
+           }
+           
+        }
+
       </script>
    </head>
-   <body onload="GetMap();" style="font-family:Arial">
-      <div id='myMap' style="position:relative; width:400px; height:400px;"></div>
-      What:
-      <input id="txtWhat" type="text" name="txtWhat" value="Pizza"/>
-      <br />
-      Where:
-      <input id="txtWhere" type="text" name="txtWhere" value="Toledo, OH"/>
-      Number of Results:
-      <input id="txtNumResults" name="txtNumResults" type="text" maxlength="2" style="width: 37px" value="10" />
-      <input id="find" type="button" value="Find" name="find" onclick="FindLoc(document.getElementById('txtNumResults').value);"/>
-      <div id="results"></div>
+   <body onload="GetMap();">
+      <div id='myMap' style="position:relative; width:600px; height:400px;"></div>
+      <input type="button" name="btnAddLayer" value="Add Clustered Pushpins" onclick="AddLayer();"/>
+      <input type="button" name="btnGetClusteredShapes" value="Get the Clustered Shapes" onclick="GetClusteredShapes();"/>
    </body>
+</html>

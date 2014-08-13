@@ -41,7 +41,7 @@
 			<div class="afield">
 				<label class="t">请在地图上标记</label>
 				<div class="main">
-					<div id="mapContainer">
+					<div id="mapContainer" style="position:relative;width:588px; height:280px;">
 						
 					</div>
 				</div>
@@ -67,12 +67,18 @@
 	</div>
 </div>
 {include file="footer.html"}
-<script src="http://webapi.amap.com/maps?v=1.3&key=dbb6bc63f724a1f9099ecd0a6acf3871" type="text/javascript"></script>
+
 <script type="text/javascript" src="/static/js/html_tools.js"></script>
+
+
+<script src="http://webapi.amap.com/maps?v=1.3&key=dbb6bc63f724a1f9099ecd0a6acf3871" type="text/javascript"></script>
+<script type="text/javascript" src="http://dev.ditu.live.com/mapcontrol/mapcontrol.ashx?v=6.2"></script>
+
+
+<script type="text/javascript" src="/static/js/bing/location_update.js"></script>
+
+
 <script type="text/javascript">
-var mapObj;
-var marker;
-var locationSearch;
 var allLocations = {json_encode($allLocations)};
 
 $(function(){
@@ -80,86 +86,9 @@ $(function(){
 	buildCityOption(allLocations[{$continentID}]['sub'],{$countryID});
 	{/if}
 	
-	mapInit();
+	mapInit({$location['lng']},{$location['lat']});
 	
 });
-
-/////////////map
-function mapInit(){
-    mapObj = new AMap.Map("mapContainer",{
-        view: new AMap.View2D({
-            center:new AMap.LngLat({$location['lng']},{$location['lat']}),//地图中心点
-            zoom:4 //地图显示的缩放级别
-        })	
-    });
-    marker = new AMap.Marker({                 
-      map:mapObj,                 
-      icon:"/static/img/icon_maker.png",                 
-      offset:new AMap.Pixel(-9,-32)               
-    });
-    AMap.event.addListener(mapObj,'click',getLnglat); 
-    
-    mapObj.plugin(["AMap.DistrictSearch"], function() {
-        var opts = {
-            subdistrict: 0,   
-            extensions: 'base',
-            level:'city'
-        };
-   
-        locationSearch = new AMap.DistrictSearch(opts); //查询成功时的回调函数，定义如何展示请求返回结果
-        AMap.event.addListener(locationSearch, 'complete', function(e){
-        	var city = e['districtList'][0];
-        	var lat = city['center']['lat'];
-        	var lng = city['center']['lng'];
-        	var pos = new AMap.LngLat(lng,lat);
-        	mapObj.setZoom(7);
-        	mapObj.setCenter(pos);
-        	marker.setPosition(pos);
-        });
-        
-    });
-}
-
-function getLnglat(e){ 
-    document.getElementById("lngX").value=e.lnglat.getLng(); 
-    document.getElementById("latY").value=e.lnglat.getLat(); 
-
-    var lnglat = e.lnglat;
-    marker.setPosition(lnglat);
-   	mapObj.setCenter(lnglat);  
-}
-
-
-function citySearch(){
-	var cityName = $('#cname').val();
-	if(cityName){
-		locationSearch.search(cityName);
-	}
-}
-///////////////map end
-
-function changeContinent(){
-	continent_id = $("#continent_id").val();
-	continent = allLocations[continent_id];
-	dump(continent_id);
-	if(continent){
-		lat = continent['lat'];
-		lng = continent['lng'];
-		showLocationChange(lng,lat);
-		buildCityOption(continent['sub']);
-	}
-}
-
-function changeCountry(){
-	continent_id = $("#continent_id").val();
-	country_id = $("#country_id").val();
-	country = allLocations[continent_id]['sub'][country_id];
-	if(country){
-		lat = country['lat'];
-		lng = country['lng'];
-		showLocationChange(lng,lat);
-	}
-}
 
 function buildCityOption(citys,select_id){
 	var html = '';
@@ -178,9 +107,27 @@ function buildCityOption(citys,select_id){
 	$('#country_id').html(html);
 }
 
-
-function showLocationChange(lng,lat){
-	mapObj.setZoomAndCenter(4,new AMap.LngLat(lng,lat));
+function changeContinent(){
+	continent_id = $("#continent_id").val();
+	continent = allLocations[continent_id];
+	if(continent){
+		lat = continent['lat'];
+		lng = continent['lng'];
+		showLocationChange(lng,lat);
+		buildCityOption(continent['sub']);
+	}
 }
+
+function changeCountry(){
+	continent_id = $("#continent_id").val();
+	country_id = $("#country_id").val();
+	country = allLocations[continent_id]['sub'][country_id];
+	if(country){
+		lat = country['lat'];
+		lng = country['lng'];
+		showLocationChange(lng,lat,1);
+	}
+}
+
 
 </script>
