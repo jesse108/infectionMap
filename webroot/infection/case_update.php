@@ -17,7 +17,6 @@ if($id){
 	}
 }
 
-
 $allLocations = Lib_Location::GetAllLocation();
 $allInfections = Lib_Infection::GetALLInfection();
 
@@ -36,15 +35,13 @@ if($_POST){
 		'ill_rate' => doubleval($_POST['ill_rate']),
 		'comment' => $_POST['comment'],
 	);
-	
 	if($id){
 		$result = Lib_InfectionCase::Update($infectionCase, $oldInfectionCase);
 	} else {
 		$result = $id = Lib_InfectionCase::Create($infectionCase);
 	}
-	
 	if($result){
-		System::AddNotice("更新成功");
+		System::AddNotice("更新成功, <a href='/infection/case_update.php?location_id={$locationID}&infection_id={$infectionID}'> 创建新纪录 </a>");
 		Utility::Redirect("/infection/case_update.php?id={$id}");
 	}
 }

@@ -20,7 +20,7 @@
 			<tbody>
 				{foreach $infections as $infection}
 				<tr id="infection_{$infection['id']}">
-					<td>{$infection['cname']}</td>
+					<td><a href="/infection/detail.php?id={$infection['id']}" target="_blank">{$infection['cname']}</a></td>
 					<td>{$infection['ename']}</td>
 					<td>{$infection['pathogen_cname']}</td>
 					<td>{$infection['pathogen_ename']}</td>

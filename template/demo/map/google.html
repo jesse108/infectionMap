@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+   <head>
+      <title></title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+      <script type="text/javascript" src="http://dev.ditu.live.com/mapcontrol/mapcontrol.ashx?v=6.2"></script>
+
+      <script type="text/javascript">
+         var map = null;
+         var index = 0;
+         var results = null;
+
+         function GetMap()
+         {
+            map = new VEMap('myMap');
+            map.LoadMap();
+         }
+          
+         function FindLoc(numResults)
+         {
+            try
+            {
+               results = map.Find(document.getElementById('txtWhat').value,
+                                  document.getElementById('txtWhere').value,
+                                  null,
+                                  null,
+                                  index,
+                                  numResults,
+                                  true,
+                                  true,
+                                  true,
+                                  true,
+                                  MoreResults);
+                index = parseInt(index)+9;
+            }
+            catch(e)
+            {
+               alert(e.message);
+            }
+         }
+        
+         function MoreResults(layer, resultsArray, places, hasMore, veErrorMessage)
+         {
+            if(hasMore)
+            {
+               var r = "<a href='#' onclick='javascript:FindLoc(parseInt(document.getElementById('txtNumResults').value));'>" +
+                       "Click for More Results</a>";
+               document.getElementById('results').innerHTML = r;
+            }
+            else
+            {
+               index=0;
+               number=Number(document.getElementById('txtNumResults').value); 
+               document.getElementById('results').innerHTML = "";
+               document.getElementById('results').innerHTML = "No More Results Available";
+            }
+         }
+      </script>
+   </head>
+   <body onload="GetMap();" style="font-family:Arial">
+      <div id='myMap' style="position:relative; width:400px; height:400px;"></div>
+      What:
+      <input id="txtWhat" type="text" name="txtWhat" value="Pizza"/>
+      <br />
+      Where:
+      <input id="txtWhere" type="text" name="txtWhere" value="Toledo, OH"/>
+      Number of Results:
+      <input id="txtNumResults" name="txtNumResults" type="text" maxlength="2" style="width: 37px" value="10" />
+      <input id="find" type="button" value="Find" name="find" onclick="FindLoc(document.getElementById('txtNumResults').value);"/>
+      <div id="results"></div>
+   </body>

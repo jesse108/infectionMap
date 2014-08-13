@@ -5,22 +5,26 @@
 		<div class="l-content">
 			<div id="mapContainer"></div><!-- 地图容器 -->
 			<div class="quickT">
-					<select name="continent_id" id="intercontinental" onchange="changeLocation(1);">
+				<form action="/infection/case_update.php" method="get" target="_blank">
+					<input type="hidden" name="infection_id" value="{$infection['id']}" />
+				
+					<select name="continent_id" id="continent_id" onchange="changeContinent();">
 						<option value="0">选择大洲</option>
-					{foreach $locations as $location}
-						<option value="{$location['id']}">{$location['cname']}</option>
+					{foreach $allLocations as $contient}
+						<option value="{$contient['id']}">{$contient['cname']}</option>
 					{/foreach}
 					</select>
 					
-					<select id="country_id" class="form-control" onchange="changeLocation(2);">
+					<select id="country_id" name="country_id" class="form-control" onchange="changeCountry();">
 						<option value="0">选择国家</option>
 					</select>
 					
-					<select id="city_id" class="form-control" onchange="changeLocation(3);">
+					<select id="city_id" name="location_id" class="form-control">
 						<option value="0">选择城市</option>
 					</select>
 
-					<a href="/infection/case_update.php?infection_id={$infection['id']}"><button class="btn">新增发病记录</button></a>
+					<input type="submit"  value="新增发病记录"  class="btn" />
+				</form>
 			</div>
 			
 			<div class="itable">
@@ -122,33 +126,117 @@
 {include file="footer.html"}
 <script src="http://webapi.amap.com/maps?v=1.3&key=dbb6bc63f724a1f9099ecd0a6acf3871" type="text/javascript"></script>
 <script type="text/javascript">
+var caseLocations = {json_encode($caseLoctions)};
+var cases = {json_encode($infectionCases)};
 var mapObj;
 var markers = [];
+var allLocations = {json_encode($allLocations)};
+
 $(function(){
 	mapInit();
 	// map click handler
 });
 	
-//初始化地图对象，加载地图
+//start map
 function mapInit(){
-    mapObj = new AMap.Map("mapContainer");
+    mapObj = new AMap.Map("mapContainer",{
+    	zoom:2//地图显示的缩放级别
+    });
+    markMapInArea(allLocations);
+}
 
-    for(var i=0; i<10; i++){  //伪造数据
-    	var marker = new AMap.Marker({                 
-	      map:mapObj,                 
-	      icon:"/static/img/icon_maker.png",                 
-	      offset:new AMap.Pixel(-9,-32),
-	      position:new AMap.LngLat(116-i*0.08, 40)   // 构造坐标集合          
-	    });
-	    markers[i] = marker;
-    }
 
+function markMapInArea(locations){
+	var curLocation;
+	var curLocationID;
 	
-	mapObj.plugin(["AMap.MarkerClusterer"],function() {
-	    cluster = new AMap.MarkerClusterer(mapObj,markers);
+	if(!locations){
+		return false;
+	}
+
+	var locationIDs = [];
+	locationIDs = Util_Array.GetColunm(locations,'id','sub');
+	
+	for(var i in cases){
+		curLocationID = cases[i]['location_id'];
+		if(in_array(curLocationID,locationIDs)){
+			curLocation = caseLocations[curLocationID];
+			if(curLocation){
+				mapAddTag(curLocation['lng'],curLocation['lat']);
+			}
+		}
+	}
+	showTag();
+	mapObj.setCenter(new AMap.LngLat(curLocation['lng'], curLocation['lat']));
+}
+
+//向地图添加标点
+function mapAddTag(lng,lat){
+	var marker = new AMap.Marker({
+		position:new AMap.LngLat(lng,lat) ,//基点位置
+		icon:"/static/img/icon_maker.png" //marker图标，直接传递地址url
 	});
+	markers.push(marker);
+}
 
-	mapObj.setCenter(new AMap.LngLat(115.6, 40));
+//显示标点
+function showTag(){
+	mapObj.plugin(["AMap.MarkerClusterer"],function(){
+		cluster = new AMap.MarkerClusterer(mapObj,markers);
+	});
+}
 
+
+//清除标点
+function clearTag(){
+    if(cluster) {
+        cluster.setMap(null);
+    }
+	markers= [];
+}
+
+
+
+
+
+/////////////////////end map
+
+function changeContinent(){
+	continent_id = $("#continent_id").val();
+	continent = allLocations[continent_id];
+	if(continent){
+		buildLocationOption('country_id',continent['sub']);
+	}
+}
+
+function changeCountry(){
+	continent_id = $("#continent_id").val();
+	country_id = $("#country_id").val();
+	country = allLocations[continent_id]['sub'][country_id];
+	if(country){
+		buildLocationOption('city_id',country['sub']);
+	}
+}
+
+function buildLocationOption(locationID,locations,selectID){
+	var html = '';
+	html = " <option value='0'></option>";
+	for(var i in locations){
+		cur_id = locations[i]['id'];
+		cur_name = locations[i]['cname'];
+		if(selectID == cur_id){
+			select_html = "selected";
+		} else {
+			select_html = "";
+		}
+		cur_html = "<option value='"+cur_id+"'  "+select_html+">"+cur_name+"</option>";
+		html = html + cur_html;
+	}
+	$("#"+locationID).html(html);
+}
+
+
+function showLocationChange(lng,lat){
+	//mapObj.setZoomAndCenter(4,new AMap.LngLat(lng,lat));
 }
 </script>

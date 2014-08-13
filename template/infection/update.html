@@ -1,7 +1,7 @@
 {include file="header.html"}
 <div class="wrap">
 	<div class="form-wrap">
-		<h2>新增传染病</h2>
+		<h2>{if $id} 修改{else}新增{/if}传染病</h2>
 		<form action="/infection/update.php" id="infection_form" method="post">
 			{if $id}
 				<input type="hidden" name="id" value="{$id}"/>

@@ -12,7 +12,7 @@
 			<div class="afield">
 				<label for="placeName" class="t">地点名称</label>
 				<div class="main">
-					<input type="text" class="ainput" name="cname" id="placeName" value="{$location['cname']}" />
+					<input type="text" class="ainput" name="cname" id="cname" value="{$location['cname']}" onblur="citySearch();"/>
 				</div>
 			</div>
 			<div class="afield">
@@ -72,6 +72,7 @@
 <script type="text/javascript">
 var mapObj;
 var marker;
+var locationSearch;
 var allLocations = {json_encode($allLocations)};
 
 $(function(){
@@ -80,9 +81,10 @@ $(function(){
 	{/if}
 	
 	mapInit();
+	
 });
 
-
+/////////////map
 function mapInit(){
     mapObj = new AMap.Map("mapContainer",{
         view: new AMap.View2D({
@@ -96,6 +98,26 @@ function mapInit(){
       offset:new AMap.Pixel(-9,-32)               
     });
     AMap.event.addListener(mapObj,'click',getLnglat); 
+    
+    mapObj.plugin(["AMap.DistrictSearch"], function() {
+        var opts = {
+            subdistrict: 0,   
+            extensions: 'base',
+            level:'city'
+        };
+   
+        locationSearch = new AMap.DistrictSearch(opts); //查询成功时的回调函数，定义如何展示请求返回结果
+        AMap.event.addListener(locationSearch, 'complete', function(e){
+        	var city = e['districtList'][0];
+        	var lat = city['center']['lat'];
+        	var lng = city['center']['lng'];
+        	var pos = new AMap.LngLat(lng,lat);
+        	mapObj.setZoom(7);
+        	mapObj.setCenter(pos);
+        	marker.setPosition(pos);
+        });
+        
+    });
 }
 
 function getLnglat(e){ 
@@ -107,6 +129,14 @@ function getLnglat(e){
    	mapObj.setCenter(lnglat);  
 }
 
+
+function citySearch(){
+	var cityName = $('#cname').val();
+	if(cityName){
+		locationSearch.search(cityName);
+	}
+}
+///////////////map end
 
 function changeContinent(){
 	continent_id = $("#continent_id").val();

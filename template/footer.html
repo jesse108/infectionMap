@@ -15,5 +15,9 @@ $(function(){
 	$('body').on('click', function(event){
 		$('.d-menu').slideUp();
 	});
+	
+	$('.ui-icon-closethick').click(function(){
+		$(this).parents('.tooltip').hide();
+	});
 });
 </script>

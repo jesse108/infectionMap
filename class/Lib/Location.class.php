@@ -30,6 +30,18 @@ class Lib_Location{
 	
 	public static function Create($location){
 		$dbLocation = new DB_Location();
+		
+		//检查存在性
+		$condition = array(
+			'cname' => $location['cname'],
+			'parent_id' => $location['parent_id'],
+			'status' => self::STATUS_NORMAL,
+		);
+		if($dbLocation->exsits($condition)){
+			self::$error = "此城市已经存在,请查准~";
+			return false;
+		}
+		
 		$id = $dbLocation->create($location);
 		if(!$id){
 			self::$error = $dbLocation->error;

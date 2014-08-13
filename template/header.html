@@ -15,3 +15,18 @@
 		</div>
 	</div>
 </div>
+
+{if $successMsg = System::GetNotice()}
+<div class="tooltip suctip">
+	<span class="tc">{$successMsg}</span>
+	<span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span>
+</div>
+{/if}
+
+
+{if $errorMsg = System::GetError()}
+<div class="tooltip errtip">
+	<span class="tc">{$errorMsg}</span>
+	<span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span>
+</div>
+{/if}

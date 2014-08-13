@@ -50,31 +50,34 @@ if($_POST){
 	$continentID = $_POST['continent_id'];
 	$countryID = $_POST['country_id'];
 	
-	if($countryID){
-		$location['parent_id'] = $countryID;
-		$location['level'] = Lib_Location::LEVEL_CITY;
-	} else if($continentID){
-		$location['parent_id'] = $continentID;
-		$location['level'] = Lib_Location::LEVEL_COUNTRY;		
+	if(!$countryID){
+		System::AddError('您必须选择一个国家');
 	} else {
-		$location['parent_id'] = 0;
-		$location['level'] = Lib_Location::LEVEL_CONTIENT;
-	}
-	if($id){
-		$result = Lib_Location::Update($location, $oldLocation);
-		if($result){
-			System::SetNotice('地点更新成功');
-			Utility::Redirect("/location/update.php?id={$id}");			
+		if($countryID){
+			$location['parent_id'] = $countryID;
+			$location['level'] = Lib_Location::LEVEL_CITY;
+		} else if($continentID){
+			$location['parent_id'] = $continentID;
+			$location['level'] = Lib_Location::LEVEL_COUNTRY;
+		} else {
+			$location['parent_id'] = 0;
+			$location['level'] = Lib_Location::LEVEL_CONTIENT;
 		}
-	} else {
-		$id = Lib_Location::Create($location);
 		if($id){
-			System::SetNotice('地点创建成功');
-			Utility::Redirect("/location/update.php?id={$id}");
+			$result = Lib_Location::Update($location, $oldLocation);
+			if($result){
+				System::SetNotice('地点更新成功');
+				Utility::Redirect("/location/update.php?id={$id}");
+			}
+		} else {
+			$id = Lib_Location::Create($location);
+			if($id){
+				System::SetNotice('地点创建成功' . " <a href='/location/update.php'>创建新的地点</a>");
+				Utility::Redirect("/location/update.php?id={$id}");
+			}
 		}
+		System::AddError('更新失败:'.Lib_Location::$error);
 	}
-	System::SetError('更新失败:'.Lib_Location::$error);
-	
 }
 
 $title = "创建修改地点";

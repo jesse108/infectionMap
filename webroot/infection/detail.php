@@ -45,4 +45,7 @@ $rowInfo = array(
 
 
 $headerTitle = $infection['cname'];
+
+$allLocations = Lib_Location::GetAllLocation();
+
 Template::Show();

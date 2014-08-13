@@ -375,7 +375,13 @@ a, a:hover{
     height: auto; padding-bottom: 25px;
 }
 .form-wrap .afield .t{
-    display: block; padding-bottom: 5px;
+    display: block; padding-bottom: 5px; overflow: hidden; clear:both;
+}
+.form-wrap .afield .t .tip{
+    float: right; display:block;
+}
+.form-wrap .afield .t .n{
+    float: left; display:block;
 }
 .form-wrap .row .afield{
     float: left; margin-right: 35px; *margin-right: 27px;
@@ -383,6 +389,9 @@ a, a:hover{
 .form-wrap .row .afield .ainput{
     width: 170px; height: 30px; line-height: 30px; border:1px solid #ddd; border-radius: 5px; text-indent: 5px;
     +height: 22px; +line-height: 22px;
+}
+.form-wrap .row .afield .dateInput{
+    width: 135px;
 }
 .form-wrap .row .afield select{
     width: 170px; height: 30px; padding: 3px 0; border:1px solid #ddd; border-radius: 5px; text-align: 5px;
@@ -405,6 +414,35 @@ a, a:hover{
 .form-wrap .cBtn{
     background: #ccc;
 }
+.form-wrap .icon-date{
+    display: inline-block; height: 21px; width: 21px; 
+    background: url(../img/icon-date.png) no-repeat; vertical-align: middle; margin-left: 1px;
+}
+
+.rNafield .t{
+    width: 170px;
+}
+
+.tooltip{
+    width: 668px; border: 1px solid #ddd; margin: 18px auto 0; background: #fff; text-align: center;
+    position: relative; padding: 10px 0; border-radius: 5px; height: 22px; line-height: 22px;
+}
+.tooltip .ui-icon-closethick{
+    position: absolute; top: 13px; right: 10px;
+}
+.suctip{
+    border: 1px solid #56b881; background:#c0f8d8;
+}
+.errtip{
+    border: 1px solid #ff0000; background:#ffd3d9;
+}
+
 #mapContainer{
     width: 588px; height: 245px; overflow: hidden; border:1px solid #ddd; border-radius: 5px; 
 }
+
+.ui-datepicker{
+    font-size: 12px; line-height: 1.6; color: #DDD;
+}
+
+

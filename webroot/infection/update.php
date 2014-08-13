@@ -48,7 +48,7 @@ if($_POST){
 			Utility::Redirect("/infection/update.php?id={$id}");
 		}
 	}
-	System::SetError("更新失败:" . Lib_Infection::GetError());
+	System::AddError("更新失败:" . Lib_Infection::GetError());
 }
 
 Template::Show();
