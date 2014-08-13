@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>添加疾病 | 港口传染病地图</title>
+	<link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+	<div class="header">
+		<div class="wrap">
+			<a class="btn reback" href="infectiousList.html">返回传染病列表</a>
+			<h1><img src="img/ims-logo.png" alt="">港口传染病地图</h1>
+			<div class="r-menu">
+				<a href="#" ><span class="username">admin</span><span class="role">(系统管理员)▼</span></a>
+				<a href="#">退出</a>
+			</div>
+			<div class="d-menu">
+				<ul>
+					<li><a href="#">修改密码</a></li>
+					<li><a href="#">退出</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="wrap">
+		<div class="form-wrap">
+			<h2>新增传染病</h2>
+			<form action="#" method="">
+				<div class="row">
+					<div class="afield">
+						<label for="iName" class="t">传染病名称</label>
+						<div class="main">
+							<input type="text" class="ainput" name="iname" id="iName">
+						</div>
+					</div>
+					<div class="afield">
+						<label for="iEnName" class="t">传染病英文名称</label>
+						<div class="main">
+							<input type="text" class="ainput" name="iEnName" id="iEnName">
+						</div>
+					</div>
+
+				</div>
+
+				<div class="row">
+					<div class="afield">
+						<label for="pathogenName" class="t">病原体名称</label>
+						<div class="main">
+							<input type="text" class="ainput" name="pathogenName" id="pathogenName">
+						</div>
+					</div>
+					<div class="afield">
+						<label for="pathogenEnName" class="t">病原体英文</label>
+						<div class="main">
+							<input type="text" class="ainput" name="pathogenName" id="pathogenEnName">
+						</div>
+					</div>
+
+					<div class="afield lastAfield">
+						<label for="Taxonomy" class="t">分类学地位</label>
+						<div class="main">
+							<input type="text" class="ainput" name="taxonomy" id="Taxonomy">
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="afield">
+						<label for="sources" class="t">传染源</label>
+						<div class="main">
+							<input type="text" class="ainput" name="sources" id="sources">
+						</div>
+					</div>
+					<div class="afield">
+						<label for="Susceptible" class="t">易感人群</label>
+						<div class="main">
+							<input type="text" class="ainput" name="susceptible" id="Susceptible">
+						</div>
+					</div>
+
+					<div class="afield lastAfield">
+						<label for="transmission" class="t">传播途径</label>
+						<div class="main">
+							<input type="text" class="ainput" name="transmission" id="transmission">
+						</div>
+					</div>
+				</div>
+
+				<div class="line">
+					<div class="afield">
+						<label for="stander" class="t">诊断标准</label>
+						<div class="main">
+							<textarea name="stander" id="stander" cols="30" rows="5"></textarea>
+						</div>
+					</div>
+				</div>
+
+				<div class="line">
+					<div class="afield">
+						<label for="iNote" class="t">备注</label>
+						<div class="main">
+							<textarea name="iNote" id="iNote" cols="30" rows="5"></textarea>
+						</div>
+					</div>
+				</div>
+
+				<div class="btn-c">
+					<input type="submit" value="完成" class="btn sBtn">
+				</div>
+			</form>
+		</div>
+	</div>
+
+<script type="text/javascript" src="js/lib/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var $dMenu = $('.d-menu');
+		$('.r-menu a:first').on('click', function(event){  // down menu slideDown and slideUp handler
+			event.preventDefault();
+			event.stopPropagation();
+
+			if($('.d-menu:visible').length > 0){
+				$dMenu.slideUp();
+			}else{
+				$dMenu.slideDown();
+			}
+		});
+		$('body').on('click', function(event){
+			$('.d-menu').slideUp();
+		});
+	});
+</script>
+</body>
+</html>

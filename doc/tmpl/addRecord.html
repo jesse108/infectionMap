@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>添加疾病 | 港口传染病地图</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/jquery-ui-1.9.2.custom.css">
+</head>
+<body>
+	<div class="header">
+		<div class="wrap">
+			<a class="btn reback" href="infectiousList.html">返回传染病列表</a>
+			<h1><img src="img/ims-logo.png" alt="">港口传染病地图</h1>
+			<div class="r-menu">
+				<a href="#" ><span class="username">admin</span><span class="role">(系统管理员)▼</span></a>
+				<a href="#">退出</a>
+			</div>
+			<div class="d-menu">
+				<ul>
+					<li><a href="#">修改密码</a></li>
+					<li><a href="#">退出</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div class="tooltip suctip">
+		<span class="tc">成功提示</span>
+		<span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span>
+	</div>
+
+	<div class="tooltip errtip">
+		<span class="tc">错误提示</span>
+		<span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span>
+	</div>
+	
+	<div class="wrap">
+		<div class="form-wrap">
+			<h2>增加新记录</h2>
+			<form action="#" method="">
+				<div class="row">
+					<div class="afield rNafield">
+						<label for="iName" class="t"><span class="n">传染病名称</span> <a href="infectious.html" class="tip">添加</a></label>
+						
+						<div class="main">
+							<select name="infectiousName" id="iName">
+								<option value="1">弩机</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="afield">
+						<label for="ibeginTime" class="t">发病起始于</label>
+						<div class="main">
+							<input type="text" class="ainput dateInput" name="ibeginTime" id="ibeginTime"> <i class="icon icon-date"></i>
+						</div>
+					</div>
+
+					<div class="afield lastAfield">
+						<label for="iendTime" class="t">发病起始于</label>
+						<div class="main">
+							<input type="text" class="ainput dateInput" name="iendTime" id="iendTime"> <i class="icon icon-date"></i>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="row">
+					<div class="afield">
+						<label for="incidencePeople" class="t">发病人数</label>
+						<div class="main">
+							<input type="text" class="ainput" name="incidencePeople" id="incidencePeople">
+						</div>
+					</div>
+					<div class="afield">
+						<label for="incidenceRate" class="t">发病率</label>
+						<div class="main">
+							<input type="text" class="ainput" name="incidenceRate" id="incidenceRate">
+						</div>
+					</div>
+
+				</div>
+
+				<div class="row">
+					<div class="afield">
+						<label for="beillPeople" class="t">患病人数</label>
+						<div class="main">
+							<input type="text" class="ainput" name="beillPeople" id="beillPeople">
+						</div>
+					</div>
+					<div class="afield">
+						<label for="beillRate" class="t">患病率</label>
+						<div class="main">
+							<input type="text" class="ainput" name="beillRate" id="Susceptible">
+						</div>
+					</div>
+
+				</div>
+
+				<div class="line">
+					<div class="afield">
+						<label for="iNote" class="t">备注</label>
+						<div class="main">
+							<textarea name="iNote" id="iNote" cols="30" rows="5"></textarea>
+						</div>
+					</div>
+				</div>
+
+				<div class="btn-c">
+					<input type="submit" value="完成" class="btn sBtn">
+					<input type="reset" value="取消" class="btn cBtn">
+				</div>
+			</form>
+		</div>
+	</div>
+
+<script type="text/javascript" src="js/lib/jquery.js"></script>
+<script type="text/javascript" src="js/lib/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.ui.datepicker-zh-CN.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var $dMenu = $('.d-menu');
+		$('.r-menu a:first').on('click', function(event){  // down menu slideDown and slideUp handler
+			event.preventDefault();
+			event.stopPropagation();
+
+			if($('.d-menu:visible').length > 0){
+				$dMenu.slideUp();
+			}else{
+				$dMenu.slideDown();
+			}
+		});
+		$('body').on('click', function(event){
+			$('.d-menu').slideUp();
+		});
+
+		$('.dateInput').datepicker();// 日历插件
+
+		$('.ui-icon-closethick').click(function(){
+			$(this).parents('.tooltip').hide();
+		});
+	});
+</script>
+</body>
+</html>

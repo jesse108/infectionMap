@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>添加疾病 | 港口传染病地图</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/infectious.css">
+</head>
+<body>
+	<div class="header">
+		<div class="wrap">
+			<a class="btn reback" href="search.html">返回首页</a>
+			<h1><img src="img/ims-logo.png" alt="">港口传染病地图</h1>
+			<div class="r-menu">
+				<a href="#" ><span class="username">admin</span><span class="role">(系统管理员)▼</span></a>
+				<a href="#">退出</a>
+			</div>
+			<div class="d-menu">
+				<ul>
+					<li><a href="#">修改密码</a></li>
+					<li><a href="#">退出</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="wrap iList">
+		<div class="itable">
+			<div class="btn-l">
+				<a href="infectious.html" class="btn">新增传染病</a>
+			</div>
+
+			<table>
+				<thead>
+					<tr>
+						<td>传染病名称</td>
+						<td>传染病英文</td>
+						<td>病原体名称</td>
+						<td>病原体英文</td>
+						<td>分类学地位</td>
+						<td>操作</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>疟疾</td>
+						<td>malaria</td>
+						<td>疟原虫</td>
+						<td>Plasmodium sp2</td>
+						<td>位于圭亚那东北沿海德梅拉</td>
+						<td>
+							<a href="infectious.html" class="icon icon_edit"></a>
+							<a href="infectious.html" class="icon icon_delete"></a>
+						</td>
+					</tr>
+
+					<tr>
+						<td>疟疾</td>
+						<td>malaria</td>
+						<td>疟原虫</td>
+						<td>Plasmodium sp2</td>
+						<td>位于圭亚那东北沿海德梅拉</td>
+						<td>
+							<a href="infectious.html" class="icon icon_edit"></a>
+							<a href="infectious.html" class="icon icon_delete"></a>
+						</td>
+					</tr>
+
+					<tr>
+						<td>疟疾</td>
+						<td>malaria</td>
+						<td>疟原虫</td>
+						<td>Plasmodium sp2</td>
+						<td>位于圭亚那东北沿海德梅拉</td>
+						<td>
+							<a href="infectious.html" class="icon icon_edit"></a>
+							<a href="infectious.html" class="icon icon_delete"></a>
+						</td>
+					</tr>
+
+					<tr>
+						<td>疟疾</td>
+						<td>malaria</td>
+						<td>疟原虫</td>
+						<td>Plasmodium sp2</td>
+						<td>位于圭亚那东北沿海德梅拉</td>
+						<td>
+							<a href="infectious.html" class="icon icon_edit"></a>
+							<a href="infectious.html" class="icon icon_delete"></a>
+						</td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+<script type="text/javascript" src="js/lib/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var $dMenu = $('.d-menu');
+		$('.r-menu a:first').on('click', function(event){  // down menu slideDown and slideUp handler
+			event.preventDefault();
+			event.stopPropagation();
+
+			if($('.d-menu:visible').length > 0){
+				$dMenu.slideUp();
+			}else{
+				$dMenu.slideDown();
+			}
+		});
+		$('body').on('click', function(event){
+			$('.d-menu').slideUp();
+		});
+
+		$('.itable tbody tr:even').addClass('even');
+	});
+</script>
+</body>
+</html>

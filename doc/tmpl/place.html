@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>添加地方 | 港口传染病地图</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/place.css">
+</head>
+<body>
+	<div class="header">
+		<div class="wrap">
+			<a class="btn reback" href="search.html">返回首页</a>
+			<h1><img src="img/ims-logo.png" alt="">港口传染病地图</h1>
+			<div class="r-menu">
+				<a href="#" ><span class="username">admin</span><span class="role">(系统管理员)▼</span></a>
+				<a href="#">退出</a>
+			</div>
+			<div class="d-menu">
+				<ul>
+					<li><a href="#">修改密码</a></li>
+					<li><a href="#">退出</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="wrap addPlace">
+		<div class="form-wrap">
+			<h2>创建地点</h2>
+			<form action="#" method="">
+				<div class="row">
+					<div class="afield">
+						<label for="placeName" class="t">地点名称</label>
+						<div class="main">
+							<input type="text" class="ainput" name="name" id="placeName">
+						</div>
+					</div>
+					<div class="afield">
+						<label for="intercontinental" class="t">洲际</label>
+						<div class="main">
+							<select name="intercontinental" id="intercontinental">
+								<option value="亚洲">亚洲</option>
+								<option value="非洲">非洲</option>
+								<option value="欧洲">欧洲</option>
+								<option value="澳洲">澳洲</option>
+								<option value="北美洲">北美洲</option>
+								<option value="南美洲">南美洲</option>
+								<option value="南极洲">南极洲</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="afield lastAfield">
+						<label for="country" class="t">国家</label>
+						<div class="main">
+							<select name="country" id="country">
+								<option value="">中国</option>
+								<option value="">美国</option>
+								<option value="">俄罗斯</option>
+								<option value="">德国</option>
+								<option value="">意大利</option>
+								<option value="">阿根廷</option>
+								<option value="">西班牙</option>
+								<option value="">匈牙利</option>
+								<option value="">迪拜</option>
+								<option value="">法国</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="line">
+					<div class="afield">
+						<label class="t">请在地图上标记</label>
+						<div class="main">
+							<div id="mapContainer">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="line">
+					<div class="afield">
+						<label for="introduction" class="t">地点介绍</label>
+						<div class="main">
+							<textarea name="introduction" id="introduction" cols="30" rows="5"></textarea>
+							<input type="hidden" name="lngX" id="lngX">
+							<input type="hidden" name="latY" id="latY">
+						</div>
+					</div>
+				</div>
+
+				<div class="btn-c">
+					<input type="submit" value="完成" class="btn sBtn">
+					<input type="button" value="取消" class="btn cBtn">
+				</div>
+			</form>
+		</div>
+	</div>
+
+<script src="http://webapi.amap.com/maps?v=1.3&key=dbb6bc63f724a1f9099ecd0a6acf3871" type="text/javascript"></script>
+<script type="text/javascript" src="js/lib/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var $dMenu = $('.d-menu');
+		$('.r-menu a:first').on('click', function(event){  // down menu slideDown and slideUp handler
+			event.preventDefault();
+			event.stopPropagation();
+
+			if($('.d-menu:visible').length > 0){
+				$dMenu.slideUp();
+			}else{
+				$dMenu.slideDown();
+			}
+		});
+		$('body').on('click', function(event){
+			$('.d-menu').slideUp();
+		});
+		// map click handler
+		var mapObj;
+		var marker;
+		//初始化地图对象，加载地图
+		function mapInit(){
+		    mapObj = new AMap.Map("mapContainer");
+		    marker = new AMap.Marker({                 
+		      map:mapObj,                 
+		      icon:"img/icon_maker.png",                 
+		      offset:new AMap.Pixel(-9,-32)               
+		    });
+		    AMap.event.addListener(mapObj,'click',getLnglat); 
+		}
+
+		function getLnglat(e){ 
+		    document.getElementById("lngX").value=e.lnglat.getLng(); 
+		    document.getElementById("latY").value=e.lnglat.getLat(); 
+
+		    var lnglat = e.lnglat;
+		    marker.setPosition(lnglat);
+		   	mapObj.setCenter(lnglat);  
+		}
+		
+		mapInit();
+	});
+</script>
+</body>
+</html>

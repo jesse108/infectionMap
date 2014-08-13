@@ -1,0 +1,132 @@
+body{
+	background-color: #f5f5f5; font-size: 14px;
+}
+a, a:hover{
+	text-decoration: none; color: #3887be;
+}
+.header{
+	height: 68px; background-color: #fff; line-height: 68px; text-align: right;
+}
+.wrap{
+	width: 980px; margin:0 auto;
+}
+.h2{
+	font-size: 24px;
+}
+.tip a, .tip a:hover{
+	color: #0a9e01; text-decoration: none;
+}
+.search h1{
+	line-height: 44px; text-align: center; font-size: 40px; color: #7f7f7f; vertical-align: top;
+	padding: 70px 0 45px;
+}
+.search h1 img{
+	margin-right: 10px; vertical-align: middle;
+}
+.search .main{
+	font-size: 16px; text-align: center; padding-bottom: 90px;
+}
+.search .main .ainput{
+	height: 22px; border: 1px solid #ddd; border-radius: 5px; padding: 12px; font-size: 16px; width: 480px;
+}
+
+.search .main .btn{
+	font-size: 16px; border-radius: 5px; color: #fff; border: none; width: 120px; text-align: center; display: inline-block;
+	padding: 13px 0; margin-left: 10px; +padding:10px 0;
+}
+.search .main .abtn{
+	background-color: #3887be;
+}
+.search .main .bbtn{
+	background-color: #56b881;
+}
+.tags{
+	padding-bottom: 160px; overflow: hidden; clear: both;
+}
+.tags .tagsItem{
+	width: 480px; height: auto; overflow: hidden;
+}
+.tags .tagsItem .tit{
+	height: 40px; line-height: 40px; text-indent: 30px; padding-bottom: 10px; position: relative;
+}
+.tags .tagsItem .tit a, .tags .tagsItem .tit a:hover{
+	color: #3887be; text-decoration: none;
+}
+.tags .tagsItem .tit .btn{
+	width: 120px; text-align: center; background: #56b881; color: #fff; text-decoration: none;
+	border-radius: 5px; text-indent: 0; display: block; position: absolute; right: 0; top: 0;
+}
+.tags .tagsItem .tit .btn:hover{
+	color: #fff;
+}
+.tags .tagsItem .cont{
+	width: 478px; border: 1px solid #ddd; border-radius: 5px; height: 480px; overflow-y:scroll; overflow-x: hidden;
+}
+.tags .tagsItem .cont .t{
+	line-height: 40px; text-indent: 30px; border-bottom: 1px solid #ddd; color: #3887be;
+}
+.tagsList{
+	overflow: hidden; clear:both; width: 418px; padding: 10px 30px; border-bottom: 1px solid #ddd; background-color: #fff;
+	white-space: normal;
+}
+.tagsList li{
+	float: left; margin-right: 15px; display: inline-block; white-space: nowrap;
+}
+.tagsList li a, .tagsList li a:hover{
+	color: #000;
+}
+.imItem{
+	float: left;
+}
+.cityItem{
+	float: right;
+}
+
+.searchTip{
+	border-top-right-radius: 0; background: #fff; padding: 0;
+}
+.searchTip .ui-menu-item{
+	height: 48px; line-height: 48px; 
+}
+.searchTip li.ui-menu-item a{
+	line-height: 48px; text-indent: 48px; color: #666; padding: 0;
+}
+.searchTip li.ui-menu-item .ui-state-focus{
+	border:none; margin: 0; line-height: 48px; border-radius: none; background: #ebf3f8;
+}
+.searchTip li.address a{
+	background:#fff url(../img/icon-1_05.png) no-repeat 12px center;
+}
+.searchTip li.address .ui-state-focus{
+	background:#ebf3f8 url(../img/icon-1_05.png) no-repeat 12px center;
+}
+.searchTip li.add a{
+	background:#fff url(../img/icon-1_11.png) no-repeat 12px center;
+}
+.searchTip li.add .ui-state-focus{
+	background:#ebf3f8 url(../img/icon-1_11.png) no-repeat 12px center;
+}
+.searchTip li.infectious a{
+	background:#fff url(../img/icon-1_05.png) no-repeat 12px center;
+}
+.searchTip li.infectious .ui-state-focus{
+	background:#ebf3f8 url(../img/icon-1_05.png) no-repeat 12px center;
+}
+
+
+.searchResult{
+	padding-top: 10px;  text-align: left; 
+	margin:0 auto; width: 780px;
+}
+.searchResult h3{
+	font-size: 20px; font-weight: normal; padding: 5px 0;
+}
+.searchResult .kw{
+	color: #ec3333;
+}
+.searchResult .tag, .searchResult .tag:hover{
+	color: #3887be; margin-right: 10px;
+}
+.searchResult .recommend{
+	padding: 140px 0 430px;
+}

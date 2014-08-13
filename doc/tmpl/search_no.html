@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>搜索结果 | 港口传染病地图</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.9.2.custom.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div class="header">
+		<div class="wrap">
+			<div class="tip"><a href="#">管理员登陆</a></div>
+		</div>
+	</div>
+
+	<div class="wrap search">
+		<h1><img src="img/ims-logo.png" alt="">港口传染病地图</h1>
+
+		<div class="main">
+			<form action="#">
+				<input type="text" class="ainput" id="keyword" name="keyword">
+				<input type="button" name="type" value="搜疾病" class="btn abtn">
+				<input type="button" name="type" value="搜地点" class="btn bbtn">
+			</form>
+
+
+			<div class="searchResult">
+				<h3 class="hotip">为您找到 <span class="kw">[中国]</span> 相关的地区：<a href="#" class="tag">北京</a>  <a href="#" class="tag">上海</a></h3>
+
+				<div class="recommend">
+					<h3 class="hotip">为您找到 <span class="kw">[中国]</span> 相关的地区：<a href="#" class="tag">中国xx病</a></h3>
+					<h3 class="hotip">为您找到 <span class="kw">[中国]</span> 相关的地区：<a href="place.html" class="tag">创建该地点</a></h3>
+					<h3 class="hotip">为您找到 <span class="kw">[中国]</span> 相关的地区：<a href="infectious.html" class="tag">创建该疾病</a></h3>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+
+<script type="text/javascript" src="js/lib/jquery.js"></script>
+<script type="text/javascript" src="js/lib/jquery-ui.min.js"></script>
+<script>
+  $.widget( "custom.catcomplete", $.ui.autocomplete, {
+    _create: function() {
+      this._super();
+      this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
+    },
+    _renderMenu: function( ul, items ) {
+      var that = this;
+      ul.addClass('searchTip');
+      $.each( items, function( index, item ) {
+        var li;
+        li = that._renderItemData( ul, item );
+        if ( item.category ) {
+          li.addClass(item.category);
+        }
+      });
+      ul.append( "<li class='add'><a href='address.html'>添加新地点</a></li>" );
+    }
+  });
+  </script>
+<script type="text/javascript">
+$(function() {
+	var data = [
+      // { label: "", category: "infectious" },
+      // { label: "annk K12", category: "infectious" },
+      // { label: "annttop C13", category: "infectious" },
+      { label: "北京", category: "address" },
+      { label: "上海", category: "address" },
+      { label: "天津", category: "address" },
+    ];
+ 
+    $( "#keyword" ).catcomplete({
+      delay: 0,
+      source: data
+    });
+});
+</script>
+</body>
+</html>
