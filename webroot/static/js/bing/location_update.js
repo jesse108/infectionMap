@@ -10,6 +10,7 @@ function mapInit(lng,lat){
 	mapObj = new VEMap('mapContainer');
 	var location = new VELatLong(lat, lng);
 	mapObj.LoadMap(location, 4);
+	mapObj.HideDashboard();
 	
 	marker = new VEShape(VEShapeType.Pushpin, location);
 	marker.SetCustomIcon("<img src='/static/img/icon_maker.png' class='map_marker'/>");

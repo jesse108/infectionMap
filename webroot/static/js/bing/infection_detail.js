@@ -5,7 +5,7 @@ var markers = [];
 function mapInit(){
 	mapObj = new VEMap('mapContainer');
 	mapObj.LoadMap(null, 4);
-	
+	mapObj.HideDashboard();
     markMapInArea(allLocations);
 }
 
