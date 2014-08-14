@@ -5,7 +5,7 @@ var markers = [];
 function mapInit(){
 	mapObj = new VEMap('mapContainer');
 	mapObj.LoadMap(null, 4);
-	mapObj.HideDashboard();
+	//mapObj.HideDashboard();
     markMapInArea(allLocations);
 }
 
@@ -26,7 +26,7 @@ function markMapInArea(locations){
 		if(in_array(curLocationID,locationIDs)){
 			curLocation = caseLocations[curLocationID];
 			if(curLocation){
-				mapAddTag(curLocation['lng'],Number(curLocation['lat']) - 0.0001 * i);
+				mapAddTag(curLocation['lng'],Number(curLocation['lat']));
 			}
 		}
 	}

@@ -9,12 +9,7 @@
 			<input type="hidden" name="id" value="{$id}"/>
 		{/if}
 		<div class="row">
-			<div class="afield">
-				<label for="placeName" class="t">地点名称</label>
-				<div class="main">
-					<input type="text" class="ainput" name="cname" id="cname" value="{$location['cname']}" onblur="citySearch();"/>
-				</div>
-			</div>
+
 			<div class="afield">
 				<label for="intercontinental" class="t">洲际</label>
 				<div class="main">
@@ -27,12 +22,19 @@
 				</div>
 			</div>
 
-			<div class="afield lastAfield">
+			<div class="afield ">
 				<label for="country" class="t">国家</label>
 				<div class="main">
 					<select name="country_id" id="country_id" onchange="changeCountry();">
 					
 					</select>
+				</div>
+			</div>
+			
+			<div class="afield lastAfield">
+				<label for="placeName" class="t">地点名称</label>
+				<div class="main">
+					<input type="text" class="ainput" name="cname" id="cname" value="{$location['cname']}" onblur="citySearch();"/>
 				</div>
 			</div>
 		</div>
