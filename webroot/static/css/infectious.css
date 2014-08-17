@@ -84,3 +84,46 @@
 .c label{
 	font-weight: bold;
 }
+
+/* place detail css */
+.map .t{
+	background: none; padding: 0 19px; height:19px;
+}
+/*  wu yong */
+.placeTip{
+	overflow-x: hidden; clear:both; padding: 29px; line-height: 40px;
+}
+.placeTip .tit{
+	font-size:24px; float: left;
+}
+.placeTip .btn{
+	height: 40px; line-height: 40px; width: 160px; text-align: center; border: none; border-radius: 3px;
+	background: #56b881; color: #fff; vertical-align: middle;	float: right;
+}
+
+.tab-wrap{
+	clear: both;
+}
+.tab-wrap .tab-tit{
+	overflow: hidden; clear: both; padding:29px 29px 0 29px;
+}
+.tab-wrap .tab-tit li{
+	float: left; font-size: 16px; color: #3887be; margin-right: 20px; cursor: pointer; line-height: 40px;
+}
+.tab-wrap .tab-tit .btn-r{
+	float: right; margin-right: 0;
+}
+.tab-wrap .tab-tit .btn{
+	height: 40px; line-height: 40px; width: 160px; text-align: center; border: none; border-radius: 3px;
+	background: #56b881; color: #fff; vertical-align: middle;	float: right;
+}
+.tab-wrap .tab-tit .cur{
+	color: #39d2fe;
+}
+
+.tab-wrap .tab-c{
+	display: none;
+}
+.tab-wrap .on{
+	display: block;
+}
