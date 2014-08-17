@@ -7,47 +7,23 @@
       </div>
 
       <div class="line">
-        <span class="tit">全部洲际</span>
+        <span class="tit">洲际</span>
         <ul class="pTagList tagList tab-tit">
-          <li><a href="#">亚洲</a></li>
-          <li><a href="#">欧洲</a></li>
-          <li><a href="#">非洲</a></li>
-          <li><a href="#">澳洲</a></li>
-          <li><a href="#">南美洲</a></li>
-          <li><a href="#">北美洲</a></li>
-          <li><a href="#">南极洲</a></li>
+        {foreach $allLocations as $contient}
+        	<li><a href="?contient_id={$contient['id']}">{$contient['cname']}</a></li>
+        {/foreach}
         </ul>
       </div>
 
       <div class="line">
-        <span class="tit">全部国家</span>
+        <span class="tit">国家</span>
+        {if $contientID}
         <ul class="cTagList tagList">
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
-          <li><a href="#">中国</a></li>
+        	{foreach $allLocations[$contientID]['sub'] as $country}
+        	<li><a href="#">{$country['cname']}</a></li>
+        	{/foreach}
         </ul>
+        {/if}
       </div>
 
       <!-- 地图 感觉添加个地图更直观 和林羽商量下吧 -->
@@ -67,55 +43,17 @@
               </tr>
             </thead>
             <tbody>
+            	{foreach $cities as $city}
               <tr>
-                <td>乔治敦港口</td>
-                <td>欧洲</td>
-                <td>乌拉圭</td>
+                <td><a href="/location/detail.php?id={$city['id']}" >{$city['cname']}</a></td>
+                <td>{$allLocations[$contientID]['cname']}</td>
+                <td>{$allLocations[$contientID]['sub'][$city['parent_id']]['cname']}</td>
                 <td>
-                  <a href="place.html" class="icon icon_edit"></a>
-                  <a href="#" class="icon icon_delete"></a>
+                  <a href="/location/update.php?id={$city['id']}"  target="_blank" class="icon icon_edit"></a>
+                  <a href="javascript:void(0);" class="icon icon_delete"></a>
                 </td>
-              </tr>
-
-              <tr>
-                <td>乔治敦港口</td>
-                <td>欧洲</td>
-                <td>乌拉圭</td>
-                <td>
-                  <a href="place.html" class="icon icon_edit"></a>
-                  <a href="#" class="icon icon_delete"></a>
-                </td>
-              </tr>
-
-              <tr>
-                <td>乔治敦港口</td>
-                <td>欧洲</td>
-                <td>乌拉圭</td>
-                <td>
-                  <a href="place.html" class="icon icon_edit"></a>
-                  <a href="#" class="icon icon_delete"></a>
-                </td>
-              </tr>
-
-              <tr>
-                <td>乔治敦港口</td>
-                <td>欧洲</td>
-                <td>乌拉圭</td>
-                <td>
-                  <a href="place.html" class="icon icon_edit"></a>
-                  <a href="#" class="icon icon_delete"></a>
-                </td>
-              </tr>
-
-              <tr>
-                <td>乔治敦港口</td>
-                <td>欧洲</td>
-                <td>乌拉圭</td>
-                <td>
-                  <a href="place.html" class="icon icon_edit"></a>
-                  <a href="#" class="icon icon_delete"></a>
-                </td>
-              </tr>
+              </tr>            	
+            	{/foreach}
             </tbody>
           </table>
         </div>

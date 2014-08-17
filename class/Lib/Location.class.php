@@ -37,6 +37,7 @@ class Lib_Location{
 			'parent_id' => $location['parent_id'],
 			'status' => self::STATUS_NORMAL,
 		);
+		
 		if($dbLocation->exsits($condition)){
 			self::$error = "此城市已经存在,请查准~";
 			return false;
@@ -58,12 +59,20 @@ class Lib_Location{
 		return $result;
 	}
 	
-	
-	public static function GetAllLocation($maxLevel = 0,$format = true){
+	/**
+	 * 获取所有地点
+	 * 
+	 * @param number $maxLevel  最高获取几级
+	 * @param string $format 是否格式化
+	 * @param string $hasCity 是否只返回有城市地点 在format = true 时生效
+	 * @return Ambigous <multitype:, array, multitype:unknown >
+	 */
+	public static function GetAllLocation($maxLevel = 0,$format = true,$hasCity = false){
 		$dbLocation = new DB_Location();
 		$condition = array(
 			'status' => self::STATUS_NORMAL,
 		);
+		
 		if($maxLevel){
 			$condition[] = "level <= {$maxLevel}";
 		}
@@ -73,6 +82,23 @@ class Lib_Location{
 		
 		if($format){
 			$allLocation = Util_Array::FormatInTree($allLocation);
+			if($hasCity){
+				//洲
+				foreach ($allLocation as $index => $location){
+					$hasCity = false;
+					//国家
+					foreach ($location['sub'] as $countryID => $country){
+						if($country['sub']){
+							$hasCity = true;
+						} else {
+							unset($allLocation[$index]['sub'][$countryID]);
+						}
+					}
+					if(!$hasCity){
+						unset($allLocation[$index]);
+					}
+				}
+			}
 		}
 		return $allLocation;
 	}
