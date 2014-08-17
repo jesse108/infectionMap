@@ -20,7 +20,7 @@
         {if $contientID}
         <ul class="cTagList tagList">
         	{foreach $allLocations[$contientID]['sub'] as $country}
-        	<li><a href="#">{$country['cname']}</a></li>
+        	<li><a href="?contient_id={$country['parent_id']}&country_id={$country['id']}">{$country['cname']}</a></li>
         	{/foreach}
         </ul>
         {/if}
