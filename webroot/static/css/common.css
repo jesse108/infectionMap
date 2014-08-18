@@ -468,10 +468,10 @@ a, a:hover{
 	font-size: 16px;
 }
 .loginuser{
-	background:#fff url(../img/icon-email.png) no-repeat 12px 17px;
+	background:#fff url(/static/img/icon-email.png) no-repeat 12px 17px;
 }
 .loginpwd{
-	background:#fff url(../img/icon-pwd.png) no-repeat 12px 13px;
+	background:#fff url(/static/img/icon-pwd.png) no-repeat 12px 13px;
 }
 .inputCheckbox{
 	vertical-align: middle; margin-right: 5px;
