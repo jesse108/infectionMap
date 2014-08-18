@@ -4,7 +4,7 @@
  */
 include_once dirname(dirname(dirname(__FILE__))).'/app.php';
 $id = $_REQUEST['id'];
-
+$loginUser = Lib_User::NeedLogin();
 if($id){
 	$oldInfection = $infection = Lib_Infection::Fetch($id);
 	if(!$infection){

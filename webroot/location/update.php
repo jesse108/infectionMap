@@ -4,7 +4,7 @@
  * 
  */
 include_once dirname(dirname(dirname(__FILE__))).'/app.php';
-
+$loginUser = Lib_User::NeedLogin();
 $allLocations = Lib_Location::GetAllLocation($maxLevel = 2);
 $id = $_REQUEST['id'];
 

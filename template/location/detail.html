@@ -11,9 +11,11 @@
             {foreach $infections as $infection}
             <li value="{$infection['id']}">{$infection['cname']}</li>
             {/foreach}
+            {if $loginUser}
             <li class="btn-r">
               <a href="/infection/case_update.php?location_id={$id}" target="_blank" class="btn">新增传染病发病记录</a>
             </li>
+            {/if}
           </ul>
 
           <div class="tab-c on">
@@ -53,7 +55,10 @@
         <h3>{$location['cname']}介绍</h3>
         <div class="b base">
           <div class="t">
-            城市简介 <a class="edit" href="/location/update.php?id={$location['id']}#info" target="_blank">编辑</a>
+          	  城市简介 
+          	 {if $loginUser}
+          	  <a class="edit" href="/location/update.php?id={$location['id']}#info" target="_blank">编辑</a>
+          	 {/if}
           </div>
           <div class="c">
           {$location['info']}
@@ -62,7 +67,10 @@
 
         <div class="b">
           <div class="t">
-            其他备注 <a class="edit" href="/location/update.php?id={$location['id']}#comment" target="_blank">编辑</a>
+                            其他备注 
+          {if $loginUser}                  
+          <a class="edit" href="/location/update.php?id={$location['id']}#comment" target="_blank">编辑</a>
+          {/if}
           </div>
           <div class="c">
           {$location['comment']}

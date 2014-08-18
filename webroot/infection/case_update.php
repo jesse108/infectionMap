@@ -1,5 +1,6 @@
 <?php
 include_once dirname(dirname(dirname(__FILE__))).'/app.php';
+$loginUser = Lib_User::NeedLogin();
 $id = $_REQUEST['id'];
 $locationID = $_REQUEST['location_id'];
 $infectionID = $_REQUEST['infection_id'];

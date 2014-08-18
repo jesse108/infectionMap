@@ -3,9 +3,23 @@
 
 <div class="header">
 	<div class="wrap">
-		<div class="tip"><a href="#">管理员登陆</a></div>
+	{include file="block/user.html"}
 	</div>
 </div>
+{if $successMsg = System::GetNotice()}
+<div class="tooltip suctip">
+	<span class="tc">{$successMsg}</span>
+	<span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span>
+</div>
+{/if}
+
+
+{if $errorMsg = System::GetError()}
+<div class="tooltip errtip">
+	<span class="tc">{$errorMsg}</span>
+	<span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span>
+</div>
+{/if}
 
 <div class="wrap search">
 	<h1><img src="/static/img/ims-logo.png" alt="">港口传染病地图</h1>
@@ -19,3 +33,4 @@
 		</form>
 	</div>
 </div>
+

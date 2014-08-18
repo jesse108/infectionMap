@@ -4,7 +4,7 @@
  */
 include_once dirname(dirname(dirname(__FILE__))).'/app.php';
 $id = $_REQUEST['id'];
-
+$loginUser = Lib_User::GetLoginUser();
 $locationDetailInfo = Lib_Location::GetLocationDetail($id);
 $infectionID = $_GET['infection_id'];
 

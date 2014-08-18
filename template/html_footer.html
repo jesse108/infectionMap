@@ -6,15 +6,15 @@
 		<div class="icon icon-close"></div>
 	</div>
 	<div class="dialog-b login-form">
-		<form action="#">
+		<form action="/user/login.php" method="post">
 			<div class="line">
-				<input type="text" id="userName" name="userName" placeholder="邮箱" class="loginInput loginuser">
+				<input type="text" id="username" name="username" placeholder="用户名" class="loginInput loginuser">
 			</div>
 			<div class="line">
-				<input type="text" id="userPwd" name="userPwd" placeholder="密码" class="loginInput loginpwd">
+				<input type="password" id="pwd" name="pwd" placeholder="密码" class="loginInput loginpwd">
 			</div>
 			<div class="line">
-				<label for="loginAuto"><input type="checkbox" name="autologin" class="inputCheckbox" id="loginAuto">下次自动登录</label>
+				<label for="loginAuto"><input type="checkbox" name="auto_login" class="inputCheckbox" id="loginAuto" checked>下次自动登录</label>
 			</div>
 			<div class="line btn-c">
 				<input type="submit" value="登录" class="btn btn-login">
@@ -32,3 +32,36 @@
 <script type="text/javascript" src="/static/js/index.js"></script>
 </body>
 </html>
+
+<script type="text/javascript">
+$(function(){
+	// dilog handler
+	$dialog = $('.dialog'), $mask = $('.mask');
+
+	$('.dialog .icon-close').on('click', function(event){
+		event.preventDefault();
+		event.stopPropagation();
+	
+		$mask.hide();
+		$dialog.hide();
+	});
+	
+	$('#loginLink').on('click', function(event){
+		event.stopPropagation();
+		event.preventDefault();
+	
+		var dh = $('body').height() * 2;
+		var ww = $('body').width();
+		$mask.height(dh);
+		$dialog.css('left', parseInt((ww-$dialog.width())/2));
+		$dialog.css('top', $('body').scrollTop()+50);
+	
+		$mask.show();
+		$dialog.show();
+	});
+	
+	$('.ui-icon-closethick').click(function(){
+		$(this).parents('.tooltip').hide();
+	});
+});
+</script>

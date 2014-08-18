@@ -14,3 +14,7 @@ define('SESSION_LOGIN_USER_ID', 'session_0001'); //登陆用户
 //error code
 define("ERROR_CODE_SUCESS",22000);
 define("ERROR_CODE_FAIL",22001);
+
+
+//cookie
+define('COOKIE_LOGIN_USER_ID', 'cookie_0001'); //登陆用户

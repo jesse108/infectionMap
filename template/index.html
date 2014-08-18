@@ -3,7 +3,9 @@
 	<div class="tagsItem imItem">
 		<div class="tit">
 			<span class="h2">传染病</span><a href="/infection/list.php">［管理］</a>
+			{if $loginUser}
 			<a href="/infection/update.php" class="btn cbtn">新增传染病</a>
+			{/if}
 		</div>
 		<div class="cont">
 			{foreach $allInfections as $char => $infections}
@@ -20,7 +22,9 @@
 	<div class="tagsItem cityItem">
 		<div class="tit">
 			<span class="h2">地点</span><a href="/location/list.php">［管理］</a>
+			{if $loginUser}
 			<a href="/location/update.php" class="btn cbtn">新增地点</a>
+			{/if}
 		</div>
 		<div class="cont">
 			{foreach $allLocations as $contient}

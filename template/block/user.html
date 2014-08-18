@@ -1,0 +1,8 @@
+{if $loginUser}
+<div class="tip r-menu">
+	<a href="javascript:void(0);" ><span class="username">{$loginUser['username']}</span></a> 你好!
+	<a href="/user/logout.php">退出</a>
+</div>
+{else}
+<div class="tip r-menu"><a href="#" id="loginLink">管理员登陆</a></div>
+{/if}

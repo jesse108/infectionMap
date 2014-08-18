@@ -3,7 +3,7 @@
  * 搜索结果页
  */
 include_once dirname(dirname(dirname(__FILE__))).'/app.php';
-
+$loginUser = Lib_User::GetLoginUser();
 $keyword = $_GET['keyword'];
 $type = $_GET['type'];
 

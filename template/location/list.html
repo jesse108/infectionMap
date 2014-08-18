@@ -3,7 +3,9 @@
   <div class="wrap">
     <div class="content">
       <div class="placetip">
-        <a href="place.html" class="btn">添加地点</a>
+      {if $loginUser}
+        <a href="/location/update.php" class="btn">添加地点</a>
+      {/if}
       </div>
 
       <div class="line">
@@ -51,8 +53,10 @@
                 <td>{$allLocations[$contientID]['cname']}</td>
                 <td>{$allLocations[$contientID]['sub'][$city['parent_id']]['cname']}</td>
                 <td>
+                {if $loginUser}
                   <a href="/location/update.php?id={$city['id']}"  target="_blank" class="icon icon_edit"></a>
                   <a href="javascript:void(0);" class="icon icon_delete" onclick="delLocation({$city['id']})"></a>
+                {/if}
                 </td>
               </tr>            	
             	{/foreach}

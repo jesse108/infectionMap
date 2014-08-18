@@ -3,7 +3,9 @@
 <div class="wrap iList">
 	<div class="itable">
 		<div class="btn-l">
+		{if $loginUser}
 			<a href="/infection/update.php" class="btn" target="_blank">新增传染病</a>
+		{/if}
 		</div>
 
 		<table>
@@ -26,8 +28,10 @@
 					<td>{$infection['pathogen_ename']}</td>
 					<td>{$infection['taxonomy']}</td>
 					<td>
+					{if $loginUser}
 						<a href="/infection/update.php?id={$infection['id']}" target="_blank" class="icon icon_edit"></a>
 						<a href="javascript:void(0);" class="icon icon_delete" onclick="delInfection({$infection['id']});"></a>
+					{/if}
 					</td>
 				</tr>
 				{/foreach}
