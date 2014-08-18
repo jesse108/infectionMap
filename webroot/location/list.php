@@ -9,8 +9,10 @@ $countryID = $_GET['country_id'];
 $allLocations = Lib_Location::GetAllLocation(0,true,true);
 
 if($countryID){
-	$cities = $allLocations[$contientID]['sub'][$countryID]['sub'];
+	$location = $allLocations[$contientID]['sub'][$countryID];
+	$cities = $location['sub'];
 } else if($contientID){
+	$location = $allLocations[$contientID];
 	$cities = array();
 	foreach ($allLocations[$contientID]['sub'] as $country){
 		if($country['sub']){
@@ -18,5 +20,6 @@ if($countryID){
 		}
 	}
 }
+
 
 Template::Show();

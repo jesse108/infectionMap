@@ -10,7 +10,7 @@
 <body>
 	<div class="header">
 		<div class="wrap">
-			<div class="tip"><a href="#">管理员登陆</a></div>
+			<div class="tip"><a href="#" id="loginLink">管理员登陆</a></div>
 		</div>
 	</div>
 
@@ -169,7 +169,30 @@
 			</div>
 		</div>
 	</div>
-
+<!-- 用户登录弹窗 -->
+	<div class="mask"></div>
+	<div class="dialog login-wrap">
+		<div class="dialog-h">
+			<h1><img src="img/ims-logo.png" alt="">港口传染病地图</h1>
+			<div class="icon icon-close"></div>
+		</div>
+		<div class="dialog-b login-form">
+			<form action="#">
+				<div class="line">
+					<input type="text" id="userName" name="userName" placeholder="邮箱" class="loginInput loginuser">
+				</div>
+				<div class="line">
+					<input type="text" id="userPwd" name="userPwd" placeholder="密码" class="loginInput loginpwd">
+				</div>
+				<div class="line">
+					<label for="loginAuto"><input type="checkbox" name="autologin" class="inputCheckbox" id="loginAuto">下次自动登录</label>
+				</div>
+				<div class="line btn-c">
+					<input type="submit" value="登录" class="btn btn-login">
+				</div>
+			</form>
+		</div>
+	</div>
 
 <script type="text/javascript" src="js/lib/jquery.js"></script>
 <script type="text/javascript" src="js/lib/jquery-ui.min.js"></script>
@@ -195,7 +218,7 @@
   </script>
 <script type="text/javascript">
 $(function() {
-	var data = [
+		var data = [
       // { label: "", category: "infectious" },
       // { label: "annk K12", category: "infectious" },
       // { label: "annttop C13", category: "infectious" },
@@ -203,12 +226,40 @@ $(function() {
       { label: "上海", category: "address" },
       { label: "天津", category: "address" },
     ];
- 
+
     $( "#keyword" ).catcomplete({
       delay: 0,
       source: data
     });
+
+// dilog handler
+		$dialog = $('.dialog'), $mask = $('.mask');
+
+    $('.dialog .icon-close').on('click', function(event){
+    	event.preventDefault();
+    	event.stopPropagation();
+
+    	$mask.hide();
+    	$dialog.hide();
+    });
+
+    $('#loginLink').on('click', function(event){
+    	event.stopPropagation();
+    	event.preventDefault();
+
+    	var dh = $('body').height();
+    	var ww = $('body').width();
+    	$mask.height(dh);
+    	$dialog.css('left', parseInt((ww-$dialog.width())/2));
+    	$dialog.css('top', $('body').scrollTop()+50);
+
+    	$mask.show();
+    	$dialog.show();
+    })
 });
+
+
+
 </script>
 </body>
 </html>

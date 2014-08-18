@@ -1,0 +1,58 @@
+.content{
+  padding:29px; width: 918px; border:1px solid #ddd; border-radius: 5px; background: #fff; margin-top: 18px; overflow: hidden; clear: both;
+}
+.placetip{
+  text-align: right; overflow: hidden; clear: both;
+}
+.placetip .btn{
+  height: 40px; line-height: 40px; padding: 0 20px; text-align: center; border: none; border-radius: 3px;
+  background: #56b881; color: #fff; vertical-align: middle; float: right;
+}
+.line{
+  position: relative; margin-top: 10px; overflow: hidden; clear: both;
+}
+.line .tit{
+  float: left; color: #39d2fe; margin-right: 15px;
+}
+.line .tagList{
+  margin-left: 70px;
+}
+.line .tagList li{
+  float: left; margin-right: 15px; color: #3887be; white-space: nowrap;
+}
+#mapContainer{
+  width: 916px; height: 300px;
+}
+/*  table css  */
+.itable{
+  width: 918px; overflow: hidden; margin-top: 30px;
+}
+.itable .btn-l{
+  text-align: left; padding-bottom: 29px;
+}
+.itable .btn{
+  display: inline-block; width: 120px; height: 40px; line-height: 40px; color: #fff; text-align: center; border: none; border-radius: 5px;
+  background: #56b881;
+}
+
+.itable table{
+  border: 1px solid #ddd; width: 100%;
+}
+.itable table td{
+  padding: 18px 10px; text-align: center;
+}
+.itable tbody td{
+  border-top: 1px solid #ddd; border-right:1px solid #ddd;
+}
+.itable .icon{
+  display: inline-block; width: 19px; height: 19px; overflow: hidden; vertical-align: middle;
+}
+.itable .icon_edit{
+  background: url(../img/icon_67.png) no-repeat top center; margin-right: 10px;
+}
+.itable .icon_delete{
+  background: url(../img/icon_69.png) no-repeat top center;
+}
+.itable tbody .even td{
+  background: #f9f9f9;
+}

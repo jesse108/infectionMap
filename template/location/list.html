@@ -10,7 +10,7 @@
         <span class="tit">洲际</span>
         <ul class="pTagList tagList tab-tit">
         {foreach $allLocations as $contient}
-        	<li><a href="?contient_id={$contient['id']}">{$contient['cname']}</a></li>
+        	<li><a href="?contient_id={$contient['id']}" {if $contient['id'] == $contientID}class="select" {/if}>{$contient['cname']}</a></li>
         {/foreach}
         </ul>
       </div>
@@ -20,7 +20,9 @@
         {if $contientID}
         <ul class="cTagList tagList">
         	{foreach $allLocations[$contientID]['sub'] as $country}
-        	<li><a href="?contient_id={$country['parent_id']}&country_id={$country['id']}">{$country['cname']}</a></li>
+        	<li>
+        	<a href="?contient_id={$country['parent_id']}&country_id={$country['id']}" {if $country['id'] == $countryID}class="select" {/if}>{$country['cname']}</a>
+        	</li>
         	{/foreach}
         </ul>
         {/if}
@@ -44,13 +46,13 @@
             </thead>
             <tbody>
             	{foreach $cities as $city}
-              <tr>
+              <tr id="location_{$city['id']}">
                 <td><a href="/location/detail.php?id={$city['id']}" >{$city['cname']}</a></td>
                 <td>{$allLocations[$contientID]['cname']}</td>
                 <td>{$allLocations[$contientID]['sub'][$city['parent_id']]['cname']}</td>
                 <td>
                   <a href="/location/update.php?id={$city['id']}"  target="_blank" class="icon icon_edit"></a>
-                  <a href="javascript:void(0);" class="icon icon_delete"></a>
+                  <a href="javascript:void(0);" class="icon icon_delete" onclick="delLocation({$city['id']})"></a>
                 </td>
               </tr>            	
             	{/foreach}
@@ -63,36 +65,33 @@
 
 {include file="footer.html"}
 <script src="http://webapi.amap.com/maps?v=1.3&key=dbb6bc63f724a1f9099ecd0a6acf3871" type="text/javascript"></script>
+<script type="text/javascript" src="/static/js/amap/location_list.js"></script>
 
 <script type="text/javascript">
-  $(function(){
-    // map click handler
-    var mapObj;
-    var markers = [];
-    //初始化地图对象，加载地图
-    function mapInit(){
-      mapObj = new AMap.Map("mapContainer");
+{if $location}
+var center = {json_encode($location)};
+{/if}
 
-      for(var i=0; i<10; i++){  //伪造数据
-        var marker = new AMap.Marker({
-          map:mapObj,
-          icon:"img/icon_maker.png",
-          offset:new AMap.Pixel(-9,-32),
-          position:new AMap.LngLat(116-i*0.08, 40)   // 构造坐标集合
-        });
-        markers[i] = marker;
-      }
+{if $cities}
+var cities = {json_encode($cities)};
+{/if}
 
+var delLocationUrl = "/api.php?action=location&method=del";
 
-      mapObj.plugin(["AMap.MarkerClusterer"],function() {
-          cluster = new AMap.MarkerClusterer(mapObj,markers);
-      });
-
-      mapObj.setCenter(new AMap.LngLat(115.6, 40));
-
-    }
-
-    mapInit();
-
-  });
+function delLocation(locationID){
+	var conRes = confirm('你确定要删除此地点吗, 这样会丢失数据!!!');
+	if(!conRes){
+		return false;
+	}
+	var url = delLocationUrl + "&location_id=" + locationID;
+	$.getJSON(url,function(json){
+		if(json['code'] != 22000){
+			alert(json['message']);
+			return false;
+		}
+		
+		$("#location_"+locationID).fadeOut();
+		hideMark(locationID);
+	});
+}
 </script>

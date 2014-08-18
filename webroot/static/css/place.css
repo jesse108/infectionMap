@@ -18,8 +18,15 @@
   margin-left: 70px;
 }
 .line .tagList li{
-  float: left; margin-right: 15px; color: #3887be; white-space: nowrap;
+  float: left;  color: #3887be; white-space: nowrap;padding:0 5px;
 }
+
+.line .tagList li .select{
+	color: #FFFFFF; 
+	background: #3887be;
+	padding:0 5px;
+}
+
 #mapContainer{
   width: 916px; height: 300px;
 }

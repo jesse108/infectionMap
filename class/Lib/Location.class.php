@@ -16,7 +16,7 @@ class Lib_Location{
 	const LEVEL_CITY = 3;
 	
 	const STATUS_NORMAL = 0;
-	
+	const STATUS_DEL = 1;
 	
 	public static function Fetch($locationID){
 		$dbLocation = new DB_Location();
@@ -142,6 +142,23 @@ class Lib_Location{
 		);
 		$locations = $dbLocation->get($condition);
 		return $locations;
+	}
+	
+	public static function DelLocation($location){
+		$updateRow = array(
+			'status' => self::STATUS_DEL,
+		);
+		
+		$condition = array(
+			'id' => $location['id'],
+		);
+		
+		$dbLocation = DB_Manage::createDBObj('location');
+		$result = $dbLocation->update($condition, $updateRow);
+		if(!$result){
+			System::AddError($dbLocation->error,System::MESSAGE_SYS);
+		}
+		return $result;
 	}
 	
 }

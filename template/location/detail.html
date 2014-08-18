@@ -1,0 +1,137 @@
+{include file="header.html"}
+<link rel="stylesheet" href="/static/css/infectious.css">
+
+  <div class="wrap">
+    <div class="content">
+      <div class="l-content">
+
+        <div class="tab-wrap">
+          <ul class="tab-tit">
+            <li class="cur">全部</li>
+            {foreach $infections as $infection}
+            <li value="{$infection['id']}">{$infection['cname']}</li>
+            {/foreach}
+            <li class="btn-r">
+              <a href="/infection/case_update.php?location_id={$id}" target="_blank" class="btn">新增传染病发病记录</a>
+            </li>
+          </ul>
+
+          <div class="tab-c on">
+            <div class="itable">
+              <table>
+                <thead>
+                  <tr>
+                    <td width="25%">国家地区</td>
+                    <td width="10%">发病日期</td>
+                    <td width="10%">发病人数</td>
+                    <td width="10%">发病率</td>
+                    <td width="10%">患病人数</td>
+                    <td width="10%">患病率</td>
+                    <td width="30%">备注</td>
+                  </tr>
+                </thead>
+                <tbody>
+                {foreach $infectionCases as $infectionCase}
+				<tr class="infection_case infection_{$infectionCase['infection_id']}">
+                    <td>{$infectionCase['location']}</td>
+                    <td>{$infectionCase['start_date']}</td>
+                    <td>{$infectionCase['case_number']}</td>
+                    <td>{$infectionCase['case_rate']}</td>
+                    <td>{$infectionCase['ill_number']}</td>
+                    <td>{$infectionCase['ill_rate']}</td>
+                    <td>{$infectionCase['comment']}</td>
+                  </tr>
+                {/foreach}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="r-content">
+        <h3>{$location['cname']}介绍</h3>
+        <div class="b base">
+          <div class="t">
+            城市简介 <a class="edit" href="/location/update.php?id={$location['id']}#info" target="_blank">编辑</a>
+          </div>
+          <div class="c">
+          {$location['info']}
+          </div>
+        </div>
+
+        <div class="b">
+          <div class="t">
+            其他备注 <a class="edit" href="/location/update.php?id={$location['id']}#comment" target="_blank">编辑</a>
+          </div>
+          <div class="c">
+          {$location['comment']}
+          </div>
+        </div>
+
+        <div class="b map">
+          <div class="t"></div>
+          <div class="c">
+            <div id="mapContainer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{include file="footer.html"}
+<script src="http://webapi.amap.com/maps?v=1.3&key=dbb6bc63f724a1f9099ecd0a6acf3871" type="text/javascript"></script>
+<script type="text/javascript">
+  $(function(){
+
+    // map click handler
+    var mapObj;
+    var markers = [];
+    //初始化地图对象，加载地图
+    function mapInit(){
+      mapObj = new AMap.Map("mapContainer");
+
+      for(var i=0; i<10; i++){  //伪造数据
+        var marker = new AMap.Marker({
+          map:mapObj,
+          icon:"img/icon_maker.png",
+          offset:new AMap.Pixel(-9,-32),
+          position:new AMap.LngLat(116-i*0.08, 40)   // 构造坐标集合
+        });
+        markers[i] = marker;
+      }
+
+
+      mapObj.plugin(["AMap.MarkerClusterer"],function() {
+          cluster = new AMap.MarkerClusterer(mapObj,markers);
+      });
+
+      mapObj.setCenter(new AMap.LngLat(115.6, 40));
+
+    }
+
+    mapInit();
+
+    $('.tab-tit li').click(function(event){
+
+      if($(this).hasClass('btn-r')){
+
+      }else{
+        event.stopPropagation();
+        event.preventDefault();
+        var tabIndex = $(this).index();
+        $('.tab-tit li').removeClass('cur').eq(tabIndex).addClass('cur');
+
+        var infectionID = $(this).val();
+        if(infectionID){
+        	$(".infection_case").hide();
+        	$(".infection_" + infectionID).show();
+        } else {
+        	$(".infection_case").show();
+        }
+      }
+    });
+
+  });
+</script>

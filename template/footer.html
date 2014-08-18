@@ -19,5 +19,30 @@ $(function(){
 	$('.ui-icon-closethick').click(function(){
 		$(this).parents('.tooltip').hide();
 	});
+	
+	// dilog handler
+	$dialog = $('.dialog'), $mask = $('.mask');
+
+	$('.dialog .icon-close').on('click', function(event){
+		event.preventDefault();
+		event.stopPropagation();
+	
+		$mask.hide();
+		$dialog.hide();
+	});
+	
+	$('#loginLink').on('click', function(event){
+		event.stopPropagation();
+		event.preventDefault();
+	
+		var dh = $('body').height();
+		var ww = $('body').width();
+		$mask.height(dh);
+		$dialog.css('left', parseInt((ww-$dialog.width())/2));
+		$dialog.css('top', $('body').scrollTop()+50);
+	
+		$mask.show();
+		$dialog.show();
+	});
 });
 </script>

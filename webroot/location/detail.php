@@ -6,6 +6,7 @@ include_once dirname(dirname(dirname(__FILE__))).'/app.php';
 $id = $_REQUEST['id'];
 
 $locationDetailInfo = Lib_Location::GetLocationDetail($id);
+$infectionID = $_GET['infection_id'];
 
 if(!$locationDetailInfo){
 	System::SetError('请从正确入口进入');
@@ -40,6 +41,10 @@ switch ($location['level']){
 
 
 foreach ($infectionCases as $index => $case){
+	if($infectionID && $case['infection_id'] != $infectionID){
+		unset($infectionCases[$index]);
+		continue;
+	}
 	$case['case_rate'] = round($case['case_rate'],2);
 	$case['ill_rate'] = round($case['ill_rate'],2);
 
@@ -59,6 +64,5 @@ $rowInfo = array(
 		'ill_rate' => '患病率',
 		'comment' => '备注',
 );
-
 
 Template::Show();

@@ -54,12 +54,22 @@
 			<div class="afield">
 				<label for="introduction" class="t">地点介绍</label>
 				<div class="main">
-					<textarea name="info" id="introduction" cols="30" rows="5">{$location['info']}</textarea>
+					<textarea name="info" id="info" cols="30" rows="5">{$location['info']}</textarea>
 					<input type="hidden" name="lng" id="lngX" value="{$location['lng']}">
 					<input type="hidden" name="lat" id="latY" value="{$location['lat']}">
 				</div>
 			</div>
 		</div>
+		
+		<div class="line">
+			<div class="afield">
+				<label for="introduction" class="t">其他备注</label>
+				<div class="main">
+					<textarea name="comment" id="comment" cols="30" rows="5">{$location['comment']}</textarea>
+				</div>
+			</div>
+		</div>
+		
 
 		<div class="btn-c">
 			<input type="submit" value="完成" class="btn sBtn">
@@ -74,10 +84,8 @@
 
 
 <script src="http://webapi.amap.com/maps?v=1.3&key=dbb6bc63f724a1f9099ecd0a6acf3871" type="text/javascript"></script>
-<script type="text/javascript" src="http://dev.ditu.live.com/mapcontrol/mapcontrol.ashx?v=6.2"></script>
-
-
-<script type="text/javascript" src="/static/js/bing/location_update.js"></script>
+<!--  <script type="text/javascript" src="http://dev.ditu.live.com/mapcontrol/mapcontrol.ashx?v=6.2"></script>-->
+<script type="text/javascript" src="/static/js/amap/location_update.js"></script>
 
 
 <script type="text/javascript">

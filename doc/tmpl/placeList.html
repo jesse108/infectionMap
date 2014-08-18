@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>港口列表 | 港口传染病地图</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/place.css">
+</head>
+<body>
+  <div class="header">
+    <div class="wrap">
+      <a class="btn reback" href="search.html">返回首页</a>
+      <h1>港口列表</h1>
+      <div class="r-menu">
+        <a href="#" ><span class="username">admin</span><span class="role">(系统管理员)▼</span></a>
+        <a href="#">退出</a>
+      </div>
+      <div class="d-menu">
+        <ul>
+          <li><a href="#">修改密码</a></li>
+          <li><a href="#">退出</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="wrap">
+    <div class="content">
+      <div class="placetip">
+        <a href="place.html" class="btn">添加地点</a>
+      </div>
+
+      <div class="line">
+        <span class="tit">全部洲际</span>
+        <ul class="pTagList tagList tab-tit">
+          <li><a href="#">亚洲</a></li>
+          <li><a href="#">欧洲</a></li>
+          <li><a href="#">非洲</a></li>
+          <li><a href="#">澳洲</a></li>
+          <li><a href="#">南美洲</a></li>
+          <li><a href="#">北美洲</a></li>
+          <li><a href="#">南极洲</a></li>
+        </ul>
+      </div>
+
+      <div class="line">
+        <span class="tit">全部国家</span>
+        <ul class="cTagList tagList">
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+          <li><a href="#">中国</a></li>
+        </ul>
+      </div>
+
+      <!-- 地图 感觉添加个地图更直观 和林羽商量下吧 -->
+      <div class="line">
+        <div id="mapContainer"></div>
+      </div>
+
+      <div class="line">
+        <div class="itable">
+          <table>
+            <thead>
+              <tr>
+                <td>地点名称</td>
+                <td>洲际</td>
+                <td>国家</td>
+                <td>操作</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>乔治敦港口</td>
+                <td>欧洲</td>
+                <td>乌拉圭</td>
+                <td>
+                  <a href="place.html" class="icon icon_edit"></a>
+                  <a href="#" class="icon icon_delete"></a>
+                </td>
+              </tr>
+
+              <tr>
+                <td>乔治敦港口</td>
+                <td>欧洲</td>
+                <td>乌拉圭</td>
+                <td>
+                  <a href="place.html" class="icon icon_edit"></a>
+                  <a href="#" class="icon icon_delete"></a>
+                </td>
+              </tr>
+
+              <tr>
+                <td>乔治敦港口</td>
+                <td>欧洲</td>
+                <td>乌拉圭</td>
+                <td>
+                  <a href="place.html" class="icon icon_edit"></a>
+                  <a href="#" class="icon icon_delete"></a>
+                </td>
+              </tr>
+
+              <tr>
+                <td>乔治敦港口</td>
+                <td>欧洲</td>
+                <td>乌拉圭</td>
+                <td>
+                  <a href="place.html" class="icon icon_edit"></a>
+                  <a href="#" class="icon icon_delete"></a>
+                </td>
+              </tr>
+
+              <tr>
+                <td>乔治敦港口</td>
+                <td>欧洲</td>
+                <td>乌拉圭</td>
+                <td>
+                  <a href="place.html" class="icon icon_edit"></a>
+                  <a href="#" class="icon icon_delete"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="http://webapi.amap.com/maps?v=1.3&key=dbb6bc63f724a1f9099ecd0a6acf3871" type="text/javascript"></script>
+<script type="text/javascript" src="js/lib/jquery.js"></script>
+<script type="text/javascript">
+  $(function(){
+    var $dMenu = $('.d-menu');
+    $('.r-menu a:first').on('click', function(event){  // down menu slideDown and slideUp handler
+      event.preventDefault();
+      event.stopPropagation();
+
+      if($('.d-menu:visible').length > 0){
+        $dMenu.slideUp();
+      }else{
+        $dMenu.slideDown();
+      }
+    });
+    $('body').on('click', function(event){
+      $('.d-menu').slideUp();
+    });
+
+    // map click handler
+    var mapObj;
+    var markers = [];
+    //初始化地图对象，加载地图
+    function mapInit(){
+      mapObj = new AMap.Map("mapContainer");
+
+      for(var i=0; i<10; i++){  //伪造数据
+        var marker = new AMap.Marker({
+          map:mapObj,
+          icon:"img/icon_maker.png",
+          offset:new AMap.Pixel(-9,-32),
+          position:new AMap.LngLat(116-i*0.08, 40)   // 构造坐标集合
+        });
+        markers[i] = marker;
+      }
+
+
+      mapObj.plugin(["AMap.MarkerClusterer"],function() {
+          cluster = new AMap.MarkerClusterer(mapObj,markers);
+      });
+
+      mapObj.setCenter(new AMap.LngLat(115.6, 40));
+
+    }
+
+    mapInit();
+
+  });
+</script>
+</body>
+</html>

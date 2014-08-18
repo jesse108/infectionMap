@@ -29,7 +29,7 @@
 						<div class="t">{$country['cname']}</div>
 						<ul class="tagsList">
 						{foreach $country['sub'] as $city}
-						<li><a href="#">{$city['cname']}</a></li>
+						<li><a href="/location/detail.php?id={$city['id']}">{$city['cname']}</a></li>
 						{/foreach}
 						</ul>
 					{/if}
