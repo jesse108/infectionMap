@@ -1,6 +1,6 @@
 <?php
 $mapConfig = array(
-	'use_bing_map' => !true,
+	'use_bing_map' => true,
 	
 	'bing' => array(
 		'host' => 'http://dev.ditu.live.com/mapcontrol/mapcontrol.ashx?v=6.2',
