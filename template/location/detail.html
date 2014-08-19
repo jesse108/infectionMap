@@ -80,7 +80,7 @@
         <div class="b map">
           <div class="t"></div>
           <div class="c">
-            <div id="mapContainer"></div>
+            <div id="mapContainer" style="position:relative;width:240px; height:450px;"></div>
           </div>
         </div>
       </div>
@@ -89,32 +89,21 @@
 
 
 {include file="footer.html"}
+{if $mapConfig['use_bing_map']}
+<script type="text/javascript" src="{$mapConfig['bing']['host']}"></script>
+<script src="/static/js/bing/location_detail.js" type="text/javascript"></script>
+{else}
 <script src="http://webapi.amap.com/maps?v=1.3&key=dbb6bc63f724a1f9099ecd0a6acf3871" type="text/javascript"></script>
+<script src="/static/js/amap/location_detail.js" type="text/javascript"></script>
+{/if}
+
 <script type="text/javascript">
-  $(function(){
+var centerLocation = {json_encode($location)};
 
-    // map click handler
-    var mapObj;
-    var markers = [];
-    //初始化地图对象，加载地图
-    function mapInit(){
-      mapObj = new AMap.Map("mapContainer");
-
-      var marker = new AMap.Marker({
-        map:mapObj,
-        icon:"/static/img/icon_maker.png",
-        offset:new AMap.Pixel(-9,-32),
-        position:new AMap.LngLat({$location['lng']}, {$location['lat']})   // 构造坐标集合
-      });
-
-      mapObj.setCenter(new AMap.LngLat({$location['lng']}, {$location['lat']}));
-
-    }
-
-    mapInit();
+$(function(){
+	mapInit();
 
     $('.tab-tit li').click(function(event){
-
       if($(this).hasClass('btn-r')){
 
       }else{
@@ -131,7 +120,6 @@
         	$(".infection_case").show();
         }
       }
-    });
-
-  });
+    })
+});
 </script>

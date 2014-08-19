@@ -44,3 +44,4 @@ if($_GET['debug']){
 
 
 $headerTitle = '传染病地图';
+$mapConfig = Config::Get('map');

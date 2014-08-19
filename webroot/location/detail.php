@@ -64,5 +64,4 @@ $rowInfo = array(
 		'ill_rate' => '患病率',
 		'comment' => '备注',
 );
-
 Template::Show();

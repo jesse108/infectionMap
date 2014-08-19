@@ -489,3 +489,28 @@ a, a:hover{
     display: inline-block; height: 48px; line-height: 48px; color: #fff; text-align: center; border: none; border-radius: 5px;
     width: 100%; font-size: 16px; background: #56b881;
 }
+
+.cluster_icon{
+	background-image: url(/static/img/cluster.png); 
+	background-position:top left;
+	background-repeat:no-repeat;
+	position:relative;
+	width:53px;
+	height:53px;
+	font-weight:bold;
+	color:black;
+	left:-10px;
+	top:-10px;
+}
+
+.cluster_txt{
+	position:relative;
+	left:22px;
+	top:12px;
+}
+
+.map_marker{
+	position: relative;
+	left:2px; 
+	top:-21px;
+}

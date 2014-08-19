@@ -32,7 +32,7 @@
 
       <!-- 地图 感觉添加个地图更直观 和林羽商量下吧 -->
       <div class="line">
-        <div id="mapContainer"></div>
+        <div id="mapContainer" style="position:relative;width:916px; height:300px;"></div>
       </div>
 
       <div class="line">
@@ -68,10 +68,19 @@
   </div>
 
 {include file="footer.html"}
-<script src="http://webapi.amap.com/maps?v=1.3&key=dbb6bc63f724a1f9099ecd0a6acf3871" type="text/javascript"></script>
+
+{if $mapConfig['use_bing_map']}
+<script type="text/javascript" src="{$mapConfig['bing']['host']}"></script>
+<script type="text/javascript" src="/static/js/bing/location_list.js"></script>
+{else}
+<script src="{$mapConfig['amap']['host']}" type="text/javascript"></script>
 <script type="text/javascript" src="/static/js/amap/location_list.js"></script>
+{/if}
+
 
 <script type="text/javascript">
+var center = false;
+var cities = false;
 {if $location}
 var center = {json_encode($location)};
 {/if}
