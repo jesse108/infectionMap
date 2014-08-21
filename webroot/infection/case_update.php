@@ -16,8 +16,10 @@ if($id){
 	if($infectionCase['start_time']){
 		$startDate = date('Y-m-d',$infectionCase['start_time']);
 	}
+	if($infectionCase['end_time']){
+		$endDate = date('Y-m-d',$infectionCase['end_time']);
+	}
 }
-
 $allLocations = Lib_Location::GetAllLocation();
 $allInfections = Lib_Infection::GetALLInfection();
 
@@ -25,11 +27,13 @@ if($_POST){
 	$locationID = $_POST['location_id'];
 	$infectionID = $_POST['infection_id'];
 	$startDate = $_POST['start_date'];
+	$endDate = $_POST['end_date'];
 	
 	$infectionCase = array(
 		'location_id' => $locationID,
 		'infection_id' => $infectionID,
 		'start_time' => strtotime($startDate),
+		'end_time' => strtotime($endDate),
 		'case_number' => intval($_POST['case_number']),
 		'case_rate' => doubleval($_POST['case_rate']),
 		'ill_number' => intval($_POST['ill_number']),

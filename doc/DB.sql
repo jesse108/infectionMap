@@ -55,6 +55,7 @@ create table if not exists `infection_case`(
 	`location_id` bigint(20) not null default 0,
 	`infection_id` bigint(20) not null default 0,
 	`start_time` int(10) not null default 0 comment '发病时间',
+	`end_time` int(10) not null default 0 comment '发病结束时间',
 	`case_number` int(10) not null default 0 comment '发病人数',
 	`case_rate` decimal(10,4) not null default 0 comment '发病率',
 	`ill_number` int(10) not null default 0 comment '患病人数',

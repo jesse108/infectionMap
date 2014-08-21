@@ -16,7 +16,7 @@
 	border: 1px solid #ddd; width: 100%;
 }
 .itable table td{
-	padding: 18px 10px; text-align: center;
+	padding: 18px 2px; text-align: center;
 }
 .itable tbody td{
 	border-top: 1px solid #ddd; border-right:1px solid #ddd;

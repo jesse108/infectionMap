@@ -34,19 +34,22 @@
 					<thead>
 						<tr>
 							<td width="15%">国家地区</td>
-							<td width="15%">发病日期</td>
-							<td width="15%">发病人数</td>
-							<td width="15%">发病率</td>
-							<td width="15%">患病人数</td>
-							<td width="15%">患病率</td>
+							<td width="15%">开始</td>
+							<td width="15%">结束</td>
+							<td width="10%">发病人数</td>
+							<td width="10%">发病率</td>
+							<td width="10%">患病人数</td>
+							<td width="10%">患病率</td>
 							<td width="25%">备注</td>
 						</tr>
 					</thead>
 					<tbody>
+					{if $infectionCases}
 					{foreach $infectionCases as $case}
 						<tr>
 							<td>{$case['location']}</td>
 							<td>{$case['start_date']}</td>
+							<td>{$case['end_date']}</td>
 							<td>{$case['case_number']}</td>
 							<td>{$case['case_rate']}</td>
 							<td>{$case['ill_number']}</td>
@@ -54,6 +57,9 @@
 							<td>{$case['comment']}</td>
 						</tr>				
 					{/foreach}
+					{else}
+						<tr><td colspan="8">暂时没有数据</td></tr>
+					{/if}
 
 					</tbody>
 				</table>
@@ -61,7 +67,7 @@
 
 		</div>
 		<div class="r-content">
-			<h3>东方马脑炎</h3>
+			<h3>{$infection['cname']}</h3>
 			<div class="b base">
 				<div class="t">
 					基本信息

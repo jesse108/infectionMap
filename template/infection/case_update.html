@@ -22,8 +22,25 @@
 					</div>
 				</div>
 				
-				
 				<div class="afield">
+					<label for="ibeginTime" class="t">发病起始于</label>
+					<div class="main">
+						<input type="text" class="ainput dateInput" name="start_date" id="start_date" value="{$startDate}" readonly> <i class="icon icon-date"></i>
+					</div>
+				</div>
+
+				<div class="afield lastAfield">
+					<label for="iendTime" class="t">发病结束于</label>
+					<div class="main">
+						<input type="text" class="ainput dateInput" name="end_date" id="iendTime" value="{$endDate}"> <i class="icon icon-date"></i>
+					</div>
+				</div>
+
+
+			</div>
+
+			<div class="row">
+							<div class="afield rNafield">
 					<label for="iName" class="t"><span class="n">城市</span> <a href="/location/update.php" target="_blank" class="tip">添加</a></label>
 					
 					<div class="main">
@@ -40,24 +57,6 @@
 					</div>
 				</div>
 				
-				<div class="afield lastAfield">
-					<label for="ibeginTime" class="t">发病起始于</label>
-					<div class="main">
-						<input type="text" class="ainput dateInput" name="start_date" id="start_date" value="{$startDate}" readonly> <i class="icon icon-date"></i>
-					</div>
-				</div>
-<!--  
-				<div class="afield lastAfield">
-					<label for="iendTime" class="t">发病结束于</label>
-					<div class="main">
-						<input type="text" class="ainput dateInput" name="end_date" id="iendTime"> <i class="icon icon-date"></i>
-					</div>
-				</div>
--->
-
-			</div>
-
-			<div class="row">
 				<div class="afield">
 					<label for="incidencePeople" class="t">发病人数</label>
 					<div class="main">
@@ -67,14 +66,15 @@
 				<div class="afield">
 					<label for="incidenceRate" class="t">发病率</label>
 					<div class="main">
-						<input type="text" class="ainput" name="case_rate" value="{$infectionCase['case_rate']}"> %
+						<input type="text" class="ainput" name="case_rate" value="{$infectionCase['case_rate']}">%
 					</div>
 				</div>
+				
 
 			</div>
 
 			<div class="row">
-				<div class="afield">
+				<div class="afield rNafield">
 					<label for="beillPeople" class="t">患病人数</label>
 					<div class="main">
 						<input type="text" class="ainput" name="ill_number" value="{$infectionCase['ill_number']}"/>
