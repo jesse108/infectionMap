@@ -5,8 +5,7 @@
 		<div class="l-content">
 			<div id="mapContainer" style="position:relative;width:100%; height:450px;"></div><!-- 地图容器 -->
 			<div class="quickT">
-			{if $loginUser}
-				<form action="/infection/case_update.php" method="get" target="_blank">
+			
 					<input type="hidden" name="infection_id" value="{$infection['id']}" />
 				
 					<select name="continent_id" id="continent_id" onchange="changeContinent();">
@@ -20,12 +19,11 @@
 						<option value="0">选择国家</option>
 					</select>
 					
-					<select id="city_id" name="location_id" class="form-control">
+					<select id="city_id" name="location_id" class="form-control" onchange="changeCity();">
 						<option value="0">选择城市</option>
 					</select>
-
-					<input type="submit"  value="新增发病记录"  class="btn" />
-				</form>
+			{if $loginUser}
+					<a href="/infection/case_update.php" target="_blank"><input type="submit"  value="新增发病记录"  class="btn" /></a>
 			{/if}
 			</div>
 			
@@ -46,7 +44,7 @@
 					<tbody>
 					{if $infectionCases}
 					{foreach $infectionCases as $case}
-						<tr>
+						<tr class="location location_{$case['location_id']}">
 							<td>{$case['location']}</td>
 							<td>{$case['start_date']}</td>
 							<td>{$case['end_date']}</td>
@@ -169,6 +167,8 @@ function changeContinent(){
 	continent = allLocations[continent_id];
 	if(continent){
 		buildLocationOption('country_id',continent['sub']);
+		displayLocation(continent);
+		hideAndShowLocation(continent);
 	}
 }
 
@@ -178,6 +178,19 @@ function changeCountry(){
 	country = allLocations[continent_id]['sub'][country_id];
 	if(country){
 		buildLocationOption('city_id',country['sub']);
+		displayLocation(country);
+		hideAndShowLocation(country);
+	}
+}
+
+function changeCity(){
+	continent_id = $("#continent_id").val();
+	country_id = $("#country_id").val();
+	city_id = $("#city_id").val();
+	city = allLocations[continent_id]['sub'][country_id]['sub'][city_id];
+	if(city){
+		displayLocation(city);
+		hideAndShowLocation(city);
 	}
 }
 
@@ -198,4 +211,18 @@ function buildLocationOption(locationID,locations,selectID){
 	$("#"+locationID).html(html);
 }
 
+
+function hideAndShowLocation(location){
+	$('.location').hide();
+	showLocation(location);
+}
+
+function showLocation(location){
+	$('.location_' + location['id']).show();
+	if(location['sub']){
+		for(var i in location['sub']){
+			showLocation(location['sub'][i]);
+		}
+	}
+}
 </script>

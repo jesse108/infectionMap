@@ -15,7 +15,7 @@ if(!$infectionDetailInfo){
 
 $infection = $infectionDetailInfo['infection'];
 $infectionCases = $infectionDetailInfo['infection_cases'];
-$locations = $infectionDetailInfo['location'];
+$allLocations = $locations = $infectionDetailInfo['location'];
 
 $caseLoationIDs = Util_Array::GetColumn($infectionCases, 'location_id');
 $caseLoctions = Lib_Location::Fetch($caseLoationIDs);
@@ -47,6 +47,5 @@ $rowInfo = array(
 
 $headerTitle = $infection['cname'];
 
-$allLocations = Lib_Location::GetAllLocation();
 
 Template::Show();

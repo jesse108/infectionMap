@@ -85,13 +85,30 @@ function showTag(){
 
 //清除标点
 function clearTag(){
+	mapObj.Clear();
+	markers = [];
+}
+
+function showLocationChange(lng,lat,level){
+	dump(level);
+	level =level ? level : 2;
+	mapObj.SetCenterAndZoom(new VELatLong(lat,lng), level); //国家
+}
+
+
+function displayLocation(location){
+	var level = 2;
+	clearTag();
+	markMapInArea([location]);
 	
+	switch(location['level']){
+		case '2': //国家
+			level = 4;
+			break;
+		case '3': //城市
+			level = 7;
+			break;
+	}
+	showLocationChange(location['lng'],location['lat'],level);	
 }
-
-
-
-function showLocationChange(lng,lat){
-	//mapObj.setZoomAndCenter(4,new AMap.LngLat(lng,lat));
-}
-
 /////////////////////end map

@@ -61,8 +61,23 @@ function clearTag(){
 
 
 
-function showLocationChange(lng,lat){
-	//mapObj.setZoomAndCenter(4,new AMap.LngLat(lng,lat));
+function showLocationChange(lng,lat,level){
+	mapObj.setZoomAndCenter(4,new AMap.LngLat(lng,lat));
 }
 
+function displayLocation(location){
+	var level = 4;
+	clearTag();
+	markMapInArea([location]);
+	
+	switch(location['level']){
+		case '2': //国家
+			level = 6;
+			break;
+		case '3': //城市
+			level = 7;
+			break;
+	}
+	showLocationChange(location['lng'],location['lat'],level);	
+}
 /////////////////////end map
