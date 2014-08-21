@@ -22,7 +22,6 @@ $caseLoctions = Lib_Location::Fetch($caseLoationIDs);
 $caseLoctions = Util_Array::AssColumn($caseLoctions, 'id');
 
 
-
 foreach ($infectionCases as $index => $case){
 	$case['case_rate'] = round($case['case_rate'],2);
 	$case['ill_rate'] = round($case['ill_rate'],2);

@@ -114,19 +114,8 @@ class Lib_Infection{
 	 * 获取传染病病例
 	 */
 	public static function GetInfectionCase($infectionID = null,$locationID = null){
-		$condition = array();
-		
-		if($infectionID){
-			$condition['infection_id'] = $infectionID;
-		}
-		
-		if($locationID){
-			$condition['location_id'] = $locationID;
-		}
-		
 		$dbInfectionCase = new DB_InfectionCase();
-		
-		$infectionCases = $dbInfectionCase->get($condition);
+		$infectionCases = $dbInfectionCase->getCases($infectionID,$locationID);
 		return $infectionCases;
 	}
 	

@@ -31,7 +31,12 @@ function markMapInArea(locations){
 		}
 	}
 	showTag();
-	var location = new VELatLong(curLocation['lat'], curLocation['lng']);
+	if(curLocation){
+		var location = new VELatLong(curLocation['lat'], curLocation['lng']);
+	} else {
+		var location = new VELatLong(0, 0);
+	}
+	
 	mapObj.SetCenterAndZoom(location, 2);
 }
 
@@ -46,25 +51,35 @@ function mapAddTag(lng,lat){
 //显示标点
 var options;
 function showTag(){
-	layer = new VEShapeLayer();
-	for(var i in markers){
-		var marker = markers[i];
-		layer.AddShape(marker);
-	}
-	options = new VEClusteringOptions();
-	options.Icon = new VECustomIconSpecification();
+	var useCluster = false; //是否使用聚合
 	
-	options.Callback = function(clusters){
-		for(var i in clusters){
-			var clusterShape = clusters[i]['_clusterShape'];
-			var locationCount = clusters[i]['Shapes'].length;
-			clusterShape.SetCustomIcon("<div class='cluster_icon'><span class='cluster_txt'>" + locationCount+"</span></div>");
-			dump(clusters[i]);
+	if(useCluster){
+		layer = new VEShapeLayer();
+		for(var i in markers){
+			var marker = markers[i];
+			layer.AddShape(marker);
 		}
+		options = new VEClusteringOptions();
+		options.Icon = new VECustomIconSpecification();
 		
+		options.Callback = function(clusters){
+			for(var i in clusters){
+				var clusterShape = clusters[i]['_clusterShape'];
+				var locationCount = clusters[i]['Shapes'].length;
+				clusterShape.SetCustomIcon("<div class='cluster_icon'><span class='cluster_txt'>" + locationCount+"</span></div>");
+				dump(clusters[i]);
+			}
+			
+		}
+		layer.SetClusteringConfiguration(VEClusteringType.Grid,options);
+		mapObj.AddShapeLayer(layer);
+	} else {
+		for(var i in markers){
+			var marker = markers[i];
+			mapObj.AddShape(marker);
+		}
 	}
-	layer.SetClusteringConfiguration(VEClusteringType.Grid,options);
-	mapObj.AddShapeLayer(layer);
+
 }
 
 
