@@ -50,7 +50,7 @@ if($_POST){
 	$continentID = $_POST['continent_id'];
 	$countryID = $_POST['country_id'];
 	
-	if(!$countryID){
+	if(!$countryID && false){
 		System::AddError('您必须选择一个国家');
 	} else {
 		if($countryID){
