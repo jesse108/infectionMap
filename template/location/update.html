@@ -13,7 +13,7 @@
 			<div class="afield">
 				<label for="intercontinental" class="t">洲际</label>
 				<div class="main">
-					<select name="intercontinental" id="continent_id" name="continent_id" onchange="changeContinent();">
+					<select  id="continent_id" name="continent_id" onchange="changeContinent();">
 						<option value="0"></option>
 						{foreach $allLocations as $curLocation}
 						<option value="{$curLocation['id']}" {if $curLocation['id'] == $continentID} selected {/if}>{$curLocation['cname']}</option>
