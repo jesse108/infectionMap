@@ -19,6 +19,10 @@ class Lib_InfectionCase{
 	}
 	
 	public static function Update($updateRow,$oldInfectionCase){
+		if(!$oldInfectionCase && !$oldInfectionCase['id']){
+			System::AddError("更新错误,记录ID 错误");
+			return false;
+		}
 		$dbInfectionCase = new DB_InfectionCase();
 		$result = $dbInfectionCase->update(array('id' => $oldInfectionCase['id']), $updateRow,$oldInfectionCase);
 		if(!$result){
