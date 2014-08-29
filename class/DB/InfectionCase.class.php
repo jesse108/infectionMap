@@ -18,7 +18,9 @@ class DB_InfectionCase extends DB_ModelBase{
 		}
 		
 		if($locationID){
-			$sql .= "and infection_id = {$locationID} ";
+			$locationID = is_array($locationID) ? $locationID : array($locationID);
+			$locationID = implode(',', $locationID);
+			$sql .= "and location_id in ({$locationID}) ";
 		}
 		
 		$result = DB::GetQueryResult($sql);

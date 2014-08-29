@@ -29,8 +29,8 @@ foreach ($infectionCases as $index => $case){
 	$case['location'] = $caseLoctions[$case['location_id']]['cname'];
 	$case['start_date'] = date('Ymd',$case['start_time']);
 	$case['end_date'] = date('Ymd',$case['end_time']);
-	$case['case_rate'] .= '%';
-	$case['ill_rate'] .= '%';
+	$case['case_rate'] .= '/10万';
+	$case['ill_rate'] .= '/10万';
 	$infectionCases[$index] = $case;
 }
 

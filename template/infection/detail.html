@@ -45,7 +45,12 @@
 					{if $infectionCases}
 					{foreach $infectionCases as $case}
 						<tr class="location location_{$case['location_id']}">
-							<td>{$case['location']}</td>
+							<td>
+								{$case['location']} 
+								{if $loginUser}
+								<a href="case_update.php?id={$case['id']}" target="_blank">修改</a>
+								{/if}
+							</td>
 							<td>{$case['start_date']}</td>
 							<td>{$case['end_date']}</td>
 							<td>{$case['case_number']}</td>

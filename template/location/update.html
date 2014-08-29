@@ -3,7 +3,7 @@
 
 <div class="wrap addPlace">
 	<div class="form-wrap">
-		<h2>创建地点</h2>
+		<h2>{if $oldLocation}修改地点 {$oldLocation['cname']}{else}创建地点{/if}</h2>
 		<form action="/location/update.php" method="post">
 		{if $id}
 			<input type="hidden" name="id" value="{$id}"/>

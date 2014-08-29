@@ -23,21 +23,26 @@
               <table>
                 <thead>
                   <tr>
-                    <td width="10%">国家地区</td>
+                    <td width="15%">国家地区</td>
                     <td width="15%">开始</td>
                     <td width="15%">结束</td>
                     <td width="10%">发病人数</td>
                     <td width="10%">发病率</td>
                     <td width="10%">患病人数</td>
                     <td width="10%">患病率</td>
-                    <td width="25%">备注</td>
+                    <td width="20%">备注</td>
                   </tr>
                 </thead>
                 <tbody>
                 {if $infectionCases}
 	                {foreach $infectionCases as $infectionCase}
 					<tr class="infection_case infection_{$infectionCase['infection_id']}">
-	                    <td>{$infectionCase['location']}</td>
+	                    <td>
+	                    	{$infectionCase['location']}
+							{if $loginUser}
+								<a href="case_update.php?id={$infectionCase['id']}" target="_blank">修改</a>
+							{/if}
+	                    </td>
 	                    <td>{$infectionCase['start_date']}</td>
 	                    <td>{$infectionCase['end_date']}</td>
 	                    <td>{$infectionCase['case_number']}</td>
