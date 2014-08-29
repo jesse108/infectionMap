@@ -85,6 +85,17 @@
 	font-weight: bold;
 }
 
+.c pre{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+	padding: 0;
+	margin:0;
+	font-size:10px;
+	background:transparent;
+	border:none;
+	font:500 0.875em/1.8 Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+}
+
 /* place detail css */
 .map .t{
 	background: none; padding: 0 19px; height:19px;
