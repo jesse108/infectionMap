@@ -32,13 +32,13 @@
 					<thead>
 						<tr>
 							<td width="15%">国家地区</td>
-							<td width="15%">开始</td>
-							<td width="15%">结束</td>
+							<td width="12%">开始</td>
+							<td width="12%">结束</td>
 							<td width="10%">发病人数</td>
 							<td width="10%">发病率</td>
 							<td width="10%">患病人数</td>
 							<td width="10%">患病率</td>
-							<td width="25%">备注</td>
+							<td width="35%">备注</td>
 						</tr>
 					</thead>
 					<tbody>
@@ -57,7 +57,7 @@
 							<td>{$case['case_rate']}</td>
 							<td>{$case['ill_number']}</td>
 							<td>{$case['ill_rate']}</td>
-							<td>{$case['comment']}</td>
+							<td><div class="inbox text_small">{$case['comment']}</div></td>
 						</tr>				
 					{/foreach}
 					{else}

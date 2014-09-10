@@ -61,6 +61,7 @@ create table if not exists `infection_case`(
 	`ill_number` int(10) not null default 0 comment '患病人数',
 	`ill_rate` decimal(10,4) not null default 0 comment '患病率',
 	`comment` varchar(500) comment '备注',
+	`comment_link` varchar(500) comment '备注来源',
 	key(`location_id`),
 	key(`infection_id`),
 	key(`start_time`)

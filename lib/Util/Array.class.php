@@ -158,6 +158,18 @@ class Util_Array{
 	
 	}
 	
+	public static function Trim($array){
+		foreach ($array as $index => $one){
+			if(is_array($one) || is_object($one)){
+				$one = self::Trim($one);
+			} else {
+				$one = trim($one);
+			}
+			$array[$index] = $one;
+		}
+		return $array;
+	}
+	
 	
 	/////////////////////数组格式化
 	/**

@@ -16,11 +16,12 @@
 	border: 1px solid #ddd; width: 100%;
 }
 .itable table td{
-	padding: 18px 2px; text-align: center;
+	padding: 18px 2px; text-align: center;word-break:break-all;
 }
 .itable tbody td{
 	border-top: 1px solid #ddd; border-right:1px solid #ddd;
 }
+
 .itable .icon{
 	display: inline-block; width: 19px; height: 19px; overflow: hidden; vertical-align: middle;
 }
@@ -138,3 +139,6 @@
 .tab-wrap .on{
 	display: block;
 }
+
+
+

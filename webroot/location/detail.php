@@ -44,15 +44,7 @@ foreach ($infectionCases as $index => $case){
 		unset($infectionCases[$index]);
 		continue;
 	}
-	$case['case_rate'] = round($case['case_rate'],2);
-	$case['ill_rate'] = round($case['ill_rate'],2);
-
-	$case['location'] = $caseLoctions[$case['location_id']]['cname'];
-	$case['start_date'] = date('Y-m-d',$case['start_time']);
-	$case['end_date'] = date('Y-m-d',$case['end_time']);
-	$case['case_rate'] .= ' /10万';
-	$case['ill_rate'] .= ' /10万';
-	$infectionCases[$index] = $case;
+	$infectionCases[$index] = Lib_InfectionCase::Render($case);
 }
 
 $rowInfo = array(

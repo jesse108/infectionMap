@@ -39,6 +39,7 @@ if($_POST){
 		'ill_number' => intval($_POST['ill_number']),
 		'ill_rate' => doubleval($_POST['ill_rate']),
 		'comment' => $_POST['comment'],
+		'comment_link' => $_POST['comment_link'],
 	);
 	if($id){
 		$result = Lib_InfectionCase::Update($infectionCase, $oldInfectionCase);
