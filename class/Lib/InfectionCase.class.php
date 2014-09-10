@@ -31,13 +31,13 @@ class Lib_InfectionCase{
 		return $result;
 	}
 	
-	public static function Render($case){
+	public static function Render($case,$location){
 		$case = Util_Array::Trim($case);
 		
 		$case['case_rate'] = round($case['case_rate'],2);
 		$case['ill_rate'] = round($case['ill_rate'],2);
 		
-		$case['location'] = $caseLoctions[$case['location_id']]['cname'];
+		$case['location'] = $location['cname'];
 		$case['start_date'] = date('Y-m-d',$case['start_time']);
 		$case['end_date'] = date('Y-m-d',$case['end_time']);
 		$case['case_rate'] .= ' /10万';

@@ -23,7 +23,7 @@ $caseLoctions = Util_Array::AssColumn($caseLoctions, 'id');
 
 
 foreach ($infectionCases as $index => $case){
-	$infectionCases[$index] = Lib_InfectionCase::Render($case);
+	$infectionCases[$index] = Lib_InfectionCase::Render($case,$caseLoctions[$case['location_id']]);
 }
 
 $rowInfo = array(

@@ -44,7 +44,7 @@ foreach ($infectionCases as $index => $case){
 		unset($infectionCases[$index]);
 		continue;
 	}
-	$infectionCases[$index] = Lib_InfectionCase::Render($case);
+	$infectionCases[$index] = Lib_InfectionCase::Render($case,$caseLoctions[$case['location_id']]);
 }
 
 $rowInfo = array(
