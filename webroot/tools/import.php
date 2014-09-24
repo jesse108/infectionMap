@@ -44,6 +44,9 @@ foreach ($sheetData as $data){
 	$location = $locations[$locationName];
 	
 	if(!$infection || !$location){
+		dump("-----------------------");
+		dump($infection);
+		dump($location);
 		dump($data);
 		continue;
 	}
