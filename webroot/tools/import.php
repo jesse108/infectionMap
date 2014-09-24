@@ -71,7 +71,7 @@ foreach ($sheetData as $data){
 		
 		Lib_InfectionCase::Create($case);
 	} else {
-		dump($case);
+		//dump($case);
 	}
 		
 }
