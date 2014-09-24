@@ -52,9 +52,9 @@ foreach ($sheetData as $data){
 		'infection_id' => $infection['id'],
 		'start_time' => $startTime,
 		'end_time' => $endTime,
-		'case_number' => $peoNum,
-		'case_rate' => $rate,
-		'comment' => $comment,
+		'case_number' => intval($peoNum),
+		'case_rate' => doubleval($rate),
+		'comment' => strval($comment),
 	);
 	if(trim($source)){
 		$case['comment_link'] = $source;
