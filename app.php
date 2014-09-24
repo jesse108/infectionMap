@@ -36,6 +36,10 @@ require_once COM_PATH.'/function.php'; //常用函数
 require_once CONF_PATH . '/constant.class.php';
 
 require_once PLUGIN_PATH . '/Smarty3/libs/Smarty.class.php'; //加载模板文件
+require_once PLUGIN_PATH . '/PHPExcel/Classes/PHPExcel.php'; //加载模板文件
+
+
+
 Config::Load();
 
 if($_GET['debug']){

@@ -18,9 +18,9 @@ class Lib_Location{
 	const STATUS_NORMAL = 0;
 	const STATUS_DEL = 1;
 	
-	public static function Fetch($locationID){
+	public static function Fetch($locationID,$key = 'id'){
 		$dbLocation = new DB_Location();
-		$location =  $dbLocation->fetch($locationID);
+		$location =  $dbLocation->fetch($locationID,$key);
 		if(is_array($locationID)){
 			$location = Util_Array::AssColumn($location, 'id');
 		}

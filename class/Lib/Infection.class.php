@@ -6,9 +6,9 @@ class Lib_Infection{
 	
 	
 	///////////////工具方法
-	public static function Fetch($id){
+	public static function Fetch($id,$key = 'id'){
 		$dbInfection = new DB_Infection();
-		$infection = $dbInfection->fetch($id);
+		$infection = $dbInfection->fetch($id,$key);
 		if(is_array($id)){
 			$infection = Util_Array::AssColumn($infection, 'id');
 		}
