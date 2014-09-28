@@ -24,7 +24,8 @@ $locations = Util_Array::AssColumn($locations, 'cname');
 
 
 $dbInfectionCase = DB_Manage::createDBObj('infection_case');
-DB::Debug(true);
+
+$uncount = 0;
 foreach ($sheetData as $data){
 	$cname = $data['A'];
 	$locationName = $data['B'];
@@ -44,6 +45,7 @@ foreach ($sheetData as $data){
 	$location = $locations[$locationName];
 	
 	if(!$infection || !$location){
+		$uncount++;
 		dump("-----------------------");
 		dump($infection);
 		dump($location);
@@ -78,3 +80,4 @@ foreach ($sheetData as $data){
 	}
 		
 }
+dump($uncount);
