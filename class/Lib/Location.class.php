@@ -117,18 +117,36 @@ class Lib_Location{
 		$locationIDs = Util_Array::GetColumn(array($location), 'id','sub');
 		$infectionCases = Lib_Infection::GetInfectionCase(null,$locationIDs);
 		
-		$yearCount = array();
+		$yearCounts = array();
 		foreach ($infectionCases as $case){
+			$yearCount = $yearCounts[$case['infection_id']];
+			$yearCount = $yearCount ? $yearCount : array();
+			
+			$caseNum = intval($case['case_number']);
+			$illNum = intval($case['case_number']);
+			$totalNum = $caseNum + $illNum;
 			$year = date('Y',$case['start_time']);
-			$yearCount[$year] ++;
+			
+			$startTime = $yearCount['start_time'];
+			$endTime = $yearCount['end_time'];
+			
+			if(!isset($startTime) || $startTime > $case['start_time']){
+				$startTime = $case['start_time'];
+			}
+			
+			if(!isset($endTime) || $endTime < $case['start_time']){
+				$endTime = $case['start_time'];
+			}
+			$yearCount['start_time'] = $startTime;
+			$yearCount['end_time'] = $endTime;
+			$yearCount['year'][$year] += $totalNum;
+			$yearCounts[$case['infection_id']] = $yearCount;
 		}
-		
-		$yearCount = $yearCount ? Util_Array::Sort($yearCount) : array();
 		
 		$result = array(
 			'location' => $location,
 			'infection_case' => $infectionCases,
-			'year_count' => $yearCount,
+			'year_counts' => $yearCounts,
 		);
 		
 		return $result;
