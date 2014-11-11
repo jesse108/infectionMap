@@ -26,6 +26,7 @@ create table if not exists `location`(
 	`level` tinyint(2) not null default 0,
 	`status` tinyint(2) not null default 0,
 	`parent_id` bigint(20) not null default 0,
+	`is_port` tinyint(1) not null default 0 comment '是否是港口',
 	key(`lng`,`lat`)
 )ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_bin comment '地点信息';
 

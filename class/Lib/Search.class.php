@@ -29,7 +29,7 @@ class Lib_Search{
 		return $result;
 	}
 	
-	public static function SearchLocation($keyWord){
+	public static function SearchLocation($keyWord,$isPort = 0){
 		$keyWord = trim($keyWord);
 		if(!$keyWord){
 			return false;
@@ -45,6 +45,9 @@ class Lib_Search{
 			),
 			'status' => Lib_Location::STATUS_NORMAL,
 		);
+		if($isPort){
+			$condition['is_port'] = 1;
+		}
 		
 		$result = $dbLocation->get($condition);
 		return $result;		

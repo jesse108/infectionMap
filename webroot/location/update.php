@@ -35,9 +35,8 @@ if($id){
 	$location['lat'] = Lib_Location::DEFAULT_LAT;
 	$location['lng'] = Lib_Location::DEFAULT_LNG;
 	$location['cname'] = $_REQUEST['cname'];
+	$location['is_port'] = $_REQUEST['is_port'];
 }
-
-
 if($_POST){
 	$location = array(
 		'cname' => $_POST['cname'],
@@ -45,6 +44,7 @@ if($_POST){
 		'lat' => $_POST['lat'],
 		'info' => $_POST['info'],
 		'comment' => strval($_POST['comment']),
+		'is_port' => intval($_POST['is_port']),
 	);
 	
 	$continentID = $_POST['continent_id'];

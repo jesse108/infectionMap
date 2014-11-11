@@ -11,6 +11,9 @@ switch($type){
 	case 2: //搜地区
 		$locationResult = Lib_Search::SearchLocation($keyword);
 		break;
+	case 3: //港口
+		$locationResult = Lib_Search::SearchLocation($keyword,1);
+		break;
 	case 1://搜集疾病
 	default:
 		$infectionResult = Lib_Search::SearchInfection($keyword);
