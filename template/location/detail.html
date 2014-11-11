@@ -26,8 +26,9 @@
                 <thead>
                   <tr>
                     <td width="15%">国家地区</td>
-                    <td width="15%">开始</td>
-                    <td width="15%">结束</td>
+                    <td width="10%">疾病</td>
+                    <td width="10%">开始</td>
+                    <td width="10%">结束</td>
                     <td width="10%">发病人数</td>
                     <td width="10%">发病率</td>
                     <td width="10%">患病人数</td>
@@ -45,6 +46,7 @@
 								<a href="/infection/case_update.php?id={$infectionCase['id']}" target="_blank">修改</a>
 							{/if}
 	                    </td>
+                      <td>{$infections[$infectionCase['infection_id']]['cname']}</td>
 	                    <td>{$infectionCase['start_date']}</td>
 	                    <td>{$infectionCase['end_date']}</td>
 	                    <td>{$infectionCase['case_number']}</td>
