@@ -1,11 +1,36 @@
 body{
-	background-color: #f5f5f5; font-size: 14px; position: relative;
+	
+	background-color: initial;
+	font-size: 14px; 
+	position: relative;
 }
+
+.bg_block{
+	position:absolute;
+	top:0;
+	left:0;
+	bottom:0px;
+	height:100%;
+	width:100%;
+	z-index:-10;
+	background-position:center 0;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-image:url("/static/img/bg.jpg");
+	
+background-size: cover;
+-webkit-background-size: cover;
+-o-background-size: cover;
+	zoom:1;
+}
+
+
+
 a, a:hover{
 	text-decoration: none; color: #3887be;
 }
 .header{
-	height: 68px; background-color: #fff; line-height: 68px; text-align: right;
+	height: 68px; background-color: initial; line-height: 68px; text-align: right;
 }
 .wrap{
 	width: 980px; margin:0 auto;
@@ -16,8 +41,17 @@ a, a:hover{
 .tip a, .tip a:hover{
 	color: #0a9e01; text-decoration: none;
 }
+
+.header .tip a, .header .tip a:hover{
+    color: #F5F5F5; text-decoration: none;
+}
+
 .search h1{
-	line-height: 44px; text-align: center; font-size: 40px; color: #7f7f7f; vertical-align: top;
+	line-height: 44px; 
+	text-align: center; 
+	font-size: 40px; 
+	color: #EEEEEE; 
+	vertical-align: top;
 	padding: 70px 0 45px;
 }
 .search h1 img{
@@ -50,7 +84,7 @@ a, a:hover{
 	height: 40px; line-height: 40px; text-indent: 30px; padding-bottom: 10px; position: relative;
 }
 .tags .tagsItem .tit a, .tags .tagsItem .tit a:hover{
-	color: #3887be; text-decoration: none;
+	color: #9DCDEE; text-decoration: none;
 }
 .tags .tagsItem .tit .btn{
 	width: 120px; text-align: center; background: #56b881; color: #fff; text-decoration: none;
@@ -59,8 +93,13 @@ a, a:hover{
 .tags .tagsItem .tit .btn:hover{
 	color: #fff;
 }
+
+.tags .tagsItem .tit .h2{
+	color: #fff;
+}
+
 .tags .tagsItem .cont{
-	width: 478px; border: 1px solid #ddd; border-radius: 5px; height: 480px; overflow-y:scroll; overflow-x: hidden;
+	width: 478px; border: 1px solid #ddd; border-radius: 5px; height: 480px; overflow-y:scroll; overflow-x: hidden;background-color: #f5f5f5;
 }
 .tags .tagsItem .cont .t{
 	line-height: 40px; text-indent: 30px; border-bottom: 1px solid #ddd; color: #3887be;
