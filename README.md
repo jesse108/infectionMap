@@ -1,6 +1,5 @@
 ﻿#什么是Markdown
 
-Test
 
 ![markdown](http://upload.jianshu.io/collections/images/18/markdown-800x492.jpg?imageMogr/thumbnail/300x300)
 
